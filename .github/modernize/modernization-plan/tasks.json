@@ -48,7 +48,8 @@
           "location": "builtin"
         }
       ],
-      "status": "started",
+      "status": "success",
+      "taskSummary": "Successfully migrated from Oracle Database to Azure PostgreSQL with managed identity authentication. Replaced ojdbc8 with PostgreSQL driver and azure-identity-extensions. Updated application.properties with AzurePostgresqlAuthenticationPlugin for credential-free access. Migrated BLOB to BYTEA, updated SQL queries for PostgreSQL compatibility, and replaced Oracle docker service with PostgreSQL 16. Build and unit tests pass.",
       "successCriteria": {
         "passBuild": "true",
         "generateNewUnitTests": "false",
@@ -56,6 +57,14 @@
         "passUnitTests": "true",
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": null,
+        "generateNewIntegrationTests": null,
+        "passUnitTests": "true",
+        "passIntegrationTests": null,
+        "securityComplianceCheck": null
       }
     }
   ],
