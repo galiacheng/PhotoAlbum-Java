@@ -23,7 +23,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Upgraded Java compiler source/target to 21 in pom.xml. Updated Dockerfile build stage from eclipse-temurin-8 to eclipse-temurin-21 and runtime from eclipse-temurin:8-jre to eclipse-temurin:21-jre. Spring Boot was already at 3.5.7 (exceeds 3.4 target) with Spring Framework 6.x and jakarta.* namespace already in use. Build passes and unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": null
+      }
     }
   ],
   "metadata": {
