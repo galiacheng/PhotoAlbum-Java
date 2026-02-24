@@ -1,0 +1,42 @@
+[
+  {
+    "description": "Migrated database dependencies from Oracle JDBC (ojdbc8) to PostgreSQL JDBC driver. Added Azure Identity dependencies (azure-identity-extensions 1.1.20, azure-identity 1.15.1) for managed identity authentication. Updated project description to reference Azure PostgreSQL.",
+    "file": "pom.xml",
+    "issues": []
+  },
+  {
+    "description": "Replaced Oracle database configuration with Azure PostgreSQL configuration. Changed JDBC URL from oracle:thin to jdbc:postgresql with Azure managed identity authentication plugin. Updated dialect from OracleDialect to PostgreSQLDialect. Removed hardcoded password, using managed identity for passwordless authentication.",
+    "file": "src/main/resources/application.properties",
+    "issues": []
+  },
+  {
+    "description": "Updated Docker environment configuration from Oracle to PostgreSQL. Changed JDBC URL, driver class, and Hibernate dialect to PostgreSQL equivalents.",
+    "file": "src/main/resources/application-docker.properties",
+    "issues": []
+  },
+  {
+    "description": "Migrated native SQL queries from Oracle-specific syntax to PostgreSQL syntax. Key changes: ROWNUM to LIMIT/OFFSET for pagination, NVL to COALESCE for null handling. Updated comments to reference PostgreSQL functions.",
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "issues": []
+  },
+  {
+    "description": "Updated code comments and log messages to reference PostgreSQL instead of Oracle. Functional behavior remains identical - only documentation changes.",
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "issues": []
+  },
+  {
+    "description": "Updated code comments and log messages to reference PostgreSQL instead of Oracle for BLOB storage operations. Functional behavior unchanged.",
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "issues": []
+  },
+  {
+    "description": "Updated entity documentation to reference PostgreSQL database for BLOB storage. No functional changes to entity mapping or data model.",
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "issues": []
+  },
+  {
+    "description": "Updated documentation to reflect Azure PostgreSQL with managed identity authentication. Added configuration examples and deployment instructions for Azure environment.",
+    "file": "README.md",
+    "issues": []
+  }
+]

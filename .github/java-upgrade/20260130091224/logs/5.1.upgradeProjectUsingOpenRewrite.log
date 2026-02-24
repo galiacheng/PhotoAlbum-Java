@@ -1,0 +1,341 @@
+2026-01-30T09:13:46.010Z [INFO] Upgrading to: 
+- org.springframework.boot:*:3.3.x
+- java:*:17
+2026-01-30T09:13:46.011Z [INFO] Collecting recipes.
+2026-01-30T09:13:46.013Z [INFO] Collected OpenRewrite recipes:
+org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+org.openrewrite.java.migrate.UpgradeToJava17
+2026-01-30T09:13:46.014Z [INFO] Recipes collected:
+org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+org.openrewrite.java.migrate.UpgradeToJava17
+2026-01-30T09:13:46.015Z [INFO] Applying recipes:
+org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+org.openrewrite.java.migrate.UpgradeToJava17
+2026-01-30T09:13:46.016Z [INFO] [MavenBuildTool] Running OpenRewrite recipes in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T09:13:46.016Z [INFO] [MavenBuildTool] Running OpenRewrite recipes: org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3,org.openrewrite.java.migrate.UpgradeToJava17
+2026-01-30T09:13:46.017Z [INFO] [Environment] Running command (Java 8): mvn -B org.openrewrite.maven:rewrite-maven-plugin:5.47.3:run -Drewrite.activeRecipes=org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3,org.openrewrite.java.migrate.UpgradeToJava17 -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-spring:5.25.1,org.openrewrite.recipe:rewrite-migrate-java:2.31.1
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> rewrite:5.47.3:run (default-cli) > process-test-classes @ photo-album >>>
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ photo-album ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 2 resources
+[INFO] Copying 6 resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ photo-album ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\target\classes
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ photo-album ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ photo-album ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\target\test-classes
+[INFO] 
+[INFO] <<< rewrite:5.47.3:run (default-cli) < process-test-classes @ photo-album <<<
+[INFO] 
+[INFO] 
+[INFO] --- rewrite:5.47.3:run (default-cli) @ photo-album ---
+[INFO] Using active recipe(s) [org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3, org.openrewrite.java.migrate.UpgradeToJava17]
+[INFO] Using active styles(s) []
+[INFO] Validating active recipes...
+[WARNING] This Gauge has been already registered (MeterId{name='cache.size', tags=[tag(cache=Maven POMs - default)]}), the Gauge registration will be ignored. Note that subsequent logs will be logged at debug level.
+[INFO] Project [Photo Album] Resolving Poms...
+[INFO] Project [Photo Album] Parsing source files
+[INFO] Running recipe(s)...
+[WARNING] Changes have been made to pom.xml by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                                     org.openrewrite.java.migrate.maven.UpdateMavenProjectPropertyJavaVersion: {version=11}
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING]                                 org.openrewrite.java.migrate.maven.UpdateMavenProjectPropertyJavaVersion: {version=17}
+[WARNING]                     org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=3.0.x}
+[WARNING]                 org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=3.1.x}
+[WARNING]             org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=3.2.x}
+[WARNING]         org.openrewrite.maven.UpgradeParentVersion: {groupId=org.springframework.boot, artifactId=spring-boot-starter-parent, newVersion=3.3.x}
+[WARNING] Changes have been made to src\main\java\com\photoalbum\controller\DetailController.java by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                             org.openrewrite.java.migrate.util.OptionalNotPresentToIsEmpty
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING] Changes have been made to src\main\java\com\photoalbum\controller\HomeController.java by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7
+[WARNING]                         org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_6
+[WARNING]                             org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_5
+[WARNING]                                 org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_4
+[WARNING]                                     org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_3
+[WARNING]                                         org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_2
+[WARNING]                                             org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_1
+[WARNING]                                                 org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_0
+[WARNING]                                                     org.openrewrite.java.spring.boot2.SpringBoot2BestPractices
+[WARNING]                                                         org.openrewrite.java.spring.ImplicitWebAnnotationNames
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING] Changes have been made to src\main\java\com\photoalbum\controller\PhotoFileController.java by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                             org.openrewrite.java.migrate.util.OptionalNotPresentToIsEmpty
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING] Changes have been made to src\main\java\com\photoalbum\model\Photo.java by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING]                     org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta
+[WARNING]                         org.openrewrite.java.migrate.jakarta.JavaxPersistenceToJakartaPersistence
+[WARNING]                             org.openrewrite.java.ChangePackage: {oldPackageName=javax.persistence, newPackageName=jakarta.persistence, recursive=true}
+[WARNING]                         org.openrewrite.java.migrate.jakarta.JavaxValidationMigrationToJakartaValidation
+[WARNING]                             org.openrewrite.java.ChangePackage: {oldPackageName=javax.validation, newPackageName=jakarta.validation, recursive=true}
+[WARNING] Changes have been made to src\main\java\com\photoalbum\service\impl\PhotoServiceImpl.java by:
+[WARNING]     org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+[WARNING]         org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2
+[WARNING]             org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1
+[WARNING]                 org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_0
+[WARNING]                     org.openrewrite.java.migrate.UpgradeToJava17
+[WARNING]                         org.openrewrite.java.migrate.Java8toJava11
+[WARNING]                             org.openrewrite.java.migrate.UpgradeBuildToJava11
+[WARNING]                                 org.openrewrite.java.migrate.UpgradeJavaVersion: {version=11}
+[WARNING]                             org.openrewrite.java.migrate.util.OptionalNotPresentToIsEmpty
+[WARNING]                         org.openrewrite.java.migrate.UpgradeBuildToJava17
+[WARNING]                             org.openrewrite.java.migrate.UpgradeJavaVersion: {version=17}
+[WARNING]                         org.openrewrite.java.migrate.lang.StringFormatted
+[WARNING] Please review and commit the results.
+[WARNING] Estimate time saved: 10m
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:03 min
+[INFO] Finished at: 2026-01-30T17:14:50+08:00
+[INFO] ------------------------------------------------------------------------
+2026-01-30T09:14:51.143Z [INFO] [MavenBuildTool] Cleaning up/Notifying after OpenRewrite success.
+2026-01-30T09:14:51.143Z [INFO] [MavenBuildTool] Notifying Maven config changed.
+2026-01-30T09:14:51.144Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T09:14:51.145Z [INFO] [Environment] Running command (Java 8): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 1.8.0_472, vendor: Temurin, runtime: C:\Users\haiche\.jdk\jdk-8\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T09:14:51.629Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T09:14:51.630Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T09:14:51.630Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T09:14:51.631Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T09:14:51.648Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T09:14:51.649Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+2026-01-30T09:14:51.652Z [INFO] Recipes applied successfully.
+2026-01-30T09:14:51.653Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T09:14:51.653Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T09:14:54.553Z [INFO] [Task.commitChanges](5.1): Committing changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Upgrade project to use `Spring Boot 3.3.x`, `Java 17` using openrewrite.
+2026-01-30T09:14:54.801Z [INFO] [006-modernization-plan a8d0b20] Upgrade project to use `Spring Boot 3.3.x`, `Java 17` using openrewrite.
+ 6 files changed, 14 insertions(+), 14 deletions(-)
+
+2026-01-30T09:14:54.876Z [INFO] a8d0b2013060706bf9d71dba8b85deeecce792c4
+
+2026-01-30T09:14:54.970Z [INFO] 4	4	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/HomeController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+5	5	src/main/java/com/photoalbum/model/Photo.java
+2	2	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-01-30T09:14:54.994Z [INFO] [Task.commitChanges](5.1): Committed changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Upgrade project to use `Spring Boot 3.3.x`, `Java 17` using openrewrite.
+2026-01-30T09:14:54.996Z [INFO] Validating dependencies...
+2026-01-30T09:14:54.997Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T09:14:54.997Z [INFO] [Project PhotoAlbum-Java]: getting dependencies promise.
+2026-01-30T09:14:54.998Z [INFO] [Project PhotoAlbum-Java]: reset dependencies promise.
+2026-01-30T09:14:54.998Z [INFO] [Environment] Running command (Java 17): mvn --version
+2026-01-30T09:14:55.005Z [INFO] [Environment] Running command (Java 17): mvn dependency:tree -B
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T09:14:55.558Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T09:14:55.559Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T09:14:55.559Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T09:14:55.560Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T09:14:55.561Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T09:14:55.562Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.6.1:tree (default-cli) @ photo-album ---
+[INFO] com.photoalbum:photo-album:jar:1.0.0
+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.3.13:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.3.13:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.3.13:compile
+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.18:compile
+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.18:compile
+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.23.1:compile
+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.23.1:compile
+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.17:compile
+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.3.13:compile
+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.42:compile
+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.42:compile
+[INFO] |  +- org.springframework:spring-web:jar:6.1.21:compile
+[INFO] |  |  +- org.springframework:spring-beans:jar:6.1.21:compile
+[INFO] |  |  \- io.micrometer:micrometer-observation:jar:1.13.15:compile
+[INFO] |  |     \- io.micrometer:micrometer-commons:jar:1.13.15:compile
+[INFO] |  \- org.springframework:spring-webmvc:jar:6.1.21:compile
+[INFO] |     +- org.springframework:spring-aop:jar:6.1.21:compile
+[INFO] |     +- org.springframework:spring-context:jar:6.1.21:compile
+[INFO] |     \- org.springframework:spring-expression:jar:6.1.21:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-thymeleaf:jar:3.3.13:compile
+[INFO] |  \- org.thymeleaf:thymeleaf-spring6:jar:3.1.3.RELEASE:compile
+[INFO] |     +- org.thymeleaf:thymeleaf:jar:3.1.3.RELEASE:compile
+[INFO] |     |  +- org.attoparser:attoparser:jar:2.0.7.RELEASE:compile
+[INFO] |     |  \- org.unbescape:unbescape:jar:1.1.6.RELEASE:compile
+[INFO] |     \- org.slf4j:slf4j-api:jar:2.0.17:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-data-jpa:jar:3.3.13:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-aop:jar:3.3.13:compile
+[INFO] |  |  \- org.aspectj:aspectjweaver:jar:1.9.24:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:3.3.13:compile
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:5.1.0:compile
+[INFO] |  |  \- org.springframework:spring-jdbc:jar:6.1.21:compile
+[INFO] |  +- org.hibernate.orm:hibernate-core:jar:6.5.3.Final:compile
+[INFO] |  |  +- jakarta.persistence:jakarta.persistence-api:jar:3.1.0:compile
+[INFO] |  |  +- jakarta.transaction:jakarta.transaction-api:jar:2.0.1:compile
+[INFO] |  |  +- org.jboss.logging:jboss-logging:jar:3.5.3.Final:compile
+[INFO] |  |  +- org.hibernate.common:hibernate-commons-annotations:jar:6.0.6.Final:runtime
+[INFO] |  |  +- io.smallrye:jandex:jar:3.1.2:runtime
+[INFO] |  |  +- com.fasterxml:classmate:jar:1.7.0:compile
+[INFO] |  |  +- net.bytebuddy:byte-buddy:jar:1.14.19:runtime
+[INFO] |  |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.5:runtime
+[INFO] |  |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.5:runtime
+[INFO] |  |  |     +- org.eclipse.angus:angus-activation:jar:2.0.2:runtime
+[INFO] |  |  |     +- org.glassfish.jaxb:txw2:jar:4.0.5:runtime
+[INFO] |  |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.2:runtime
+[INFO] |  |  +- jakarta.inject:jakarta.inject-api:jar:2.0.1:runtime
+[INFO] |  |  \- org.antlr:antlr4-runtime:jar:4.13.0:compile
+[INFO] |  +- org.springframework.data:spring-data-jpa:jar:3.3.13:compile
+[INFO] |  |  +- org.springframework.data:spring-data-commons:jar:3.3.13:compile
+[INFO] |  |  +- org.springframework:spring-orm:jar:6.1.21:compile
+[INFO] |  |  \- org.springframework:spring-tx:jar:6.1.21:compile
+[INFO] |  \- org.springframework:spring-aspects:jar:6.1.21:compile
+[INFO] +- com.oracle.database.jdbc:ojdbc8:jar:21.9.0.0:runtime
+[INFO] +- org.springframework.boot:spring-boot-starter-validation:jar:3.3.13:compile
+[INFO] |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.42:compile
+[INFO] |  \- org.hibernate.validator:hibernate-validator:jar:8.0.2.Final:compile
+[INFO] |     \- jakarta.validation:jakarta.validation-api:jar:3.0.2:compile
+[INFO] +- commons-io:commons-io:jar:2.11.0:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-json:jar:3.3.13:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.17.3:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.17.3:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.17.3:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.17.3:compile
+[INFO] |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.17.3:compile
+[INFO] |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.17.3:compile
+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.3.13:test
+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.3.13:test
+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.13:test
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:test
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:runtime
+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:runtime
+[INFO] |  +- net.minidev:json-smart:jar:2.5.2:test
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.2:test
+[INFO] |  |     \- org.ow2.asm:asm:jar:9.7.1:test
+[INFO] |  +- org.assertj:assertj-core:jar:3.25.3:test
+[INFO] |  +- org.awaitility:awaitility:jar:4.2.2:test
+[INFO] |  +- org.hamcrest:hamcrest:jar:2.2:test
+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.10.5:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.5:test
+[INFO] |  |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test
+[INFO] |  |  |  +- org.junit.platform:junit-platform-commons:jar:1.10.5:test
+[INFO] |  |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test
+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.5:test
+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.5:test
+[INFO] |  |     \- org.junit.platform:junit-platform-engine:jar:1.10.5:test
+[INFO] |  +- org.mockito:mockito-core:jar:5.11.0:test
+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.19:test
+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test
+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test
+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test
+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test
+[INFO] |  +- org.springframework:spring-core:jar:6.1.21:compile
+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.21:compile
+[INFO] |  +- org.springframework:spring-test:jar:6.1.21:test
+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test
+[INFO] +- com.h2database:h2:jar:2.2.224:test
+[INFO] \- org.springframework.boot:spring-boot-devtools:jar:3.3.13:compile
+[INFO]    +- org.springframework.boot:spring-boot:jar:3.3.13:compile
+[INFO]    \- org.springframework.boot:spring-boot-autoconfigure:jar:3.3.13:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.720 s
+[INFO] Finished at: 2026-01-30T17:15:00+08:00
+[INFO] ------------------------------------------------------------------------
+2026-01-30T09:15:00.867Z [INFO] [MavenBuildTool] Successfully got dependency tree of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T09:15:00.868Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T09:15:00.868Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T09:15:00.869Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T09:15:00.870Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T09:15:00.870Z [INFO] After upgrading: 
+- org.springframework.boot:spring-boot-starter-web:3.3.13
+- org.springframework.boot:spring-boot-starter-thymeleaf:3.3.13
+- org.springframework.boot:spring-boot-starter-data-jpa:3.3.13
+- com.oracle.database.jdbc:ojdbc8:21.9.0.0
+- org.springframework.boot:spring-boot-starter-validation:3.3.13
+- commons-io:commons-io:2.11.0
+- org.springframework.boot:spring-boot-starter-json:3.3.13
+- org.springframework.boot:spring-boot-starter-test:3.3.13
+- com.h2database:h2:2.2.224
+- org.springframework.boot:spring-boot-devtools:3.3.13
+- java:*:17
+2026-01-30T09:15:00.871Z [INFO] Failed upgrading: 
+
+2026-01-30T09:15:00.872Z [INFO] OpenRewrite upgrade Java version successfully.
+2026-01-30T09:15:00.872Z [INFO] OpenRewrite recipes are applied successfully. The following recipes are applied:
+- org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3
+- org.openrewrite.java.migrate.UpgradeToJava17

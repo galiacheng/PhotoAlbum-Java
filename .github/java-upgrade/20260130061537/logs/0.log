@@ -1,0 +1,662 @@
+2026-01-30T06:15:37.701Z [INFO] ----------------------invoke build_java_project----------------------
+2026-01-30T06:15:37.702Z [INFO] [Tool.invoke]({name: build_java_project, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java",
+  "codeChangesMessage": "Migrate from Oracle to PostgreSQL database",
+  "codeChangesDetails": "- Replace Oracle JDBC driver with PostgreSQL JDBC driver in pom.xml\n  - Add Testcontainers for PostgreSQL integration testing\n- Update database configuration\n  - Change datasource URL from Oracle to PostgreSQL format\n  - Update driver class from oracle.jdbc.OracleDriver to org.postgresql.Driver\n  - Change Hibernate dialect from OracleDialect to PostgreSQLDialect\n- Migrate JPA entity (Photo.java)\n  - Remove Oracle-specific column definitions (NUMBER, TIMESTAMP DEFAULT SYSTIMESTAMP)\n  - Update BLOB column configuration for PostgreSQL compatibility\n- Migrate repository queries (PhotoRepository.java)\n  - Replace ROWNUM pagination with LIMIT/OFFSET\n  - Replace TO_CHAR date functions with EXTRACT\n  - Replace NVL with COALESCE\n  - Replace RANK() with ROW_NUMBER()\n  - Convert all table/column names to lowercase\n- Update service and controller\n  - Change Oracle database references to PostgreSQL in comments and log messages\n- Update docker-compose.yml\n  - Replace Oracle database service with PostgreSQL\n  - Update environment variables for PostgreSQL connection\n- Create PostgreSQL initialization scripts\n- Add comprehensive integration tests using Testcontainers"
+}}).
+2026-01-30T06:15:37.703Z [INFO] [Task.start](): Starting task toolCall
+2026-01-30T06:15:37.704Z [INFO] [Task.start](): Started task toolCall
+2026-01-30T06:15:37.705Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-01-30T06:15:37.705Z [INFO] [Tool.invoke] do pre-invoke.
+2026-01-30T06:15:37.709Z [INFO] Project C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-01-30T06:15:37.711Z [INFO] Project java version: 17
+2026-01-30T06:15:37.712Z [INFO] Maven project detected.
+2026-01-30T06:15:37.714Z [INFO] Build tool type: mvn
+2026-01-30T06:15:37.959Z [INFO] [Environment] Running command (Java 17): java -version
+openjdk version "17.0.16" 2025-07-15 LTS
+OpenJDK Runtime Environment Microsoft-11926163 (build 17.0.16+8-LTS)
+OpenJDK 64-Bit Server VM Microsoft-11926163 (build 17.0.16+8-LTS, mixed mode, sharing)
+2026-01-30T06:15:38.075Z [INFO] [JdkEnvironment] Got real Java version: 17.0.16
+2026-01-30T06:15:38.076Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Microsoft\\jdk-17.0.16+8\\bin",
+  "version": "17"
+}
+2026-01-30T06:15:38.145Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:15:38.719Z [INFO] Real build tool version: 3.9.11
+2026-01-30T06:15:38.719Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\haiche\\.maven\\maven-3.9.11\\bin",
+  "version": "3.9.11"
+}
+2026-01-30T06:15:38.720Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\haiche\\.maven\\maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Microsoft\\jdk-17.0.16+8\\bin",
+    "name": "java",
+    "version": "17"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}
+2026-01-30T06:15:38.727Z [INFO] [Tool.invoke] do invoke.
+2026-01-30T06:15:38.727Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T06:15:38.728Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:15:39.361Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T06:15:39.362Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T06:15:39.362Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:15:39.363Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:15:39.364Z [INFO] [MavenBuildTool] Getting effective POMs of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:15:39.365Z [INFO] [Environment] Running command (Java 17): mvn help:effective-pom -Doutput=effective-pom-58b68ad1-c5dc-4a2d-9df2-3fd03df8d565.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\effective-pom-58b68ad1-c5dc-4a2d-9df2-3fd03df8d565.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.341 s
+[INFO] Finished at: 2026-01-30T14:15:44+08:00
+[INFO] ------------------------------------------------------------------------
+2026-01-30T06:15:44.400Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T06:15:44.401Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T06:15:44.402Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+2026-01-30T06:15:44.402Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-01-30T06:15:44.403Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '17' || '21'
+2026-01-30T06:15:44.403Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-01-30T06:15:44.404Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-01-30T06:15:44.404Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:15:44.405Z [INFO] [Environment] Running command (Java 17): mvn clean test-compile -q -B -fn
+2026-01-30T06:15:54.277Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-01-30T06:15:54.277Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-01-30T06:15:54.296Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-01-30T06:15:54.296Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:15:54.297Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:15:57.089Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-01-30T06:15:57.090Z [INFO] Build succeeded! There are no build errors in the project.
+2026-01-30T06:15:57.091Z [INFO] [Tool.invoke]({result: {
+  "message": "Build succeeded! There are no build errors in the project.",
+  "result": {
+    "numOfJavaFiles": 13,
+    "numOfClassFiles": 13,
+    "modulesBuildResult": {
+      ".": {
+        "numOfJavaFiles": 13,
+        "numOfClassFiles": 13
+      }
+    },
+    "errors": [],
+    "command": "mvn clean test-compile -q -B -fn"
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2026-01-30T06:15:57.091Z [INFO] [Task.complete](): Completing task toolCall
+2026-01-30T06:15:57.092Z [INFO] [Task.complete](): Completed task toolCall
+2026-01-30T06:15:57.092Z [INFO] [Tool.invoke]({message: Build succeeded! There are no build errors in the project.}).
+2026-01-30T06:15:57.093Z [INFO] ----------------------invoked build_java_project----------------------
+2026-01-30T06:16:01.845Z [INFO] ----------------------invoke run_tests_for_java----------------------
+2026-01-30T06:16:01.846Z [INFO] [Tool.invoke]({name: run_tests_for_java, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}}).
+2026-01-30T06:16:01.847Z [INFO] [Task.start](): Starting task toolCall
+2026-01-30T06:16:01.847Z [INFO] [Task.start](): Started task toolCall
+2026-01-30T06:16:01.848Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-01-30T06:16:01.849Z [INFO] [Tool.invoke] do pre-invoke.
+2026-01-30T06:16:01.849Z [INFO] [Tool.invoke] do invoke.
+2026-01-30T06:16:01.850Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T06:16:01.850Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:16:02.404Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T06:16:02.404Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T06:16:02.405Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:16:02.405Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T06:16:02.407Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T06:16:02.407Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+2026-01-30T06:16:02.407Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-01-30T06:16:02.408Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '17' || '21'
+2026-01-30T06:16:02.409Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-01-30T06:16:02.409Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-01-30T06:16:02.409Z [INFO] Building project before running tests...
+2026-01-30T06:16:02.410Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:16:02.410Z [INFO] [Environment] Running command (Java 17): mvn clean test-compile -q -B -fn
+2026-01-30T06:16:10.181Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-01-30T06:16:10.182Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-01-30T06:16:10.196Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-01-30T06:16:10.197Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:16:10.197Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:16:13.080Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-01-30T06:16:13.080Z [INFO] Running tests...
+2026-01-30T06:16:13.081Z [INFO] [MavenBuildTool] Running test cases of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:16:13.082Z [INFO] [Environment] Running command (Java 17): mvn clean test -q -B -fn
+14:16:22.757 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.photoalbum.PhotoAlbumApplicationTests]: PhotoAlbumApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:16:22.918 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.PhotoAlbumApplicationTests
+14:16:23.124 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-01-30T14:16:23.827+08:00  INFO 32192 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Starting PhotoAlbumApplicationTests using Java 17.0.16 with PID 32192 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-01-30T14:16:23.832+08:00 DEBUG 32192 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-01-30T14:16:23.833+08:00  INFO 32192 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : The following 1 profile is active: "test"
+2026-01-30T14:16:23.916+08:00 DEBUG 32192 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7fcff1b9
+2026-01-30T14:16:25.133+08:00  INFO 32192 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-30T14:16:25.273+08:00  INFO 32192 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 1 JPA repository interface.
+2026-01-30T14:16:26.283+08:00  INFO 32192 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-30T14:16:26.559+08:00  INFO 32192 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-01-30T14:16:26.604+08:00  INFO 32192 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-30T14:16:27.288+08:00  INFO 32192 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-30T14:16:27.358+08:00  INFO 32192 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-30T14:16:27.562+08:00  INFO 32192 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-30T14:16:27.564+08:00  INFO 32192 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-30T14:16:27.588+08:00  WARN 32192 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-30T14:16:27.616+08:00  INFO 32192 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-30T14:16:28.515+08:00  INFO 32192 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-30T14:16:28.545+08:00  WARN 32192 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:430) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:346) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "BLOB"; SQL statement:
+
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    ) [50004-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5860) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType(Parser.java:5698) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5680) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5559) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8876) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8819) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:16:28.555+08:00  WARN 32192 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTableConstraints(SchemaCreatorImpl.java:392) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:358) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PHOTOS" not found; SQL statement:
+
+    create index idx_photos_uploaded_at 
+       on photos (upload [42102-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:70) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:304) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:248) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:16:28.560+08:00  INFO 32192 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-30T14:16:29.239+08:00  INFO 32192 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-30T14:16:29.780+08:00  WARN 32192 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-30T14:16:29.869+08:00  INFO 32192 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-01-30T14:16:30.241+08:00 DEBUG 32192 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-01-30T14:16:30.694+08:00 DEBUG 32192 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-01-30T14:16:30.748+08:00 DEBUG 32192 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-01-30T14:16:30.967+08:00 DEBUG 32192 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-01-30T14:16:31.248+08:00  INFO 32192 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Started PhotoAlbumApplicationTests in 8.14 seconds (process running for 9.544)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! -- in com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest
+[ERROR] com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest -- Time elapsed: 0.009 s <<< ERROR!
+java.lang.IllegalStateException: Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]
+	at org.springframework.test.context.BootstrapUtils.resolveExplicitTestContextBootstrapper(BootstrapUtils.java:194)
+	at org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:150)
+	at org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:126)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:126)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] Errors: 
+[ERROR]   PhotoRepositoryPostgresIntegrationTest � IllegalState Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project photo-album: 
+[ERROR] 
+[ERROR] See C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+2026-01-30T06:16:32.032Z [INFO] [MavenBuildTool] loading surefire reports.
+2026-01-30T06:16:32.062Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2026-01-30T06:16:32.063Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:16:32.064Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:16:34.912Z [INFO] [Project PhotoAlbum-Java]: Test result of project PhotoAlbum-Java is updated: 0 -> 1
+2026-01-30T06:16:34.913Z [INFO] [Tool.invoke]({result: {
+  "message": "Tests failed with 1 errors and 0 failures:\n- Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]\n  ```\n  java.lang.IllegalStateException: Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]\n  \tat org.springframework.test.context.BootstrapUtils.resolveExplicitTestContextBootstrapper(BootstrapUtils.java:194)\n  \tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:150)\n  \tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:126)\n  \tat org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:126)\n  \tat org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)\n  \tat org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \n  ```",
+  "result": {
+    "errors": [
+      {
+        "errorMessage": "Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]",
+        "raw": "java.lang.IllegalStateException: Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]\n\tat org.springframework.test.context.BootstrapUtils.resolveExplicitTestContextBootstrapper(BootstrapUtils.java:194)\n\tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:150)\n\tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:126)\n\tat org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:126)\n\tat org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)\n\tat org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+        "testcaseName": ""
+      }
+    ],
+    "failures": [],
+    "summary": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 1,
+      "skipped": 0
+    },
+    "reports": [
+      {
+        "name": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+        "time": 0.009,
+        "tests": 1,
+        "errors": 1,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.009,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [
+              {
+                "content": "java.lang.IllegalStateException: Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]\n\tat org.springframework.test.context.BootstrapUtils.resolveExplicitTestContextBootstrapper(BootstrapUtils.java:194)\n\tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:150)\n\tat org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:126)\n\tat org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:126)\n\tat org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)\n\tat org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+                "message": "Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]",
+                "type": "java.lang.IllegalStateException"
+              }
+            ],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.photoalbum.PhotoAlbumApplicationTests",
+        "time": 9.229,
+        "tests": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "contextLoads",
+            "classname": "com.photoalbum.PhotoAlbumApplicationTests",
+            "time": 0.409,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry": {
+    "result": "failed"
+  }
+}}).
+2026-01-30T06:16:34.914Z [INFO] [Task.complete](): Completing task toolCall
+2026-01-30T06:16:34.914Z [INFO] [Task.complete](): Completed task toolCall
+2026-01-30T06:16:34.915Z [INFO] [Tool.invoke]({message: Tests failed with 1 errors and 0 failures:
+- Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]
+  ```
+  java.lang.IllegalStateException: Configuration error: found multiple declarations of @BootstrapWith for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: [@org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTestContextBootstrapper.class), @org.springframework.test.context.BootstrapWith(value=org.springframework.boot.test.context.SpringBootTestContextBootstrapper.class)]
+  	at org.springframework.test.context.BootstrapUtils.resolveExplicitTestContextBootstrapper(BootstrapUtils.java:194)
+  	at org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:150)
+  	at org.springframework.test.context.BootstrapUtils.resolveTestContextBootstrapper(BootstrapUtils.java:126)
+  	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:126)
+  	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:362)
+  	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:128)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  
+  ```}).
+2026-01-30T06:16:34.915Z [INFO] ----------------------invoked run_tests_for_java----------------------

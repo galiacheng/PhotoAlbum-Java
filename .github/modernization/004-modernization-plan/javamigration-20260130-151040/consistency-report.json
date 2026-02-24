@@ -1,0 +1,47 @@
+[
+  {
+    "file": "pom.xml",
+    "issues": [],
+    "description": "Migrated database driver from Oracle JDBC (ojdbc8) to PostgreSQL JDBC. Added Azure Identity Extensions (version 1.1.20) and Azure Identity (version 1.15.1) for managed identity authentication."
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "issues": [],
+    "description": "Updated database configuration from Oracle to Azure PostgreSQL with managed identity. Changed JDBC URL to use Azure PostgreSQL endpoint with authentication plugin. Removed password-based authentication in favor of managed identity. Updated Hibernate dialect from OracleDialect to PostgreSQLDialect."
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "issues": [],
+    "description": "Updated Docker-specific configuration from Oracle to PostgreSQL. Changed JDBC URL to use PostgreSQL container endpoint. Updated driver class from oracle.jdbc.OracleDriver to org.postgresql.Driver. Updated Hibernate dialect to PostgreSQLDialect."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "issues": [],
+    "description": "Removed Oracle-specific column definitions. Removed 'NUMBER(19,0)' column definition for file_size (now uses default PostgreSQL BIGINT). Removed 'TIMESTAMP DEFAULT SYSTIMESTAMP' column definition for uploaded_at (now uses default TIMESTAMP). Updated code comments to reference PostgreSQL instead of Oracle."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "Method signature changed for findPhotosWithPagination from (startRow, endRow) to (startRow, pageSize). This changes the semantic meaning of the second parameter. Oracle version used 1-based inclusive end row (e.g., startRow=1, endRow=10 returns 10 rows). PostgreSQL version uses 0-based offset with page size (e.g., startRow=0, pageSize=10 returns 10 rows). Callers must be updated to use pageSize instead of calculating endRow. However, this is considered minor as the functional behavior (returning a specific page of results) remains equivalent when caller is updated appropriately."
+      }
+    ],
+    "description": "Converted all Oracle-specific SQL queries to PostgreSQL-compatible syntax. Key changes: (1) Replaced ROWNUM pagination with LIMIT/OFFSET, (2) Replaced NVL() with COALESCE(), (3) Updated pagination method signature from (startRow, endRow) to (startRow, pageSize), (4) Updated TO_CHAR date formatting (compatible with both databases), (5) Window functions (RANK, SUM OVER) remain unchanged (compatible with both databases)."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "issues": [],
+    "description": "Updated code comments and log messages to reference PostgreSQL instead of Oracle. No functional changes - only documentation updates."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "issues": [],
+    "description": "Updated code comments and log messages to reference PostgreSQL instead of Oracle. No functional changes - only documentation updates."
+  },
+  {
+    "file": "README.md",
+    "issues": [],
+    "description": "Comprehensive documentation update. Changed title from 'Oracle DB' to 'Azure PostgreSQL'. Updated technology stack section. Added Azure PostgreSQL setup instructions with Azure CLI commands. Added managed identity configuration guidance. Updated prerequisites to include Azure services. Updated Quick Start section with Azure-specific steps. Removed Oracle-specific docker-compose instructions."
+  }
+]

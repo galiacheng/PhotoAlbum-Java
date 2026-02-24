@@ -1,0 +1,2732 @@
+2026-01-30T06:17:30.589Z [INFO] ----------------------invoke run_tests_for_java----------------------
+2026-01-30T06:17:30.589Z [INFO] [Tool.invoke]({name: run_tests_for_java, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}}).
+2026-01-30T06:17:30.590Z [INFO] [Task.start](): Starting task toolCall
+2026-01-30T06:17:30.591Z [INFO] [Task.start](): Started task toolCall
+2026-01-30T06:17:30.591Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-01-30T06:17:30.592Z [INFO] [Tool.invoke] do pre-invoke.
+2026-01-30T06:17:30.592Z [INFO] Project C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-01-30T06:17:30.594Z [INFO] Project java version: 17
+2026-01-30T06:17:30.594Z [INFO] Maven project detected.
+2026-01-30T06:17:30.595Z [INFO] Build tool type: mvn
+2026-01-30T06:17:30.841Z [INFO] [Environment] Running command (Java 17): java -version
+openjdk version "17.0.16" 2025-07-15 LTS
+OpenJDK Runtime Environment Microsoft-11926163 (build 17.0.16+8-LTS)
+OpenJDK 64-Bit Server VM Microsoft-11926163 (build 17.0.16+8-LTS, mixed mode, sharing)
+2026-01-30T06:17:30.959Z [INFO] [JdkEnvironment] Got real Java version: 17.0.16
+2026-01-30T06:17:30.960Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Microsoft\\jdk-17.0.16+8\\bin",
+  "version": "17"
+}
+2026-01-30T06:17:31.028Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:17:31.602Z [INFO] Real build tool version: 3.9.11
+2026-01-30T06:17:31.603Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\haiche\\.maven\\maven-3.9.11\\bin",
+  "version": "3.9.11"
+}
+2026-01-30T06:17:31.604Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\haiche\\.maven\\maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Microsoft\\jdk-17.0.16+8\\bin",
+    "name": "java",
+    "version": "17"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}
+2026-01-30T06:17:31.611Z [INFO] [Tool.invoke] do invoke.
+2026-01-30T06:17:31.612Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T06:17:31.613Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:17:32.268Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T06:17:32.269Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T06:17:32.270Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:17:32.270Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:17:32.271Z [INFO] [MavenBuildTool] Getting effective POMs of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:17:32.272Z [INFO] [Environment] Running command (Java 17): mvn help:effective-pom -Doutput=effective-pom-63a5754d-a42d-4934-b8e5-272b70c88b0e.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\effective-pom-63a5754d-a42d-4934-b8e5-272b70c88b0e.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.280 s
+[INFO] Finished at: 2026-01-30T14:17:37+08:00
+[INFO] ------------------------------------------------------------------------
+2026-01-30T06:17:37.304Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T06:17:37.306Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T06:17:37.306Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+2026-01-30T06:17:37.307Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-01-30T06:17:37.307Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '17' || '21'
+2026-01-30T06:17:37.308Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-01-30T06:17:37.309Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-01-30T06:17:37.309Z [INFO] Building project before running tests...
+2026-01-30T06:17:37.310Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:17:37.310Z [INFO] [Environment] Running command (Java 17): mvn clean test-compile -q -B -fn
+2026-01-30T06:17:45.350Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-01-30T06:17:45.351Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-01-30T06:17:45.365Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-01-30T06:17:45.366Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:17:45.366Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:17:48.372Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-01-30T06:17:48.373Z [INFO] Running tests...
+2026-01-30T06:17:48.374Z [INFO] [MavenBuildTool] Running test cases of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:17:48.374Z [INFO] [Environment] Running command (Java 17): mvn clean test -q -B -fn
+14:17:58.424 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.photoalbum.integration.PostgreSQLIntegrationTest]: PostgreSQLIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:17:58.591 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.integration.PostgreSQLIntegrationTest
+14:17:58.765 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+14:17:58.769 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+14:17:59.104 [main] INFO org.testcontainers.dockerclient.DockerMachineClientProviderStrategy -- docker-machine executable was not found on PATH ([C:\Users\haiche\AppData\Local\npm-cache\_npx\018f3efa23838801\node_modules\.bin, C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\node_modules\.bin, C:\Users\haiche\Documents\AppMod\node_modules\.bin, C:\Users\haiche\Documents\node_modules\.bin, C:\Users\haiche\node_modules\.bin, C:\Users\node_modules\.bin, C:\node_modules\.bin, C:\.tools\.npm-global\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin, C:\Program Files\PowerShell\7, c:\Users\haiche\AppData\Roaming\Code - Insiders\User\globalStorage\github.copilot-chat\debugCommand, c:\Users\haiche\AppData\Roaming\Code - Insiders\User\globalStorage\github.copilot-chat\copilotCli, C:\Python313\Scripts\, C:\Python313\, C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin, C:\Program Files\Microsoft\jdk-21.0.8.9-hotspot\bin, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\, C:\Program Files\Microsoft SQL Server\150\Tools\Binn\, C:\Program Files\dotnet\, C:\Program Files (x86)\Incredibuild, C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\, C:\.tools\dotnet, C:\.tools\.npm-global, C:\Users\vmadmin\AppData\Local\Microsoft\WindowsApps, C:\Users\vmadmin\.dotnet\tools, C:\Program Files\NuGet, C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps, C:\Program Files\Microsoft Dev Box Agent\Scripts, C:\Users\haiche\AppData\Local\Programs\Python\Python312, C:\Users\haiche\AppData\Local\Programs\Python\Python312\Scripts, C:\Program Files\GitHub CLI\, C:\Program Files\Git LFS, C:\ProgramData\chocolatey\bin, C:\Users\haiche\AppData\Local\nvm, C:\nvm4w\nodejs, C:\Program Files\PowerShell\7\, C:\Program Files\Git\cmd, C:\Program Files\Docker\Docker\resources\bin, C:\Users\haiche\AppData\Local\Microsoft\WindowsApps, C:\Users\haiche\AppData\Local\Programs\Microsoft VS Code Insiders\bin, C:\Users\haiche\AppData\Roaming\npm, C:\Users\haiche\AppData\Local\nvm, C:\nvm4w\nodejs, C:\Users\haiche\.dotnet\tools, C:\Users\haiche\AppData\Local\Programs\Microsoft VS Code\bin])
+14:17:59.104 [main] ERROR org.testcontainers.dockerclient.DockerClientProviderStrategy -- Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.947 s <<< FAILURE! -- in com.photoalbum.integration.PostgreSQLIntegrationTest
+[ERROR] com.photoalbum.integration.PostgreSQLIntegrationTest -- Time elapsed: 0.947 s <<< ERROR!
+java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration
+	at org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+	at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)
+	at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
+	at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
+	at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
+	at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
+	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)
+	at org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+14:17:59.128 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.photoalbum.PhotoAlbumApplicationTests]: PhotoAlbumApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:17:59.142 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.PhotoAlbumApplicationTests
+14:17:59.222 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-01-30T14:17:59.789+08:00  INFO 25724 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Starting PhotoAlbumApplicationTests using Java 17.0.16 with PID 25724 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-01-30T14:17:59.789+08:00 DEBUG 25724 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-01-30T14:17:59.791+08:00  INFO 25724 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : The following 1 profile is active: "test"
+2026-01-30T14:17:59.831+08:00 DEBUG 25724 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@4315e9af
+2026-01-30T14:18:01.139+08:00  INFO 25724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-30T14:18:01.287+08:00  INFO 25724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 1 JPA repository interface.
+2026-01-30T14:18:02.358+08:00  INFO 25724 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-30T14:18:02.500+08:00  INFO 25724 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-01-30T14:18:02.559+08:00  INFO 25724 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-30T14:18:02.983+08:00  INFO 25724 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-30T14:18:03.039+08:00  INFO 25724 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-30T14:18:03.243+08:00  INFO 25724 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-30T14:18:03.246+08:00  INFO 25724 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-30T14:18:03.269+08:00  WARN 25724 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-30T14:18:03.302+08:00  INFO 25724 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-30T14:18:04.230+08:00  INFO 25724 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-30T14:18:04.260+08:00  WARN 25724 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:430) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:346) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "BLOB"; SQL statement:
+
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    ) [50004-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5860) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType(Parser.java:5698) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5680) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5559) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8876) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8819) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:18:04.265+08:00  WARN 25724 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTableConstraints(SchemaCreatorImpl.java:392) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:358) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PHOTOS" not found; SQL statement:
+
+    create index idx_photos_uploaded_at 
+       on photos (upload [42102-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:70) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:304) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:248) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:18:04.272+08:00  INFO 25724 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-30T14:18:05.046+08:00  INFO 25724 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-30T14:18:05.540+08:00  WARN 25724 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-30T14:18:05.636+08:00  INFO 25724 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-01-30T14:18:05.927+08:00 DEBUG 25724 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-01-30T14:18:06.328+08:00 DEBUG 25724 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-01-30T14:18:06.424+08:00 DEBUG 25724 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-01-30T14:18:06.677+08:00 DEBUG 25724 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-01-30T14:18:06.857+08:00  INFO 25724 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Started PhotoAlbumApplicationTests in 7.656 seconds (process running for 9.551)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-01-30T14:18:07.581+08:00  INFO 25724 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: PhotoRepositoryPostgresIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-30T14:18:07.621+08:00  INFO 25724 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest
+2026-01-30T14:18:07.635+08:00  INFO 25724 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-01-30T14:18:07.670+08:00  INFO 25724 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Starting PhotoRepositoryPostgresIntegrationTest using Java 17.0.16 with PID 25724 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-01-30T14:18:07.673+08:00 DEBUG 25724 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-01-30T14:18:07.673+08:00  INFO 25724 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : The following 1 profile is active: "test"
+2026-01-30T14:18:07.771+08:00  INFO 25724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-30T14:18:07.788+08:00  INFO 25724 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 1 JPA repository interface.
+2026-01-30T14:18:07.804+08:00  INFO 25724 --- [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-01-30T14:18:07.859+08:00  INFO 25724 --- [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:85dc2483-da47-4824-83fb-c067fa425718;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-01-30T14:18:07.890+08:00  INFO 25724 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-30T14:18:07.892+08:00  INFO 25724 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-30T14:18:07.913+08:00  INFO 25724 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-30T14:18:07.916+08:00  WARN 25724 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-30T14:18:07.918+08:00  INFO 25724 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@63bdf82d']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-30T14:18:07.960+08:00  INFO 25724 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists photos cascade 
+Hibernate: 
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )
+Hibernate: 
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)
+2026-01-30T14:18:07.977+08:00  INFO 25724 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-30T14:18:08.026+08:00  INFO 25724 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Started PhotoRepositoryPostgresIntegrationTest in 0.394 seconds (process running for 10.72)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        COALESCE(file_path, 'default_path') as file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    WHERE
+        uploaded_at > ? 
+    ORDER BY
+        uploaded_at ASC
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    ORDER BY
+        uploaded_at DESC
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    WHERE
+        uploaded_at < ? 
+    ORDER BY
+        uploaded_at DESC 
+    LIMIT
+        10
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.288 s <<< FAILURE! -- in com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest
+[ERROR] com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter -- Time elapsed: 0.149 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 3 in:
+[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},
+    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},
+    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]
+	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:107)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] Failures: 
+[ERROR]   PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter:107 
+Expected size: 2 but was: 3 in:
+[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},
+    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},
+    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]
+[ERROR] Errors: 
+[ERROR]   PostgreSQLIntegrationTest � IllegalState Could not find a valid Docker environment. Please see logs and check configuration
+[ERROR] Tests run: 8, Failures: 1, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project photo-album: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+2026-01-30T06:18:09.117Z [INFO] [MavenBuildTool] loading surefire reports.
+2026-01-30T06:18:09.145Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2026-01-30T06:18:09.145Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:18:09.146Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:18:11.979Z [INFO] [Project PhotoAlbum-Java]: Test result of project PhotoAlbum-Java is updated: 0 -> 1
+2026-01-30T06:18:11.980Z [INFO] [Tool.invoke]({result: {
+  "message": "Tests failed with 1 errors and 1 failures:\n- Could not find a valid Docker environment. Please see logs and check configuration\n  ```\n  java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration\n  \tat org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)\n  \tat java.base/java.util.Optional.orElseThrow(Optional.java:403)\n  \tat org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)\n  \tat org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)\n  \tat org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)\n  \tat org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)\n  \tat com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)\n  \tat org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)\n  \tat org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \n  ```\n- &#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},&#10;    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},&#10;    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]\n  ```\n  java.lang.AssertionError: \n  \n  Expected size: 2 but was: 3 in:\n  [Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},\n      Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},\n      Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]\n  \tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:107)\n  \tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \n  ```",
+  "result": {
+    "errors": [
+      {
+        "errorMessage": "Could not find a valid Docker environment. Please see logs and check configuration",
+        "raw": "java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration\n\tat org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)\n\tat java.base/java.util.Optional.orElseThrow(Optional.java:403)\n\tat org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)\n\tat org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)\n\tat org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)\n\tat org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)\n\tat com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)\n\tat org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+        "testcaseName": ""
+      }
+    ],
+    "failures": [
+      {
+        "errorMessage": "&#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},&#10;    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},&#10;    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]",
+        "raw": "java.lang.AssertionError: \n\nExpected size: 2 but was: 3 in:\n[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},\n    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},\n    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]\n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:107)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+        "testcaseName": "testFindPhotosUploadedAfter"
+      }
+    ],
+    "summary": {
+      "tests": 8,
+      "failures": 1,
+      "errors": 1,
+      "skipped": 0
+    },
+    "reports": [
+      {
+        "name": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+        "time": 1.288,
+        "tests": 6,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 1,
+        "testcases": [
+          {
+            "name": "testH2PostgresModeIsConfigured",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.591,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testBlobStorageInPostgres",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.036,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testSaveAndRetrievePhoto",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.016,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindPhotosUploadedAfter",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.149,
+            "failures": [
+              {
+                "content": "java.lang.AssertionError: \n\nExpected size: 2 but was: 3 in:\n[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},\n    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},\n    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]\n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:107)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+                "message": "&#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},&#10;    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},&#10;    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]",
+                "type": "java.lang.AssertionError"
+              }
+            ],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindAllOrderByUploadedAtDesc",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.019,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindPhotosUploadedBefore",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.016,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.photoalbum.PhotoAlbumApplicationTests",
+        "time": 8.446,
+        "tests": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "contextLoads",
+            "classname": "com.photoalbum.PhotoAlbumApplicationTests",
+            "time": 0.624,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+        "time": 0.947,
+        "tests": 1,
+        "errors": 1,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "",
+            "classname": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+            "time": 0.947,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [
+              {
+                "content": "java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration\n\tat org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)\n\tat java.base/java.util.Optional.orElseThrow(Optional.java:403)\n\tat org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)\n\tat org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)\n\tat org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)\n\tat org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)\n\tat com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)\n\tat org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)\n\tat org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+                "message": "Could not find a valid Docker environment. Please see logs and check configuration",
+                "type": "java.lang.IllegalStateException"
+              }
+            ],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry": {
+    "result": "failed"
+  }
+}}).
+2026-01-30T06:18:11.980Z [INFO] [Task.complete](): Completing task toolCall
+2026-01-30T06:18:11.981Z [INFO] [Task.complete](): Completed task toolCall
+2026-01-30T06:18:11.982Z [INFO] [Tool.invoke]({message: Tests failed with 1 errors and 1 failures:
+- Could not find a valid Docker environment. Please see logs and check configuration
+  ```
+  java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration
+  	at org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:277)
+  	at java.base/java.util.Optional.orElseThrow(Optional.java:403)
+  	at org.testcontainers.dockerclient.DockerClientProviderStrategy.getFirstValidStrategy(DockerClientProviderStrategy.java:268)
+  	at org.testcontainers.DockerClientFactory.getOrInitializeStrategy(DockerClientFactory.java:152)
+  	at org.testcontainers.DockerClientFactory.client(DockerClientFactory.java:194)
+  	at org.testcontainers.DockerClientFactory$1.getDockerClient(DockerClientFactory.java:106)
+  	at com.github.dockerjava.api.DockerClientDelegate.authConfig(DockerClientDelegate.java:109)
+  	at org.testcontainers.containers.GenericContainer.start(GenericContainer.java:332)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.start(TestcontainersExtension.java:280)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension$StoreAdapter.access$200(TestcontainersExtension.java:267)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$null$4(TestcontainersExtension.java:82)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension.lambda$startContainers$5(TestcontainersExtension.java:82)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension.startContainers(TestcontainersExtension.java:82)
+  	at org.testcontainers.junit.jupiter.TestcontainersExtension.beforeAll(TestcontainersExtension.java:56)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  
+  ```
+- &#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},&#10;    Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},&#10;    Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]
+  ```
+  java.lang.AssertionError: 
+  
+  Expected size: 2 but was: 3 in:
+  [Photo{id=902fe912-0971-48b6-b170-4914d2e54600, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:18:08.680373, width=800, height=600},
+      Photo{id=6846475d-2bd8-4e62-af2a-83ea682dae11, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:18:08.680373, width=1920, height=1080},
+      Photo{id=525066af-e521-42e6-baf0-29c75732a0e1, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:18:08.680373, width=640, height=480}]
+  	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:107)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  
+  ```}).
+2026-01-30T06:18:11.982Z [INFO] ----------------------invoked run_tests_for_java----------------------
+2026-01-30T06:19:09.492Z [INFO] ----------------------invoke run_tests_for_java----------------------
+2026-01-30T06:19:09.493Z [INFO] [Tool.invoke]({name: run_tests_for_java, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}}).
+2026-01-30T06:19:09.493Z [INFO] [Task.start](): Starting task toolCall
+2026-01-30T06:19:09.494Z [INFO] [Task.start](): Started task toolCall
+2026-01-30T06:19:09.494Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-01-30T06:19:09.495Z [INFO] [Tool.invoke] do pre-invoke.
+2026-01-30T06:19:09.495Z [INFO] [Tool.invoke] do invoke.
+2026-01-30T06:19:09.496Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-01-30T06:19:09.496Z [INFO] [Environment] Running command (Java 17): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\maven-3.9.11
+Java version: 17.0.16, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-17.0.16+8
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-01-30T06:19:10.083Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-01-30T06:19:10.084Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-01-30T06:19:10.084Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-01-30T06:19:10.085Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-01-30T06:19:10.086Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 17
+2026-01-30T06:19:10.087Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '17' || '21'
+2026-01-30T06:19:10.087Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-01-30T06:19:10.088Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '17' || '21'
+2026-01-30T06:19:10.088Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-01-30T06:19:10.089Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-01-30T06:19:10.089Z [INFO] Building project before running tests...
+2026-01-30T06:19:10.090Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:19:10.090Z [INFO] [Environment] Running command (Java 17): mvn clean test-compile -q -B -fn
+2026-01-30T06:19:17.776Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-01-30T06:19:17.776Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-01-30T06:19:17.790Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-01-30T06:19:17.791Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:19:17.791Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:19:20.636Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-01-30T06:19:20.637Z [INFO] Running tests...
+2026-01-30T06:19:20.637Z [INFO] [MavenBuildTool] Running test cases of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:19:20.638Z [INFO] [Environment] Running command (Java 17): mvn clean test -q -B -fn
+14:19:30.383 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.photoalbum.PhotoAlbumApplicationTests]: PhotoAlbumApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:19:30.542 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.PhotoAlbumApplicationTests
+14:19:30.762 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-01-30T14:19:31.509+08:00  INFO 7544 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Starting PhotoAlbumApplicationTests using Java 17.0.16 with PID 7544 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-01-30T14:19:31.509+08:00 DEBUG 7544 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-01-30T14:19:31.509+08:00  INFO 7544 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : The following 1 profile is active: "test"
+2026-01-30T14:19:31.562+08:00 DEBUG 7544 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@5f5b5ca4
+2026-01-30T14:19:32.811+08:00  INFO 7544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-30T14:19:32.910+08:00  INFO 7544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 1 JPA repository interface.
+2026-01-30T14:19:33.800+08:00  INFO 7544 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-30T14:19:33.941+08:00  INFO 7544 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.15.Final
+2026-01-30T14:19:33.983+08:00  INFO 7544 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-30T14:19:34.631+08:00  INFO 7544 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-30T14:19:34.678+08:00  INFO 7544 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-30T14:19:34.865+08:00  INFO 7544 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-30T14:19:34.867+08:00  INFO 7544 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-30T14:19:34.893+08:00  WARN 7544 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-30T14:19:34.919+08:00  INFO 7544 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-30T14:19:35.781+08:00  INFO 7544 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-30T14:19:35.809+08:00  WARN 7544 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )" via JDBC [Unknown data type: "BLOB";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTables(SchemaCreatorImpl.java:430) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:346) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Unknown data type: "BLOB"; SQL statement:
+
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    ) [50004-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5860) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIfDataType(Parser.java:5698) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5680) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5559) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8876) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8819) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:19:35.816+08:00  WARN 7544 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)" via JDBC [Table "PHOTOS" not found;]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createTableConstraints(SchemaCreatorImpl.java:392) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createSequencesTablesConstraints(SchemaCreatorImpl.java:358) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:241) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:174) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:120) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:250) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.7.jar:6.2.7]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.5.0.jar:3.5.0]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:200) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:139) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.7.jar:6.2.7]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:388) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[na:na]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[na:na]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:382) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:293) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:292) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:281) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[na:na]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:280) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:27) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:112) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:111) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.12.2.jar:5.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) ~[junit-platform-launcher-1.12.2.jar:1.12.2]
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124) ~[surefire-junit-platform-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.3.jar:3.5.3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.3.jar:3.5.3]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PHOTOS" not found; SQL statement:
+
+    create index idx_photos_uploaded_at 
+       on photos (upload [42102-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:223) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.get(DbException.java:199) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.ddl.CreateIndex.update(CreateIndex.java:70) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:304) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Command.executeUpdate(Command.java:248) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95) ~[HikariCP-6.3.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-6.3.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.15.Final.jar:6.6.15.Final]
+	... 123 common frames omitted
+
+2026-01-30T14:19:35.823+08:00  INFO 7544 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-30T14:19:36.573+08:00  INFO 7544 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-30T14:19:37.004+08:00  WARN 7544 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-30T14:19:37.088+08:00  INFO 7544 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-01-30T14:19:37.360+08:00 DEBUG 7544 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-01-30T14:19:37.773+08:00 DEBUG 7544 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-01-30T14:19:37.857+08:00 DEBUG 7544 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-01-30T14:19:38.134+08:00 DEBUG 7544 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-01-30T14:19:38.447+08:00  INFO 7544 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Started PhotoAlbumApplicationTests in 7.699 seconds (process running for 9.238)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-01-30T14:19:39.101+08:00  INFO 7544 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest]: PhotoRepositoryPostgresIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-30T14:19:39.141+08:00  INFO 7544 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest
+2026-01-30T14:19:39.148+08:00  INFO 7544 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.0)
+
+2026-01-30T14:19:39.195+08:00  INFO 7544 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Starting PhotoRepositoryPostgresIntegrationTest using Java 17.0.16 with PID 7544 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-01-30T14:19:39.195+08:00 DEBUG 7544 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Running with Spring Boot v3.5.0, Spring v6.2.7
+2026-01-30T14:19:39.195+08:00  INFO 7544 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : The following 1 profile is active: "test"
+2026-01-30T14:19:39.316+08:00  INFO 7544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-30T14:19:39.331+08:00  INFO 7544 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 1 JPA repository interface.
+2026-01-30T14:19:39.352+08:00  INFO 7544 --- [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-01-30T14:19:39.420+08:00  INFO 7544 --- [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:b802b5a5-ac11-477e-88c6-14d892ef3569;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-01-30T14:19:39.455+08:00  INFO 7544 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-30T14:19:39.458+08:00  INFO 7544 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-30T14:19:39.481+08:00  INFO 7544 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-30T14:19:39.481+08:00  WARN 7544 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-30T14:19:39.483+08:00  INFO 7544 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@56adb75e']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-30T14:19:39.547+08:00  INFO 7544 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: 
+    drop table if exists photos cascade 
+Hibernate: 
+    create table photos (
+        height integer,
+        width integer,
+        file_size bigint not null,
+        uploaded_at timestamp(6) not null,
+        id varchar(36) not null,
+        mime_type varchar(50) not null,
+        file_path varchar(500),
+        original_file_name varchar(255) not null,
+        stored_file_name varchar(255) not null,
+        photo_data blob,
+        primary key (id)
+    )
+Hibernate: 
+    create index idx_photos_uploaded_at 
+       on photos (uploaded_at)
+2026-01-30T14:19:39.565+08:00  INFO 7544 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-30T14:19:39.632+08:00  INFO 7544 --- [           main] r.PhotoRepositoryPostgresIntegrationTest : Started PhotoRepositoryPostgresIntegrationTest in 0.486 seconds (process running for 10.423)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        COALESCE(file_path, 'default_path') as file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    WHERE
+        uploaded_at > ? 
+    ORDER BY
+        uploaded_at ASC
+TestPhoto1 uploadedAt: 2026-01-28T14:19:40.516824500
+TestPhoto2 uploadedAt: 2026-01-29T14:19:40.516824500
+TestPhoto3 uploadedAt: 2026-01-30T14:19:40.516824500
+Found 3 photos
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    ORDER BY
+        uploaded_at DESC
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    select
+        p1_0.id,
+        p1_0.file_path,
+        p1_0.file_size,
+        p1_0.height,
+        p1_0.mime_type,
+        p1_0.original_file_name,
+        p1_0.photo_data,
+        p1_0.stored_file_name,
+        p1_0.uploaded_at,
+        p1_0.width 
+    from
+        photos p1_0 
+    where
+        p1_0.id=?
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        photos
+        (file_path, file_size, height, mime_type, original_file_name, photo_data, stored_file_name, uploaded_at, width, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    SELECT
+        id,
+        original_file_name,
+        photo_data,
+        stored_file_name,
+        file_path,
+        file_size,
+        mime_type,
+        uploaded_at,
+        width,
+        height 
+    FROM
+        photos 
+    WHERE
+        uploaded_at < ? 
+    ORDER BY
+        uploaded_at DESC 
+    LIMIT
+        10
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 1.572 s <<< FAILURE! -- in com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest
+[ERROR] com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter -- Time elapsed: 0.084 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual:
+  3
+to be less than or equal to:
+  2 
+	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:115)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore -- Time elapsed: 0.038 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expected size: 2 but was: 3 in:
+[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},
+    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},
+    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]
+	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore(PhotoRepositoryPostgresIntegrationTest.java:101)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[ERROR] Failures: 
+[ERROR]   PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter:115 
+Expecting actual:
+  3
+to be less than or equal to:
+  2 
+[ERROR]   PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore:101 
+Expected size: 2 but was: 3 in:
+[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},
+    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},
+    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]
+[ERROR] Tests run: 10, Failures: 2, Errors: 0, Skipped: 3
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.3:test (default-test) on project photo-album: There are test failures.
+[ERROR] 
+[ERROR] See C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+2026-01-30T06:19:40.873Z [INFO] [MavenBuildTool] loading surefire reports.
+2026-01-30T06:19:40.900Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2026-01-30T06:19:40.901Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-01-30T06:19:40.902Z [INFO] [Environment] Running command (Java 17): mvn clean -q -B -fn
+2026-01-30T06:19:43.734Z [INFO] [Project PhotoAlbum-Java]: Test result of project PhotoAlbum-Java is updated: 1 -> 0
+2026-01-30T06:19:43.735Z [INFO] [Tool.invoke]({result: {
+  "message": "Tests failed with 0 errors and 2 failures:\n- &#10;Expecting actual:&#10;  3&#10;to be less than or equal to:&#10;  2\n  ```\n  java.lang.AssertionError: \n  \n  Expecting actual:\n    3\n  to be less than or equal to:\n    2 \n  \tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:115)\n  \tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \n  ```\n- &#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},&#10;    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},&#10;    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]\n  ```\n  java.lang.AssertionError: \n  \n  Expected size: 2 but was: 3 in:\n  [Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},\n      Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},\n      Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]\n  \tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore(PhotoRepositoryPostgresIntegrationTest.java:101)\n  \tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n  \n  ```",
+  "result": {
+    "errors": [],
+    "failures": [
+      {
+        "errorMessage": "&#10;Expecting actual:&#10;  3&#10;to be less than or equal to:&#10;  2",
+        "raw": "java.lang.AssertionError: \n\nExpecting actual:\n  3\nto be less than or equal to:\n  2 \n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:115)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+        "testcaseName": "testFindPhotosUploadedAfter"
+      },
+      {
+        "errorMessage": "&#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},&#10;    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},&#10;    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]",
+        "raw": "java.lang.AssertionError: \n\nExpected size: 2 but was: 3 in:\n[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},\n    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},\n    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]\n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore(PhotoRepositoryPostgresIntegrationTest.java:101)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+        "testcaseName": "testFindPhotosUploadedBefore"
+      }
+    ],
+    "summary": {
+      "tests": 10,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 3
+    },
+    "reports": [
+      {
+        "name": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+        "time": 1.572,
+        "tests": 6,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 2,
+        "testcases": [
+          {
+            "name": "testH2PostgresModeIsConfigured",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.819,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testBlobStorageInPostgres",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.031,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testSaveAndRetrievePhoto",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.016,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindPhotosUploadedAfter",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.084,
+            "failures": [
+              {
+                "content": "java.lang.AssertionError: \n\nExpecting actual:\n  3\nto be less than or equal to:\n  2 \n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:115)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+                "message": "&#10;Expecting actual:&#10;  3&#10;to be less than or equal to:&#10;  2",
+                "type": "java.lang.AssertionError"
+              }
+            ],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindAllOrderByUploadedAtDesc",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.033,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testFindPhotosUploadedBefore",
+            "classname": "com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest",
+            "time": 0.038,
+            "failures": [
+              {
+                "content": "java.lang.AssertionError: \n\nExpected size: 2 but was: 3 in:\n[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},\n    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},\n    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]\n\tat com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore(PhotoRepositoryPostgresIntegrationTest.java:101)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:569)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n\tat java.base/java.util.ArrayList.forEach(ArrayList.java:1511)\n",
+                "message": "&#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},&#10;    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},&#10;    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]",
+                "type": "java.lang.AssertionError"
+              }
+            ],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.photoalbum.PhotoAlbumApplicationTests",
+        "time": 8.919,
+        "tests": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "contextLoads",
+            "classname": "com.photoalbum.PhotoAlbumApplicationTests",
+            "time": 0.541,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      },
+      {
+        "name": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+        "time": 0.005,
+        "tests": 3,
+        "errors": 0,
+        "skipped": 3,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "testPostgreSQLSpecificQueries",
+            "classname": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+            "time": 0,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "skipped": {
+              "message": "Requires Docker - enable manually when Docker is available"
+            },
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testSaveAndRetrievePhoto",
+            "classname": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+            "time": 0,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "skipped": {
+              "message": "Requires Docker - enable manually when Docker is available"
+            },
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          },
+          {
+            "name": "testPostgreSQLConnection",
+            "classname": "com.photoalbum.integration.PostgreSQLIntegrationTest",
+            "time": 0,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "skipped": {
+              "message": "Requires Docker - enable manually when Docker is available"
+            },
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry": {
+    "result": "failed"
+  }
+}}).
+2026-01-30T06:19:43.735Z [INFO] [Task.complete](): Completing task toolCall
+2026-01-30T06:19:43.736Z [INFO] [Task.complete](): Completed task toolCall
+2026-01-30T06:19:43.736Z [INFO] [Tool.invoke]({message: Tests failed with 0 errors and 2 failures:
+- &#10;Expecting actual:&#10;  3&#10;to be less than or equal to:&#10;  2
+  ```
+  java.lang.AssertionError: 
+  
+  Expecting actual:
+    3
+  to be less than or equal to:
+    2 
+  	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedAfter(PhotoRepositoryPostgresIntegrationTest.java:115)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  
+  ```
+- &#10;Expected size: 2 but was: 3 in:&#10;[Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},&#10;    Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},&#10;    Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]
+  ```
+  java.lang.AssertionError: 
+  
+  Expected size: 2 but was: 3 in:
+  [Photo{id=05c6adb6-ba96-4f35-8b53-b65df6e56c70, originalFileName='test-image-3.gif', storedFileName='stored-3.gif', filePath='/uploads/stored-3.gif', fileSize=512, mimeType='image/gif', uploadedAt=2026-01-30T14:19:40.638426, width=640, height=480},
+      Photo{id=5b57cece-97cf-42fe-8135-01cd1c9876ca, originalFileName='test-image-2.png', storedFileName='stored-2.png', filePath='/uploads/stored-2.png', fileSize=2048, mimeType='image/png', uploadedAt=2026-01-29T14:19:40.638426, width=1920, height=1080},
+      Photo{id=09fe5794-5baf-45f9-b91d-6b9510ca2efe, originalFileName='test-image-1.jpg', storedFileName='stored-1.jpg', filePath='/uploads/stored-1.jpg', fileSize=1024, mimeType='image/jpeg', uploadedAt=2026-01-28T14:19:40.638426, width=800, height=600}]
+  	at com.photoalbum.repository.PhotoRepositoryPostgresIntegrationTest.testFindPhotosUploadedBefore(PhotoRepositoryPostgresIntegrationTest.java:101)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+  
+  ```}).
+2026-01-30T06:19:43.737Z [INFO] ----------------------invoked run_tests_for_java----------------------

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "pom.xml",
+    "issues": [],
+    "description": "Replaced Oracle JDBC driver (ojdbc8) with PostgreSQL JDBC driver. Changed groupId from com.oracle.database.jdbc to org.postgresql and artifactId from ojdbc8 to postgresql."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "issues": [],
+    "description": "Migrated JPA entity annotations from Oracle to PostgreSQL. Removed Oracle-specific column definitions (NUMBER, SYSTIMESTAMP) and replaced with PostgreSQL equivalents (BIGINT, CURRENT_TIMESTAMP). All functional behavior preserved."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "issues": [],
+    "description": "Converted all native SQL queries from Oracle syntax to PostgreSQL syntax. Key changes: ROWNUM to LIMIT/OFFSET, TO_CHAR to EXTRACT, NVL to COALESCE, RANK() to ROW_NUMBER(), all uppercase identifiers to lowercase. All queries maintain functional equivalence."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "issues": [],
+    "description": "Updated comments and log messages to reference PostgreSQL instead of Oracle. No behavioral changes - all code logic remains identical."
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "issues": [],
+    "description": "Updated comments and log messages to reference PostgreSQL instead of Oracle. No behavioral changes - all code logic remains identical."
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "issues": [],
+    "description": "Migrated database configuration from Oracle to PostgreSQL. Changed JDBC URL from jdbc:oracle:thin to jdbc:postgresql, driver class from oracle.jdbc.OracleDriver to org.postgresql.Driver, and dialect from OracleDialect to PostgreSQLDialect."
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "issues": [],
+    "description": "Migrated Docker database configuration from Oracle to PostgreSQL. Changed JDBC URL to reference postgres-db service, updated driver and dialect accordingly."
+  }
+]

@@ -1,0 +1,357 @@
+{
+  "oldTechnologyFindings": [
+    {
+      "filePath": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+      "technology": "Oracle",
+      "lineNumber": 36,
+      "severity": "critical",
+      "estimatedEffort": "medium",
+      "pattern": "ROWNUM",
+      "recommendation": "Replace Oracle ROWNUM with PostgreSQL LIMIT/OFFSET or window functions",
+      "context": "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT, ROWNUM as RN"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+      "technology": "Oracle",
+      "lineNumber": 67,
+      "severity": "critical",
+      "estimatedEffort": "low",
+      "pattern": "TO_CHAR",
+      "recommendation": "Replace Oracle TO_CHAR with PostgreSQL TO_CHAR or EXTRACT functions",
+      "context": "WHERE TO_CHAR(UPLOADED_AT, 'YYYY') = :year AND TO_CHAR(UPLOADED_AT, 'MM') = :month"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+      "technology": "Oracle",
+      "lineNumber": 50,
+      "severity": "critical",
+      "estimatedEffort": "low",
+      "pattern": "NVL",
+      "recommendation": "Replace Oracle NVL with PostgreSQL COALESCE",
+      "context": "NVL(FILE_PATH, 'default_path') as FILE_PATH"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+      "technology": "Oracle",
+      "lineNumber": 80,
+      "severity": "critical",
+      "estimatedEffort": "medium",
+      "pattern": "ROWNUM pagination",
+      "recommendation": "Replace Oracle ROWNUM pagination with PostgreSQL LIMIT/OFFSET",
+      "context": "SELECT P.*, ROWNUM as RN FROM ... WHERE ROWNUM <= :endRow"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+      "technology": "Oracle",
+      "lineNumber": 59,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle-specific comments",
+      "recommendation": "Update comments to reflect PostgreSQL implementation",
+      "context": "Find photos by upload month using Oracle TO_CHAR function - Oracle specific"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/model/Photo.java",
+      "technology": "Oracle",
+      "lineNumber": 37,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update comment to reference PostgreSQL database",
+      "context": "Binary photo data stored directly in Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 142,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update comments to reference Azure PostgreSQL database",
+      "context": "Store actual photo data in Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 158,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Successfully uploaded photo ... to Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 161,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Error saving photo to Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 188,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update comments to reference Azure PostgreSQL (bytea)",
+      "context": "Delete from Oracle database (photos stored as BLOB)"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 191,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Successfully deleted photo ID ... from Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 194,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Error deleting photo with ID ... from Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 139,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "BLOB reference",
+      "recommendation": "Update comment to reference bytea storage",
+      "context": "Create photo entity with database BLOB storage"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+      "technology": "Oracle",
+      "lineNumber": 151,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "BLOB reference",
+      "recommendation": "Update comment to reference bytea storage",
+      "context": "Save to database (with BLOB photo data)"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+      "technology": "Oracle",
+      "lineNumber": 20,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle BLOB storage",
+      "recommendation": "Update comments to reference Azure PostgreSQL bytea storage",
+      "context": "Controller for serving photo files from Oracle database BLOB storage"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+      "technology": "Oracle",
+      "lineNumber": 35,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle BLOB storage",
+      "recommendation": "Update comments to reference Azure PostgreSQL bytea storage",
+      "context": "Serves a photo file by ID from Oracle database BLOB storage"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+      "technology": "Oracle",
+      "lineNumber": 57,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle BLOB",
+      "recommendation": "Update comment to reference Azure PostgreSQL bytea",
+      "context": "Get photo data from Oracle database BLOB"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+      "technology": "Oracle",
+      "lineNumber": 71,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Serving photo ID ... from Oracle database"
+    },
+    {
+      "filePath": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+      "technology": "Oracle",
+      "lineNumber": 85,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle database reference",
+      "recommendation": "Update log messages to reference Azure PostgreSQL",
+      "context": "Error serving photo with ID ... from Oracle database"
+    },
+    {
+      "filePath": "docker-compose.yml",
+      "technology": "Oracle",
+      "lineNumber": 2,
+      "severity": "major",
+      "estimatedEffort": "low",
+      "pattern": "Oracle Docker service",
+      "recommendation": "Update docker-compose.yml to reference PostgreSQL service or remove if not using Docker locally",
+      "context": "Oracle Database service (Oracle Database Free 23ai"
+    }
+  ],
+  "completenessChecklist": [
+    {
+      "item": "All source code imports updated",
+      "details": "No Oracle JDBC imports found",
+      "status": "complete"
+    },
+    {
+      "item": "All dependencies updated",
+      "details": "PostgreSQL driver and Azure identity extensions added, Oracle driver removed",
+      "status": "complete"
+    },
+    {
+      "item": "All configuration files updated",
+      "details": "application.properties updated with PostgreSQL and managed identity configuration",
+      "status": "complete"
+    },
+    {
+      "item": "Entity model updated",
+      "details": "Oracle-specific column definitions removed",
+      "status": "complete"
+    },
+    {
+      "item": "Native SQL queries migrated",
+      "details": "PhotoRepository contains 5 queries with Oracle-specific SQL syntax",
+      "status": "incomplete"
+    },
+    {
+      "item": "Code comments updated",
+      "details": "15+ comments still reference Oracle database",
+      "status": "incomplete"
+    },
+    {
+      "item": "Infrastructure configuration updated",
+      "details": "docker-compose.yml still references Oracle service",
+      "status": "incomplete"
+    },
+    {
+      "item": "New technology properly configured",
+      "details": "Azure PostgreSQL with managed identity configured correctly",
+      "status": "complete"
+    }
+  ],
+  "summary": {
+    "isComplete": false,
+    "minorIssues": 0,
+    "migrationScenario": "Oracle Database to Azure PostgreSQL with Managed Identity",
+    "workspacePath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java",
+    "totalOldReferences": 20,
+    "language": "java",
+    "completenessScore": 70,
+    "majorIssues": 15,
+    "criticalIssues": 5
+  },
+  "newTechnologyValidation": [
+    {
+      "technology": "Azure PostgreSQL",
+      "expectedLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "coverage": "100%",
+      "pattern": "org.postgresql.Driver",
+      "foundLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "status": "present"
+    },
+    {
+      "technology": "Azure PostgreSQL",
+      "expectedLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "coverage": "100%",
+      "pattern": "PostgreSQLDialect",
+      "foundLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "status": "present"
+    },
+    {
+      "technology": "Azure Managed Identity",
+      "expectedLocations": [
+        "pom.xml"
+      ],
+      "coverage": "100%",
+      "pattern": "azure-identity-extensions",
+      "foundLocations": [
+        "pom.xml"
+      ],
+      "status": "present"
+    },
+    {
+      "technology": "Azure Managed Identity",
+      "expectedLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "coverage": "100%",
+      "pattern": "AzurePostgresqlAuthenticationPlugin",
+      "foundLocations": [
+        "src/main/resources/application.properties",
+        "src/main/resources/application-docker.properties"
+      ],
+      "status": "present"
+    },
+    {
+      "technology": "PostgreSQL",
+      "expectedLocations": [
+        "pom.xml"
+      ],
+      "coverage": "100%",
+      "pattern": "org.postgresql:postgresql",
+      "foundLocations": [
+        "pom.xml"
+      ],
+      "status": "present"
+    }
+  ],
+  "recommendations": [
+    {
+      "estimatedEffort": "medium",
+      "description": "Replace Oracle-specific SQL functions (ROWNUM, TO_CHAR, NVL) with PostgreSQL equivalents in PhotoRepository",
+      "affectedFiles": [
+        "src/main/java/com/photoalbum/repository/PhotoRepository.java"
+      ],
+      "category": "native-queries",
+      "priority": "critical"
+    },
+    {
+      "estimatedEffort": "low",
+      "description": "Update all code comments and log messages to reference Azure PostgreSQL instead of Oracle",
+      "affectedFiles": [
+        "src/main/java/com/photoalbum/model/Photo.java",
+        "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+        "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+        "src/main/java/com/photoalbum/repository/PhotoRepository.java"
+      ],
+      "category": "documentation",
+      "priority": "major"
+    },
+    {
+      "estimatedEffort": "low",
+      "description": "Update or remove docker-compose.yml Oracle service configuration",
+      "affectedFiles": [
+        "docker-compose.yml"
+      ],
+      "category": "infrastructure",
+      "priority": "major"
+    }
+  ]
+}

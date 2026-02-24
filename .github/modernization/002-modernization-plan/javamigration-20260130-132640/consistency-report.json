@@ -1,0 +1,27 @@
+[
+  {
+    "issues": [],
+    "file": "pom.xml",
+    "description": "Replaced Oracle JDBC driver (ojdbc8) with PostgreSQL JDBC driver. Added Azure Identity Extensions for managed identity authentication."
+  },
+  {
+    "issues": [],
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "description": "Removed Oracle-specific column definitions (NUMBER(19,0) for file_size and TIMESTAMP DEFAULT SYSTIMESTAMP for uploaded_at). These are now handled by JPA/Hibernate with database-agnostic types."
+  },
+  {
+    "issues": [],
+    "file": "src/main/resources/application.properties",
+    "description": "Updated database configuration from Oracle to Azure PostgreSQL with managed identity authentication. Removed hardcoded password and added Azure authentication plugin."
+  },
+  {
+    "issues": [],
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Updated Docker-specific configuration from Oracle to Azure PostgreSQL with managed identity authentication."
+  },
+  {
+    "issues": [],
+    "file": "README.md",
+    "description": "Updated documentation to reflect Azure PostgreSQL usage instead of Oracle, including configuration instructions and Azure-specific guidance."
+  }
+]
