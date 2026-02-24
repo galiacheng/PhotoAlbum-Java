@@ -14,7 +14,8 @@
           "location": "builtin"
         }
       ],
-      "status": "started",
+      "status": "success",
+      "taskSummary": "Successfully upgraded Spring Boot from 2.7.18 to 3.3.6 and Java from 8 to 17. Migrated javax.persistence.* and javax.validation.constraints.* to jakarta.* namespaces. Build and unit tests pass.",
       "successCriteria": {
         "passBuild": "true",
         "generateNewUnitTests": "false",
@@ -22,6 +23,14 @@
         "passUnitTests": "true",
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": null,
+        "generateNewIntegrationTests": null,
+        "passUnitTests": "true",
+        "passIntegrationTests": null,
+        "securityComplianceCheck": null
       }
     },
     {
@@ -39,6 +48,7 @@
           "location": "builtin"
         }
       ],
+      "status": "started",
       "successCriteria": {
         "passBuild": "true",
         "generateNewUnitTests": "false",
