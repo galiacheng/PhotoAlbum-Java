@@ -14,8 +14,7 @@ on:
 jobs:
   batch-modernization:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,6 +29,8 @@ jobs:
       - name: Run batch assessment
         run: |
           modernize assess --no-tty
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
       - name: Run batch upgrade
         run: |
@@ -39,6 +40,8 @@ jobs:
           else
             modernize upgrade "$TARGET" --no-tty --delegate cloud
           fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
       - name: Upload assessment reports
         uses: actions/upload-artifact@v4
