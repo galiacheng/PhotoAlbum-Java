@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3x",
+      "description": "Upgrade the application to Spring Boot 3.x to ensure compatibility with modern Azure SDKs and Java 17 runtime",
+      "requirements": "",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-spring-boot-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": null,
+      "taskSummary": ""
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-blob-to-azure-blob",
+      "description": "Migrate photo storage from Oracle Database BLOBs to Azure Blob Storage for scalable object storage",
+      "requirements": "migrate from AWS S3 to Azure Blob Storage",
+      "dependencies": ["001-upgrade-spring-boot-3x"],
+      "environmentConfiguration": null,
+      "skills": [],
+      "prompt": "Migrate this application from using AWS S3 to Azure Blob Storage. Ensure all usages including both code and configuration are migrated and build passed.",
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": null,
+      "taskSummary": ""
+    }
+  ],
+  "metadata": {
+    "planName": "test-plan",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-03T02:31:54.350Z",
+    "version": "1.0"
+  }
+}
