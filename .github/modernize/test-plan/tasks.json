@@ -22,8 +22,8 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started",
-      "taskSummary": ""
+      "status": "completed",
+      "taskSummary": "Upgraded Spring Boot from 2.7.18 to 3.4.13, Java from 8 to 17, and migrated javax.* to jakarta.* imports. Build and unit tests pass."
     },
     {
       "type": "transform",
