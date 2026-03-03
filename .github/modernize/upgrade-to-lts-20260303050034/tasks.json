@@ -23,7 +23,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started"
+      "status": "success",
+      "summary": "Upgraded Java from 1.8 to 21, Spring Boot from 2.7.18 to 3.3.4, and migrated javax.* to jakarta.* namespaces. Build successful and unit tests passing.",
+      "successCriteriaStatus": {
+        "passBuild": "pass",
+        "generateNewUnitTests": "skipped",
+        "generateNewIntegrationTests": "skipped",
+        "passUnitTests": "pass",
+        "passIntegrationTests": "skipped",
+        "securityComplianceCheck": "skipped"
+      }
     }
   ],
   "metadata": {
