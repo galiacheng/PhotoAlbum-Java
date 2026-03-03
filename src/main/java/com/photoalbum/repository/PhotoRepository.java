@@ -19,7 +19,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * Find all photos ordered by upload date (newest first)
      * @return List of photos ordered by upload date descending
      */
-    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
+    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT " +
                    "FROM PHOTOS " +
                    "ORDER BY UPLOADED_AT DESC", 
@@ -32,7 +32,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos uploaded before the given timestamp
      */
     @Query(value = "SELECT * FROM (" +
-                   "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
+                   "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT, ROWNUM as RN " +
                    "FROM PHOTOS " +
                    "WHERE UPLOADED_AT < :uploadedAt " +
@@ -46,7 +46,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @param uploadedAt The upload timestamp to compare against
      * @return List of photos uploaded after the given timestamp
      */
-    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, " +
+    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, " +
                    "NVL(FILE_PATH, 'default_path') as FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT " +
                    "FROM PHOTOS " +
@@ -61,7 +61,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @param month The month to search for
      * @return List of photos uploaded in the specified month
      */
-    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
+    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT " +
                    "FROM PHOTOS " +
                    "WHERE TO_CHAR(UPLOADED_AT, 'YYYY') = :year " +
@@ -78,7 +78,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      */
     @Query(value = "SELECT * FROM (" +
                    "SELECT P.*, ROWNUM as RN FROM (" +
-                   "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
+                   "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT " +
                    "FROM PHOTOS ORDER BY UPLOADED_AT DESC" +
                    ") P WHERE ROWNUM <= :endRow" +
@@ -90,7 +90,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * Find photos with file size statistics using Oracle analytical functions - Oracle specific
      * @return List of photos with running totals and rankings
      */
-    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, PHOTO_DATA, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
+    @Query(value = "SELECT ID, ORIGINAL_FILE_NAME, STORED_FILE_NAME, FILE_PATH, FILE_SIZE, " +
                    "MIME_TYPE, UPLOADED_AT, WIDTH, HEIGHT, " +
                    "RANK() OVER (ORDER BY FILE_SIZE DESC) as SIZE_RANK, " +
                    "SUM(FILE_SIZE) OVER (ORDER BY UPLOADED_AT ROWS UNBOUNDED PRECEDING) as RUNNING_TOTAL " +

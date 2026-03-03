@@ -34,13 +34,6 @@ public class Photo {
     private String originalFileName;
 
     /**
-     * Binary photo data stored directly in Oracle database
-     */
-    @Lob
-    @Column(name = "photo_data", nullable = true)
-    private byte[] photoData;
-
-    /**
      * GUID-based filename with extension (for compatibility)
      */
     @NotBlank
@@ -75,7 +68,7 @@ public class Photo {
      * Timestamp of upload
      */
     @NotNull
-    @Column(name = "uploaded_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT SYSTIMESTAMP")
+    @Column(name = "uploaded_at", nullable = false)
     private LocalDateTime uploadedAt;
 
     /**
@@ -97,17 +90,6 @@ public class Photo {
     }
 
     // Constructor with required fields
-    public Photo(String originalFileName, byte[] photoData, String storedFileName, String filePath, Long fileSize, String mimeType) {
-        this();
-        this.originalFileName = originalFileName;
-        this.photoData = photoData;
-        this.storedFileName = storedFileName;
-        this.filePath = filePath;
-        this.fileSize = fileSize;
-        this.mimeType = mimeType;
-    }
-
-    // Constructor with required fields (file system compatibility)
     public Photo(String originalFileName, String storedFileName, String filePath, Long fileSize, String mimeType) {
         this();
         this.originalFileName = originalFileName;
@@ -132,14 +114,6 @@ public class Photo {
 
     public void setOriginalFileName(String originalFileName) {
         this.originalFileName = originalFileName;
-    }
-
-    public byte[] getPhotoData() {
-        return photoData;
-    }
-
-    public void setPhotoData(byte[] photoData) {
-        this.photoData = photoData;
     }
 
     public String getStoredFileName() {
