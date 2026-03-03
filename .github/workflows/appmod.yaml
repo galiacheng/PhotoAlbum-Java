@@ -28,9 +28,9 @@ jobs:
           chmod +x modernize
           sudo mv modernize /usr/local/bin/
  
-      - name: Install GitHub Copilot CLI
+      - name: Upgrade GitHub Copilot CLI
         run: |
-          gh extension install github/gh-copilot
+          gh extension upgrade github/gh-copilot
           gh copilot --version
  
       - name: Run batch assessment
