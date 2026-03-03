@@ -4,6 +4,7 @@ import com.photoalbum.model.Photo;
 import com.photoalbum.model.UploadResult;
 import com.photoalbum.repository.PhotoRepository;
 import com.photoalbum.service.PhotoService;
+import com.photoalbum.storage.AzureBlobStorageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,14 +31,17 @@ public class PhotoServiceImpl implements PhotoService {
     private static final Logger logger = LoggerFactory.getLogger(PhotoServiceImpl.class);
 
     private final PhotoRepository photoRepository;
+    private final AzureBlobStorageService blobStorageService;
     private final long maxFileSizeBytes;
     private final List<String> allowedMimeTypes;
 
     public PhotoServiceImpl(
             PhotoRepository photoRepository,
+            AzureBlobStorageService blobStorageService,
             @Value("${app.file-upload.max-file-size-bytes}") long maxFileSizeBytes,
             @Value("${app.file-upload.allowed-mime-types}") String[] allowedMimeTypes) {
         this.photoRepository = photoRepository;
+        this.blobStorageService = blobStorageService;
         this.maxFileSizeBytes = maxFileSizeBytes;
         this.allowedMimeTypes = Arrays.asList(allowedMimeTypes);
     }
@@ -104,10 +108,10 @@ public class PhotoServiceImpl implements PhotoService {
                 return result;
             }
 
-            // Generate unique filename for compatibility (stored in database, not on disk)
+            // Generate unique filename for the blob
             String extension = getFileExtension(file.getOriginalFilename());
             String storedFileName = UUID.randomUUID().toString() + extension;
-            String relativePath = "/uploads/" + storedFileName; // For compatibility only
+            String relativePath = "/photo/" + storedFileName; // URL path for display
 
             // Extract image dimensions and read file data
             Integer width = null;
@@ -115,10 +119,8 @@ public class PhotoServiceImpl implements PhotoService {
             byte[] photoData = null;
             
             try {
-                // Read file content for database storage
                 photoData = file.getBytes();
                 
-                // Extract image dimensions from byte array
                 try (ByteArrayInputStream bis = new ByteArrayInputStream(photoData)) {
                     BufferedImage image = ImageIO.read(bis);
                     if (image != null) {
@@ -133,34 +135,47 @@ public class PhotoServiceImpl implements PhotoService {
                 return result;
             } catch (Exception ex) {
                 logger.warn("Could not extract image dimensions for {}", file.getOriginalFilename(), ex);
-                // Continue without dimensions - not critical
             }
 
-            // Create photo entity with database BLOB storage
+            // Upload photo data to Azure Blob Storage
+            try {
+                blobStorageService.uploadBlob(storedFileName, photoData, file.getContentType());
+            } catch (Exception ex) {
+                logger.error("Error uploading photo to Azure Blob Storage for {}", file.getOriginalFilename(), ex);
+                result.setSuccess(false);
+                result.setErrorMessage("Error uploading photo to storage. Please try again.");
+                return result;
+            }
+
+            // Save metadata (without photo data) to Oracle database
             Photo photo = new Photo(
                 file.getOriginalFilename(),
-                photoData,  // Store actual photo data in Oracle database
                 storedFileName,
-                relativePath, // Keep for compatibility, not used for serving
+                relativePath,
                 file.getSize(),
                 file.getContentType()
             );
             photo.setWidth(width);
             photo.setHeight(height);
 
-            // Save to database (with BLOB photo data)
             try {
                 photo = photoRepository.save(photo);
 
                 result.setSuccess(true);
                 result.setPhotoId(photo.getId());
 
-                logger.info("Successfully uploaded photo {} with ID {} to Oracle database", 
+                logger.info("Successfully uploaded photo {} with ID {} to Azure Blob Storage",
                     file.getOriginalFilename(), photo.getId());
             } catch (Exception ex) {
-                logger.error("Error saving photo to Oracle database for {}", file.getOriginalFilename(), ex);
+                logger.error("Error saving photo metadata to database for {}", file.getOriginalFilename(), ex);
+                // Attempt to clean up the blob since the metadata save failed
+                try {
+                    blobStorageService.deleteBlob(storedFileName);
+                } catch (Exception cleanupEx) {
+                    logger.error("Failed to clean up blob '{}' after metadata save failure", storedFileName, cleanupEx);
+                }
                 result.setSuccess(false);
-                result.setErrorMessage("Error saving photo to database. Please try again.");
+                result.setErrorMessage("Error saving photo metadata. Please try again.");
             }
         } catch (Exception ex) {
             logger.error("Unexpected error during photo upload for {}", file.getOriginalFilename(), ex);
@@ -185,13 +200,21 @@ public class PhotoServiceImpl implements PhotoService {
 
             Photo photo = photoOpt.get();
 
-            // Delete from Oracle database (photos stored as BLOB)
+            // Delete photo file from Azure Blob Storage
+            try {
+                blobStorageService.deleteBlob(photo.getStoredFileName());
+            } catch (Exception ex) {
+                logger.error("Error deleting blob '{}' from Azure Blob Storage", photo.getStoredFileName(), ex);
+                // Continue to delete metadata even if blob deletion fails
+            }
+
+            // Delete metadata from Oracle database
             photoRepository.delete(photo);
 
-            logger.info("Successfully deleted photo ID {} from Oracle database", id);
+            logger.info("Successfully deleted photo ID {} from Azure Blob Storage and database", id);
             return true;
         } catch (Exception ex) {
-            logger.error("Error deleting photo with ID {} from Oracle database", id, ex);
+            logger.error("Error deleting photo with ID {}", id, ex);
             throw new RuntimeException("Error deleting photo", ex);
         }
     }
