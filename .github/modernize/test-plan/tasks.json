@@ -22,7 +22,7 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": null,
+      "status": "started",
       "taskSummary": ""
     },
     {
