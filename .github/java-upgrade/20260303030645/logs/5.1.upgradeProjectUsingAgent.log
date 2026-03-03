@@ -1,0 +1,12 @@
+2026-03-03T03:08:59.534Z [INFO] [Task.commitChanges](5.1): Committing changes for C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java with message: Upgrade Java version from 8 to 17
+2026-03-03T03:08:59.818Z [INFO] [main 940cb62] Upgrade Java version from 8 to 17
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+2026-03-03T03:08:59.899Z [INFO] 940cb62413cad72b8e9077dd9a5cf703eef273a6
+
+2026-03-03T03:08:59.997Z [INFO] 3	3	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+2	2	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-03-03T03:09:00.021Z [INFO] [Task.commitChanges](5.1): Committed changes for C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java with message: Upgrade Java version from 8 to 17

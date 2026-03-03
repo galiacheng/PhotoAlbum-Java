@@ -1,0 +1,17 @@
+2026-03-03T03:09:19.841Z [INFO] Some dependencies have been modified or added during the upgrade. start validating CVEs.
+2026-03-03T03:09:19.843Z [INFO] Getting CVEs for dependencies: java:*:17
+2026-03-03T03:09:19.844Z [INFO] getting CVEs for dependencies:
+ - java:*:17...
+2026-03-03T03:09:19.844Z [INFO] getting gitHub access token...
+2026-03-03T03:09:19.845Z [ERROR] Failed to get GitHub access token to validate CVEs for the given dependencies.
+2026-03-03T03:09:19.845Z [INFO] Processing batch 1/1, size: 1
+2026-03-03T03:09:19.846Z [INFO] listing CVEs from GitHub for dependencies [
+  "java:*:17"
+]
+2026-03-03T03:09:20.140Z [INFO] Fetched 0 total advisories across all pages
+2026-03-03T03:09:20.141Z [INFO] grouping CVEs and finding max patched version by dep...
+2026-03-03T03:09:20.141Z [INFO] done getting 0 CVEs for 1 dependencies
+2026-03-03T03:09:20.142Z [INFO] calculating patched version by dep...
+2026-03-03T03:09:20.142Z [INFO] finished getting CVEs for dependencies.
+2026-03-03T03:09:20.143Z [INFO] Found 0 dependencies with known CVEs
+2026-03-03T03:09:20.143Z [INFO] No known CVEs that need to be fixed are found for dependencies: java:*:17

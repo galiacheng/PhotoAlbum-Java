@@ -1,0 +1,7 @@
+2026-03-03T03:07:18.433Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java using Maven
+2026-03-03T03:07:18.434Z [INFO] [Environment] Running command (Java 8): mvn clean test-compile -q -B -fn
+2026-03-03T03:07:23.907Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-03T03:07:23.908Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-03T03:07:23.923Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-03T03:07:23.924Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java using Maven
+2026-03-03T03:07:23.924Z [INFO] [Environment] Running command (Java 8): mvn clean -q -B -fn

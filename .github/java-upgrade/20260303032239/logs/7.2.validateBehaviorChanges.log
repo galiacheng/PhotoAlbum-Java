@@ -1,0 +1,12 @@
+2026-03-03T03:26:02.576Z [INFO] [Task.commitChanges](7.2): Committing changes for C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java with message: fix issues
+2026-03-03T03:26:02.858Z [INFO] [main a8b051b] fix issues
+ 4 files changed, 9 insertions(+), 9 deletions(-)
+
+2026-03-03T03:26:02.937Z [INFO] a8b051b85a8b09811996fa8b19bf28e12ac70c4e
+
+2026-03-03T03:26:03.033Z [INFO] 3	3	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+4	4	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-03-03T03:26:03.056Z [INFO] [Task.commitChanges](7.2): Committed changes for C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java with message: fix issues

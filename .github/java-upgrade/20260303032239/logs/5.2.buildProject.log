@@ -1,0 +1,22 @@
+2026-03-03T03:25:17.907Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-03-03T03:25:17.907Z [INFO] [Environment] Running command (Java 8): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\apache-maven-3.9.11
+Java version: 1.8.0_472, vendor: Temurin, runtime: C:\Users\haiche\.jdk\jdk-8\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-03-03T03:25:18.447Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-03-03T03:25:18.449Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java from pom.xml
+2026-03-03T03:25:18.450Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java
+2026-03-03T03:25:18.450Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java\pom.xml
+2026-03-03T03:25:18.452Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java\pom.xml: 21
+2026-03-03T03:25:18.452Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '21' || '21'
+2026-03-03T03:25:18.455Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java using Maven
+2026-03-03T03:25:18.456Z [INFO] [Environment] Running command (Java 21): mvn clean test-compile -q -B -fn
+2026-03-03T03:25:25.606Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-03T03:25:25.606Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-03T03:25:25.618Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-03T03:25:25.619Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\AppData\Local\Temp\modernize-e2e-20260303-110057\PhotoAlbum-Java using Maven
+2026-03-03T03:25:25.619Z [INFO] [Environment] Running command (Java 21): mvn clean -q -B -fn
+2026-03-03T03:25:28.663Z [INFO] Build succeeded! There are no build errors in the project.
+2026-03-03T03:25:28.670Z [INFO] Build project completed. Looking for next task...
