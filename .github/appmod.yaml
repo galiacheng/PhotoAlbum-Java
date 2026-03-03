@@ -1,0 +1,46 @@
+name: Batch Modernization
+ 
+on:
+  workflow_dispatch:
+    inputs:
+      upgrade_target:
+        description: 'Upgrade target (e.g., Java 21, .NET 10)'
+        required: false
+        default: 'latest'
+ 
+jobs:
+  batch-modernization:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+ 
+      - name: Download modernize CLI
+        run: |
+          wget https://github.com/galiacheng/apmod-cli/releases/download/20260303/modernize_linux_x64.tar.gz
+          tar -xzf modernize_linux_x64.tar.gz
+          chmod +x modernize
+          sudo mv modernize /usr/local/bin/
+ 
+      - name: Authenticate with GitHub
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+ 
+      - name: Run batch assessment
+        run: |
+          modernize assess --no-tty
+ 
+      - name: Run batch upgrade
+        run: |
+          TARGET="${{ github.event.inputs.upgrade_target }}"
+          if [ -z "$TARGET" ] || [ "$TARGET" = "latest" ]; then
+            modernize upgrade --no-tty --delegate cloud
+          else
+            modernize upgrade "$TARGET" --no-tty --delegate cloud
+          fi
+ 
+      - name: Upload assessment reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: assessment-reports
+          path: .github/modernize/assessment/
