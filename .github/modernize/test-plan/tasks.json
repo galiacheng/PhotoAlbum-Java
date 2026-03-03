@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-migration-s3-to-azure-blob-storage",
+      "description": "Migrate photo binary data storage from Oracle Database BLOBs to Azure Blob Storage for scalable and cost-effective object storage.",
+      "requirements": "Migrate from database BLOB storage to Azure Blob Storage. Update the photo upload, retrieval, and deletion operations to use Azure Blob Storage instead of storing binary data in the Oracle database. Maintain metadata in Oracle Database. Use Managed Identity for authentication.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-s3-to-azure-blob-storage",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "test-plan",
+    "projectName": "Photo Album",
+    "language": "java",
+    "createdAt": "2026-03-03T04:54:22.190Z",
+    "version": "1.0"
+  }
+}
