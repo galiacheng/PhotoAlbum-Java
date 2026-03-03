@@ -14,12 +14,8 @@ on:
 jobs:
   batch-modernization:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.GHO_TOKEN }}
     
     steps:
       - name: Checkout code
