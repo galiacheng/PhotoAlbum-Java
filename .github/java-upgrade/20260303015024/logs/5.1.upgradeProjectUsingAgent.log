@@ -1,0 +1,12 @@
+2026-03-03T01:52:30.657Z [INFO] [Task.commitChanges](5.1): Committing changes for /private/var/folders/53/mmzvzmx94mgbpc1xzcy76nsm0000gp/T/tmp.jW3k95c3HB/PhotoAlbum-Java with message: Upgrade Java from 8 to 17
+2026-03-03T01:52:30.714Z [INFO] [main afd3d7c] Upgrade Java from 8 to 17
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+2026-03-03T01:52:30.731Z [INFO] afd3d7c2b85c47625d81246ba5d16266a37a67a4
+
+2026-03-03T01:52:30.749Z [INFO] 3	3	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+2	2	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-03-03T01:52:30.750Z [INFO] [Task.commitChanges](5.1): Committed changes for /private/var/folders/53/mmzvzmx94mgbpc1xzcy76nsm0000gp/T/tmp.jW3k95c3HB/PhotoAlbum-Java with message: Upgrade Java from 8 to 17

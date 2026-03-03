@@ -1,0 +1,11 @@
+2026-03-03T01:56:00.256Z [INFO] [Task.commitChanges](5.1): Committing changes for /private/var/folders/53/mmzvzmx94mgbpc1xzcy76nsm0000gp/T/tmp.jW3k95c3HB/PhotoAlbum-Java with message: Upgrade Spring Boot to 3.3.13 and migrate javax.* to jakarta.*
+2026-03-03T01:56:00.313Z [INFO] [main 158c7d4] Upgrade Spring Boot to 3.3.13 and migrate javax.* to jakarta.*
+ 3 files changed, 7 insertions(+), 7 deletions(-)
+
+2026-03-03T01:56:00.340Z [INFO] 158c7d43c8998e71c11bea8ccce24575ad93289c
+
+2026-03-03T01:56:00.358Z [INFO] 1	1	pom.xml
+1	1	src/main/java/com/photoalbum/controller/HomeController.java
+5	5	src/main/java/com/photoalbum/model/Photo.java
+
+2026-03-03T01:56:00.359Z [INFO] [Task.commitChanges](5.1): Committed changes for /private/var/folders/53/mmzvzmx94mgbpc1xzcy76nsm0000gp/T/tmp.jW3k95c3HB/PhotoAlbum-Java with message: Upgrade Spring Boot to 3.3.13 and migrate javax.* to jakarta.*
