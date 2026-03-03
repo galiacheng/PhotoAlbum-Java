@@ -42,8 +42,8 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started",
-      "taskSummary": ""
+      "status": "success",
+      "taskSummary": "Migrated photo storage from Oracle Database BLOBs to Azure Blob Storage. Added BlobStorageConfig.java with DefaultAzureCredential (Managed Identity), AzureBlobStorageService.java for blob operations, updated PhotoServiceImpl.java to upload/download/delete blobs, removed BLOB column from Photo entity, updated PhotoRepository queries, added azure-storage-blob and azure-identity dependencies. Build and unit tests pass."
     }
   ],
   "metadata": {
