@@ -23,7 +23,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Successfully upgraded PhotoAlbum-Java to Java 21 LTS. Updated pom.xml: Spring Boot 2.7.18 → 3.2.5, java.version/compiler source & target 8 → 21. Migrated javax.persistence.* and javax.validation.* imports to jakarta.* in Photo.java. Updated Dockerfile base images from eclipse-temurin:8 to eclipse-temurin:21. Build succeeded and all unit tests passed.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": null
+      }
     }
   ],
   "metadata": {
