@@ -1,4 +1,4 @@
-name: Batch Modernization
+name: Modernization CLI
 
 # Prerequisites:
 # 1. Create a GitHub Personal Access Token (classic) with 'repo' and 'workflow' scopes
@@ -17,10 +17,19 @@ on:
         description: 'Upgrade target (e.g., Java 21, .NET 10)'
         required: false
         default: 'latest'
+      input_result_branch:
+          description: 'Branch for the result'
+          required: true
+          type: string
   push:
     branches:
       - main
- 
+
+permissions:
+    id-token: write
+    contents: write # This is required for actions/checkout
+    actions: read
+
 jobs:
   batch-modernization:
     runs-on: ubuntu-latest
@@ -49,26 +58,27 @@ jobs:
           chmod +x "$MODERNIZE_DIR/modernize"
           echo "$MODERNIZE_DIR" >> $GITHUB_PATH
  
-      - name: Run batch assessment
-        run: |
-          gh auth status
-          modernize assess --no-tty
-
-      - name: Revert uncommitted changes
-        run: |
-          git restore .
- 
-      - name: Run batch upgrade
+      - name: Run Modernize CLI to upgrade code
         run: |
           TARGET="${{ github.event.inputs.upgrade_target }}"
           if [ -z "$TARGET" ] || [ "$TARGET" = "latest" ]; then
-            modernize upgrade --no-tty --delegate cloud
+            modernize upgrade --no-tty
           else
-            modernize upgrade "$TARGET" --no-tty --delegate cloud
+            modernize upgrade "$TARGET" --no-tty
           fi
- 
-      - name: Upload assessment reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: assessment-reports
-          path: .github/modernize/assessment/
+
+      - name: Push changes to result branch
+        env:
+          TARGET_BRANCH: ${{ inputs.input_result_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Commit all uncommitted changes if there are any
+          if ! git diff --quiet || ! git diff --cached --quiet; then
+            git add -A
+            git reset .github/workflows
+            git commit -m "chore: apply Copilot CLI changes [skip ci]" || echo "No changes to commit"
+          fi
+          # Push to remote
+          git checkout -B "$TARGET_BRANCH"
+          git push origin "$TARGET_BRANCH"
