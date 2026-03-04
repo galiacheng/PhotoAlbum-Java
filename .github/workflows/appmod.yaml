@@ -1,4 +1,14 @@
 name: Batch Modernization
+
+# Prerequisites:
+# 1. Create a GitHub Personal Access Token (classic) with 'repo' and 'workflow' scopes
+#    - Go to: https://github.com/settings/tokens
+#    - Generate new token (classic)
+#    - Select scopes: repo, workflow
+# 2. Add the token as a repository secret named GHO_TOKEN
+#    - Go to: Repository Settings > Secrets and variables > Actions
+#    - Create new secret: GHO_TOKEN
+#    - Paste your token value
  
 on:
   workflow_dispatch:
@@ -20,6 +30,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Validate GH_TOKEN
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "Error: GHO_TOKEN secret is not set"
+            echo "Please add GHO_TOKEN to repository secrets"
+            exit 1
+          fi
+          echo "GH_TOKEN is configured"
  
       - name: Download modernize CLI
         run: |
