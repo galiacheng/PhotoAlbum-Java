@@ -22,7 +22,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Successfully upgraded Java from 8 to 21 LTS. Updated pom.xml compiler settings to Java 21, upgraded Spring Boot from 2.7.18 to 3.3.5 (necessary for Java 21 LTS support), migrated javax.persistence.* and javax.validation.constraints.* to jakarta.* namespace in Photo.java, and updated Dockerfile to use eclipse-temurin:21 images. Build passes and unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      }
     },
     {
       "type": "upgrade",
@@ -44,7 +53,7 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "pending"
+      "status": "started"
     },
     {
       "type": "upgrade",
