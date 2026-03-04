@@ -19,7 +19,8 @@ on:
         default: 'latest'
       input_result_branch:
           description: 'Branch for the result'
-          required: true
+          required: false
+          default: 'modernize-upgrade-result'
           type: string
   push:
     branches:
@@ -49,7 +50,7 @@ jobs:
           fi
           echo "GH_TOKEN is configured"
  
-      - name: Download modernize CLI
+      - name: Download Modernize CLI
         run: |
           MODERNIZE_DIR="$HOME/modernize-cli"
           mkdir -p "$MODERNIZE_DIR"
@@ -77,7 +78,7 @@ jobs:
           if ! git diff --quiet || ! git diff --cached --quiet; then
             git add -A
             git reset .github/workflows
-            git commit -m "chore: apply Copilot CLI changes [skip ci]" || echo "No changes to commit"
+            git commit -m "chore: apply Modernize CLI changes [skip ci]" || echo "No changes to commit"
           fi
           # Push to remote
           git checkout -B "$TARGET_BRANCH"
