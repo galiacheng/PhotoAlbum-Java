@@ -53,7 +53,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "false"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Successfully upgraded Spring Boot to version 3.4.7 (latest Spring Boot 3.4.x LTS). Updated pom.xml spring-boot-starter-parent from 3.3.5 to 3.4.7. Spring Framework transitively upgraded to 6.2.x via BOM. Jakarta namespace already fully migrated. Build passes and unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      }
     },
     {
       "type": "upgrade",
@@ -75,7 +84,16 @@
         "passIntegrationTests": "false",
         "securityComplianceCheck": "true"
       },
-      "status": "pending"
+      "status": "success",
+      "taskSummary": "Upgraded commons-io from 2.11.0 to 2.21.0 to resolve a security vulnerability (XmlStreamReader DoS, patched in 2.14.0). All other dependencies are managed by the Spring Boot 3.4.7 BOM and are at compatible, secure versions. Build passes and unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "true"
+      }
     }
   ],
   "metadata": {
