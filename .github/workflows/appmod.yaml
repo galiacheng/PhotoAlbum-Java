@@ -42,11 +42,12 @@ jobs:
  
       - name: Download modernize CLI
         run: |
+          MODERNIZE_DIR="$HOME/modernize-cli"
+          mkdir -p "$MODERNIZE_DIR"
           wget https://github.com/galiacheng/apmod-cli/releases/latest/download/modernize_linux_x64.tar.gz
-          mkdir -p $HOME/modernize-cli
-          tar -xzf modernize_linux_x64.tar.gz -C $HOME/modernize-cli
-          chmod +x $HOME/modernize-cli/modernize
-          echo "$HOME/modernize-cli" >> $GITHUB_PATH
+          tar -xzf modernize_linux_x64.tar.gz -C "$MODERNIZE_DIR" --remove-files
+          chmod +x "$MODERNIZE_DIR/modernize"
+          echo "$MODERNIZE_DIR" >> $GITHUB_PATH
  
       - name: Run batch assessment
         run: |
