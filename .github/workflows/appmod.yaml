@@ -21,6 +21,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
  
+      - name: Show Ubuntu version
+        run: |
+          lsb_release -a
+          uname -a
+ 
       - name: Download modernize CLI
         run: |
           wget https://github.com/galiacheng/apmod-cli/releases/latest/download/modernize_linux_x64.tar.gz
@@ -31,7 +36,6 @@ jobs:
       - name: Run batch assessment
         run: |
           gh auth status
-          copilot --version
           modernize assess --no-tty
  
       - name: Run batch upgrade
