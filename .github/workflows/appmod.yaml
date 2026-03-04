@@ -31,7 +31,7 @@ jobs:
           wget https://github.com/galiacheng/apmod-cli/releases/latest/download/modernize_linux_x64.tar.gz
           tar -xzf modernize_linux_x64.tar.gz
           chmod +x modernize
-          sudo mv modernize /usr/local/bin/
+          sudo install -m 755 modernize /usr/local/bin/modernize
  
       - name: Run batch assessment
         run: |
