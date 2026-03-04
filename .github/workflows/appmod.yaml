@@ -56,8 +56,7 @@ jobs:
 
       - name: Revert uncommitted changes
         run: |
-          git reset --hard
-          git clean -fd
+          git restore .
  
       - name: Run batch upgrade
         run: |
