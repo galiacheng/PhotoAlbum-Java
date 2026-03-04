@@ -6,7 +6,7 @@ Upgrade Java Development Kit (JDK) to version 21 (LTS)
 ## Changes Made
 
 ### 1. `pom.xml`
-- Upgraded Spring Boot parent from `2.7.18` → `3.3.5` (required for Java 21 LTS support)
+- Upgraded Spring Boot parent from `2.7.18` → `3.4.7` (required for Java 21 LTS support)
 - Updated `java.version` from `1.8` → `21`
 - Updated `maven.compiler.source` from `8` → `21`
 - Updated `maven.compiler.target` from `8` → `21`
