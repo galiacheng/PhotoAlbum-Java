@@ -1,13 +1,12 @@
 name: Modernization CLI
 
 # Prerequisites:
-# 1. Create a GitHub Personal Access Token (classic) with required scopes:
-#    - Go to: https://github.com/settings/tokens
-#    - Generate new token (classic)
-#    - Select scopes: repo (full), workflow
-# 2. Add the token as a repository secret named GHO_TOKEN
+# 1. Create a GitHub Personal Access Token with required scopes:
+#    - Go to: https://github.com/settings/personal-access-tokens
+#    - Generate new token
+# 2. Add the token as a repository secret named GH_TOKEN
 #    - Go to: Repository Settings > Secrets and variables > Actions
-#    - Create new secret: GHO_TOKEN
+#    - Create new secret: GH_TOKEN
 #    - Paste your token value
  
 on:
@@ -33,7 +32,7 @@ jobs:
   modernization:
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.GHO_TOKEN }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     
     steps:
       - name: Checkout code
@@ -43,7 +42,7 @@ jobs:
         run: |
           MODERNIZE_DIR="$HOME/modernize-cli"
           mkdir -p "$MODERNIZE_DIR"
-          wget https://github.com/galiacheng/apmod-cli/releases/latest/download/modernize_linux_x64.tar.gz
+          wget https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz
           tar -xzf modernize_linux_x64.tar.gz -C "$MODERNIZE_DIR" --remove-files
           chmod +x "$MODERNIZE_DIR/modernize"
           echo "$MODERNIZE_DIR" >> $GITHUB_PATH
