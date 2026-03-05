@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Upgrade plan to migrate Java project to latest LTS versions",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-java-to-21",
+      "description": "Upgrade Java to version 21 (LTS)",
+      "requirements": "Upgrade JDK to version 21 (latest LTS). Update build configuration (Maven/Gradle) to target Java 21. Ensure compatibility with Java 21 language features and APIs.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": "success",
+      "summary": "Upgraded Java from 8 to 21. Updated pom.xml compiler settings, modernized code to use Java 21 idioms (isEmpty, formatted, getFirst). Build passes, unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "passed",
+        "generateNewUnitTests": "skipped",
+        "generateNewIntegrationTests": "skipped",
+        "passUnitTests": "passed",
+        "passIntegrationTests": "skipped",
+        "securityComplianceCheck": "skipped"
+      }
+    },
+    {
+      "type": "upgrade",
+      "id": "002-upgrade-spring-boot-to-3.4",
+      "description": "Upgrade Spring Boot to version 3.4 (latest)",
+      "requirements": "Upgrade Spring Boot to version 3.4 and Spring Framework to 6.x. Migrate from javax.* to jakarta.* namespace if needed. Update dependencies to Spring Boot 3.4 compatible versions. Handle breaking changes in Spring Boot 3.x migration.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": "success",
+      "summary": "Upgraded Spring Boot from 2.7.18 to 3.4.5. Migrated javax.* to jakarta.* namespace in model/Photo.java. Updated HomeController RequestParam. Build passes, unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "passed",
+        "generateNewUnitTests": "skipped",
+        "generateNewIntegrationTests": "skipped",
+        "passUnitTests": "passed",
+        "passIntegrationTests": "skipped",
+        "securityComplianceCheck": "skipped"
+      }
+    },
+    {
+      "type": "upgrade",
+      "id": "003-update-dependencies",
+      "description": "Update project dependencies to latest compatible versions",
+      "requirements": "Update all project dependencies to their latest versions compatible with Java 21 and Spring Boot 3.4. Address any deprecated APIs or breaking changes in updated dependencies. Ensure no known security vulnerabilities in dependencies.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "true"
+      },
+      "status": "success",
+      "summary": "Updated commons-io from 2.11.0 to 2.18.0 to fix CVE-2024-47554 (HIGH severity). All other dependencies managed by Spring Boot 3.4.5 BOM. Build passes, unit tests pass, no CVEs remain.",
+      "successCriteriaStatus": {
+        "passBuild": "passed",
+        "generateNewUnitTests": "skipped",
+        "generateNewIntegrationTests": "skipped",
+        "passUnitTests": "passed",
+        "passIntegrationTests": "skipped",
+        "securityComplianceCheck": "passed"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-to-lts",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-05T02:40:16.496Z",
+    "version": "1.0"
+  }
+}
