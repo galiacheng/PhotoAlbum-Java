@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Upgrade plan to migrate Java project to latest LTS versions",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-java-version",
+      "description": "Upgrade Java to version 21 (LTS)",
+      "requirements": "Upgrade JDK to version 21, update build configuration (pom.xml or build.gradle), ensure compatibility with Java 21 language features and APIs",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": "success",
+      "summary": "Upgraded Java from 8 to 21. Updated pom.xml compiler settings, applied OpenRewrite UpgradeToJava21 recipe. Build and unit tests pass.",
+      "successCriteriaStatus": {"passBuild": "pass", "passUnitTests": "pass"}
+    },
+    {
+      "type": "upgrade",
+      "id": "002-upgrade-spring-boot",
+      "description": "Upgrade Spring Boot to version 3.4 (latest stable)",
+      "requirements": "Upgrade Spring Boot to version 3.4.x, Spring Framework to 6.x, migrate javax.* packages to jakarta.* namespaces, update deprecated APIs and configuration properties",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": "success",
+      "summary": "Upgraded Spring Boot from 2.7.18 to 3.4.5, Spring Framework 6.x, migrated javax.* to jakarta.*, fixed CVE-2024-47554 in commons-io. Build and unit tests pass.",
+      "successCriteriaStatus": {"passBuild": "pass", "passUnitTests": "pass"}
+    },
+    {
+      "type": "upgrade",
+      "id": "003-upgrade-dependencies",
+      "description": "Upgrade project dependencies to latest compatible versions",
+      "requirements": "Update all project dependencies to versions compatible with Java 21 and Spring Boot 3.4, resolve any version conflicts, update deprecated dependencies",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "true"
+      },
+      "status": "success",
+      "summary": "Upgraded Spring Boot to 3.5.3 to fix CVEs in spring-core, spring-web, tomcat-embed-core, and logback-core. No remaining CVEs. Build and unit tests pass.",
+      "successCriteriaStatus": {"passBuild": "pass", "passUnitTests": "pass", "securityComplianceCheck": "pass"}
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-to-lts",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-08T04:13:29.078Z",
+    "version": "1.0"
+  }
+}
