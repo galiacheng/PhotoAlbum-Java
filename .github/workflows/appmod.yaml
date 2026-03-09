@@ -1,31 +1,19 @@
 name: Modernization CLI
 
-# Prerequisites:
-# 1. Create a GitHub Personal Access Token with required scopes:
-#    - Go to: https://github.com/settings/personal-access-tokens
-#    - Generate new token
-# 2. Add the token as a repository secret named GH_TOKEN
-#    - Go to: Repository Settings > Secrets and variables > Actions
-#    - Create new secret: GH_TOKEN
-#    - Paste your token value
- 
 on:
   workflow_dispatch:
     inputs:
       upgrade_target:
-        description: 'Upgrade target (e.g., Java 21, .NET 10)'
+        description: 'Upgrade target (e.g., Java 21)'
         required: false
         default: 'latest'
   schedule:
     # Run during off-peak hours: 2 AM UTC daily
     - cron: '0 2 * * *'
-  push:
-    branches:
-      - main
 
 permissions:
     id-token: write
-    contents: write # This is required for actions/checkout
+    contents: write
     actions: read
 
 jobs:
@@ -33,20 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
- 
+
       - name: Download Modernize CLI
         run: |
-          MODERNIZE_DIR="$HOME/modernize-cli"
-          mkdir -p "$MODERNIZE_DIR"
-          wget https://github.com/galiacheng/apmod-cli/releases/latest/download/modernize_linux_x64.tar.gz
-          tar -xzf modernize_linux_x64.tar.gz -C "$MODERNIZE_DIR" --remove-files
-          chmod +x "$MODERNIZE_DIR/modernize"
-          echo "$MODERNIZE_DIR" >> $GITHUB_PATH
- 
+          mkdir -p "$HOME/modernize-cli"
+          curl -sL https://github.com/microsoft/modernize-cli/releases/latest/download/modernize_linux_x64.tar.gz | tar -xz -C "$HOME/modernize-cli"
+          chmod +x "$HOME/modernize-cli/modernize"
+          echo "$HOME/modernize-cli" >> $GITHUB_PATH
+
       - name: Run Modernize CLI to upgrade code
         run: |
           TARGET="${{ github.event.inputs.upgrade_target }}"
@@ -59,40 +45,33 @@ jobs:
       - name: Push changes to result branch
         id: push_changes
         run: |
-          TARGET="${{ github.event.inputs.upgrade_target || 'latest' }}"
-          TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          BRANCH_NAME="modernize-upgrade-${TARGET}-${TIMESTAMP}"
-          
+          BRANCH_NAME="modernize-upgrade-${{ github.event.inputs.upgrade_target || 'latest' }}-$(date +%Y%m%d-%H%M%S)"
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Commit all uncommitted changes if there are any
-          if ! git diff --quiet || ! git diff --cached --quiet; then
-            git add -A
-            git reset .github/workflows
-            git commit -m "chore: apply Modernize CLI changes [skip ci]" || echo "No changes to commit"
-          fi
-          
-          # Push to remote
+
+          git add -A
+          git reset .github/workflows
+          git diff --cached --quiet || git commit -m "chore: apply Modernize CLI changes [skip ci]"
           git checkout -B "$BRANCH_NAME"
           git push origin "$BRANCH_NAME"
-          
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_OUTPUT
-          echo "Pushed to branch: $BRANCH_NAME"
 
-      - name: Display Results Summary
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_OUTPUT
+
+      - name: Display results summary
         if: success()
         run: |
-          echo "## 🎉 Modernization Complete" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Branch Information" >> $GITHUB_STEP_SUMMARY
-          echo "- **Result Branch**: \`${{ steps.push_changes.outputs.BRANCH_NAME }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "- **Target**: ${{ github.event.inputs.upgrade_target || 'latest' }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "### Links" >> $GITHUB_STEP_SUMMARY
-          echo "- [View Branch](https://github.com/${{ github.repository }}/tree/${{ steps.push_changes.outputs.BRANCH_NAME }})" >> $GITHUB_STEP_SUMMARY
-          echo "- [Create PR Manually](https://github.com/${{ github.repository }}/compare/main...${{ steps.push_changes.outputs.BRANCH_NAME }})" >> $GITHUB_STEP_SUMMARY
-          echo "- [View Logs Artifact](#artifacts)" >> $GITHUB_STEP_SUMMARY
+          cat >> $GITHUB_STEP_SUMMARY <<EOF
+          ## Modernization Complete
+
+          ### Branch Information
+          - **Result Branch**: \`${{ steps.push_changes.outputs.BRANCH_NAME }}\`
+          - **Target**: ${{ github.event.inputs.upgrade_target || 'latest' }}
+
+          ### Links
+          - [View Branch](https://github.com/${{ github.repository }}/tree/${{ steps.push_changes.outputs.BRANCH_NAME }})
+          - [Create PR](https://github.com/${{ github.repository }}/compare/main...${{ steps.push_changes.outputs.BRANCH_NAME }})
+          EOF
 
       - name: Upload Modernize CLI logs
         if: always()
