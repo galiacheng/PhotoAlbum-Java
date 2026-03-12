@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Upgrade plan to migrate project to latest LTS versions",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-java-spring-boot",
+      "description": "Upgrade to Java 21 and Spring Boot 3.4",
+      "requirements": "Upgrade JDK to 21, Spring Boot to 3.4, Spring Framework to 6.x, and migrate javax.* to jakarta.* namespaces where needed. Update all related Spring dependencies to compatible versions.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false",
+        "securityComplianceCheck": "false"
+      },
+      "status": "success",
+      "summary": "Upgraded Java from 8 to 21 and Spring Boot from 2.7.18 to 3.4.5. Migrated javax.* to jakarta.* namespaces (javax.persistence.*, javax.validation.*). Updated Dockerfile to eclipse-temurin:21. Applied Java 21 idioms (String.formatted(), Optional.isEmpty(), List.getFirst()). Build passed and unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "passed",
+        "generateNewUnitTests": "skipped",
+        "generateNewIntegrationTests": "skipped",
+        "passUnitTests": "passed",
+        "passIntegrationTests": "skipped",
+        "securityComplianceCheck": "skipped"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-to-lts",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-12T01:44:52.728Z",
+    "version": "1.0"
+  }
+}
