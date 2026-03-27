@@ -25,6 +25,8 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Override Spring Boot BOM version to fix CVE-2022-45868 (vulnerable range: >= 1.4.198, < 2.2.220) -->
+        <h2.version>2.2.220</h2.version>
     </properties>
 
     <dependencies>
