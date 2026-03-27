@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-java21",
+      "description": "Upgrade Spring Boot from 2.7.18 to 3.x and Java from 8 to 21",
+      "reason": "The project runs on Java 8 and Spring Boot 2.7.18, both of which are end-of-life. Java 17 is the minimum required for Spring Boot 3.x and for Azure SDK compatibility. Upgrading to Java 21 and Spring Boot 3.x ensures long-term support, access to modern Azure libraries, and compatibility with the Jakarta EE namespace migration.",
+      "requirements": "Upgrade Spring Boot parent from 2.7.18 to the latest 3.x release. Upgrade Java source/target from 8 to 21. Migrate javax.* imports to jakarta.* where needed. Update any deprecated APIs. Ensure all existing unit tests pass after upgrade.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "create-java-upgrade-plan",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false"
+      },
+      "status": "success",
+      "taskSummary": "Upgraded Spring Boot from 2.7.18 to 3.5.3 and Java from 8 to 21. Migrated javax.* imports to jakarta.*. Updated deprecated APIs. Build passes and all unit tests pass."
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-to-postgresql",
+      "description": "Migrate database layer from Oracle Database to PostgreSQL",
+      "reason": "The application uses Oracle Database with Oracle-specific SQL syntax (ROWNUM pagination, TO_CHAR date formatting, NVL functions, Oracle dialect) and Oracle JDBC driver. Oracle is not available as a managed Azure service in the same way PostgreSQL is. PostgreSQL is the recommended open-source relational database on Azure and has excellent Spring Boot support.",
+      "requirements": "Replace Oracle JDBC driver (ojdbc11) with PostgreSQL JDBC driver. Change Hibernate dialect from OracleDialect to PostgreSQLDialect. Rewrite all Oracle-specific native SQL queries to PostgreSQL-compatible SQL: replace ROWNUM pagination with LIMIT/OFFSET or ROW_NUMBER() OVER, replace TO_CHAR(date, 'YYYY'/'MM') with EXTRACT, replace NVL() with COALESCE(). Change Photo entity @Lob annotation to use PostgreSQL bytea column type. Replace Oracle TIMESTAMP DEFAULT SYSTIMESTAMP with CURRENT_TIMESTAMP. Update docker-compose.yml to use postgres image instead of oracle-free. Update application.properties to use PostgreSQL JDBC URL and driver.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false"
+      },
+      "status": "success",
+      "taskSummary": "Replaced Oracle JDBC driver with PostgreSQL driver. Updated Hibernate dialect. Rewrote all Oracle-specific SQL queries to PostgreSQL-compatible SQL. Updated Photo entity, docker-compose.yml, and application.properties. Build passes and all unit tests pass."
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-azure-postgresql-managed-identity",
+      "description": "Configure connection to Azure Database for PostgreSQL with Managed Identity",
+      "reason": "The application currently uses hardcoded username/password credentials for database access. For Azure, Managed Identity provides secure, credential-free authentication to Azure Database for PostgreSQL, eliminating the need for stored passwords and reducing security risk.",
+      "requirements": "Add azure-identity-extensions dependency for passwordless PostgreSQL authentication. Update application.properties to configure the PostgreSQL JDBC URL with Azure Managed Identity authentication plugin. Remove hardcoded database credentials from configuration files. Set connection properties to use DefaultAzureCredential / Managed Identity. Ensure docker-compose.yml retains username/password environment variables for local development.",
+      "environmentConfiguration": "PGHOST: Azure Database for PostgreSQL server hostname; PGPORT: PostgreSQL port (default 5432); PGDATABASE: database name",
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false"
+      },
+      "status": "success",
+      "taskSummary": "Added azure-identity-extensions dependency. Updated application.properties with Azure Managed Identity authentication plugin using PGHOST, PGPORT, PGDATABASE, AZURE_CLIENT_ID env vars. Local dev docker-compose.yml and application-docker.properties retain password-based auth unchanged."
+    },
+    {
+      "type": "containerization",
+      "id": "004-containerization-update-dockerfile",
+      "description": "Update Dockerfile to use Java 21 runtime",
+      "reason": "The existing Dockerfile uses Java 8 (eclipse-temurin:8-jre) for both build and runtime stages. After upgrading the application to Java 21, the Dockerfile must be updated to use Java 21 images to build and run the application correctly.",
+      "requirements": "Update the build stage base image from maven:3.9.6-eclipse-temurin-8 to maven:3.9.x-eclipse-temurin-21. Update the runtime stage base image from eclipse-temurin:8-jre to eclipse-temurin:21-jre. Verify the multi-stage build still produces a working jar. Keep the existing EXPOSE 8080 and JAVA_OPTS environment variable.",
+      "environmentConfiguration": null,
+      "dockerfilePath": "./Dockerfile",
+      "status": "success",
+      "taskSummary": "Updated build stage to maven:3.9-eclipse-temurin-21 and runtime stage to eclipse-temurin:21-jre. EXPOSE 8080 and JAVA_OPTS retained unchanged."
+    },
+    {
+      "type": "deployment",
+      "id": "005-deployment-azure-container-apps",
+      "description": "Deploy PhotoAlbum application to Azure Container Apps",
+      "reason": "The application needs to run on a managed Azure hosting platform to complete the Azure migration. Azure Container Apps provides a fully managed serverless container platform that natively supports Managed Identity, automatic scaling, and integration with Azure Container Registry, making it ideal for this containerized Spring Boot web application.",
+      "requirements": "Generate Bicep IaC files to provision: Azure Container Apps environment, Azure Container Registry, Azure Database for PostgreSQL Flexible Server, and User-Assigned Managed Identity with appropriate role assignments (PostgreSQL login). Configure the Container App with external HTTP ingress on port 8080 and environment variables for database connectivity (PGHOST, PGPORT, PGDATABASE, MANAGED_IDENTITY_CLIENT_ID). Deploy the containerized application image to the provisioned Azure Container Apps environment.",
+      "environmentConfiguration": null,
+      "targetAzureService": "Azure Container Apps",
+      "resourceStatus": "create new service",
+      "deploymentTool": "bicep"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-migrate-to-azure",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-26T08:04:34.961Z",
+    "version": "1.0"
+  }
+}

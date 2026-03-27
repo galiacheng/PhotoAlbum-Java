@@ -1,0 +1,252 @@
+2026-03-26T08:41:13.039Z [INFO] ----------------------invoke build_java_project----------------------
+2026-03-26T08:41:13.040Z [INFO] [Tool.invoke]({name: build_java_project, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java",
+  "codeChangesMessage": "Migrate Oracle to PostgreSQL: replace ojdbc driver, update JDBC URL/dialect, fix native SQL queries, change @Lob to bytea",
+  "codeChangesDetails": "- Replace Oracle JDBC driver (ojdbc8) with PostgreSQL driver in pom.xml\n- Update application.properties: PostgreSQL JDBC URL, driver class, and dialect\n- Update application-docker.properties: same PostgreSQL configuration for Docker\n- Update application-test.properties: H2 in PostgreSQL compatibility mode\n- Photo.java: Remove @Lob from photo_data byte[] field, add @Column(columnDefinition = \"bytea\"); change fileSize columnDefinition from NUMBER(19,0) to BIGINT; change uploadedAt columnDefinition from TIMESTAMP DEFAULT SYSTIMESTAMP to TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n- PhotoRepository.java: Rewrite all 5 native SQL queries - lowercase identifiers, replace ROWNUM with LIMIT/ROW_NUMBER(), replace NVL with COALESCE, replace TO_CHAR with EXTRACT\n- PhotoServiceImpl.java: Update Oracle-specific log messages/comments to PostgreSQL\n- docker-compose.yml: Replace oracle-free image with postgres:17, update env vars, volumes, healthcheck\n- Create postgres-init/01-init.sql as PostgreSQL replacement for oracle-init scripts"
+}}).
+2026-03-26T08:41:13.041Z [INFO] [Task.start](): Starting task toolCall
+2026-03-26T08:41:13.041Z [INFO] [Task.start](): Started task toolCall
+2026-03-26T08:41:13.042Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-03-26T08:41:13.042Z [INFO] [Tool.invoke] do pre-invoke.
+2026-03-26T08:41:13.043Z [INFO] Project C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java is a maven project, try to get java version from pom.xml
+2026-03-26T08:41:13.045Z [INFO] Project java version: 21
+2026-03-26T08:41:13.046Z [INFO] Maven project detected.
+2026-03-26T08:41:13.046Z [INFO] Build tool type: mvn
+2026-03-26T08:41:13.359Z [INFO] [Environment] Running command (Java 21): java -version
+openjdk version "21.0.8" 2025-07-15 LTS
+OpenJDK Runtime Environment Microsoft-11933218 (build 21.0.8+9-LTS)
+OpenJDK 64-Bit Server VM Microsoft-11933218 (build 21.0.8+9-LTS, mixed mode, sharing)
+2026-03-26T08:41:13.504Z [INFO] [JdkEnvironment] Got real Java version: 21.0.8
+2026-03-26T08:41:13.505Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Microsoft\\jdk-21.0.8.9-hotspot\\bin",
+  "version": "21"
+}
+2026-03-26T08:41:13.688Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-21.0.8.9-hotspot
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-03-26T08:41:14.395Z [INFO] Real build tool version: 3.9.11
+2026-03-26T08:41:14.395Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Users\\haiche\\.maven\\apache-maven-3.9.11\\bin",
+  "version": "3.9.11"
+}
+2026-03-26T08:41:14.396Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Users\\haiche\\.maven\\apache-maven-3.9.11\\bin",
+    "name": "mvn",
+    "version": "3.9.11"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Microsoft\\jdk-21.0.8.9-hotspot\\bin",
+    "name": "java",
+    "version": "21"
+  },
+  "name": "PhotoAlbum-Java",
+  "dir": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}
+2026-03-26T08:41:14.403Z [INFO] [Tool.invoke] do invoke.
+2026-03-26T08:41:14.404Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-03-26T08:41:14.405Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-21.0.8.9-hotspot
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-03-26T08:41:15.125Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-03-26T08:41:15.126Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-03-26T08:41:15.127Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-03-26T08:41:15.127Z [INFO] [MavenBuildTool] Getting all module coordinates of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-03-26T08:41:15.128Z [INFO] [MavenBuildTool] Getting effective POMs of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-03-26T08:41:15.129Z [INFO] [Environment] Running command (Java 21): mvn help:effective-pom -Doutput=effective-pom-fa30f41c-8dd8-488a-9b4a-cd8b46d1bbf7.log
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< com.photoalbum:photo-album >---------------------
+[INFO] Building Photo Album 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- help:3.5.1:effective-pom (default-cli) @ photo-album ---
+[INFO] Effective-POM written to: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\effective-pom-fa30f41c-8dd8-488a-9b4a-cd8b46d1bbf7.log
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.388 s
+[INFO] Finished at: 2026-03-26T16:41:20+08:00
+[INFO] ------------------------------------------------------------------------
+2026-03-26T08:41:20.819Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-03-26T08:41:20.821Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 21
+2026-03-26T08:41:20.821Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '21' || '21'
+2026-03-26T08:41:20.822Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-03-26T08:41:20.822Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '21' || '21'
+2026-03-26T08:41:20.823Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-03-26T08:41:20.823Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-03-26T08:41:20.824Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T08:41:20.824Z [INFO] [Environment] Running command (Java 21): mvn clean test-compile -q -B -fn
+2026-03-26T08:41:29.510Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-26T08:41:29.511Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-26T08:41:29.525Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-26T08:41:29.525Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T08:41:29.526Z [INFO] [Environment] Running command (Java 21): mvn clean -q -B -fn
+2026-03-26T08:41:32.945Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-03-26T08:41:32.945Z [INFO] Build succeeded! There are no build errors in the project.
+2026-03-26T08:41:32.946Z [INFO] [Tool.invoke]({result: {
+  "message": "Build succeeded! There are no build errors in the project.",
+  "result": {
+    "numOfJavaFiles": 11,
+    "numOfClassFiles": 11,
+    "modulesBuildResult": {
+      ".": {
+        "numOfJavaFiles": 11,
+        "numOfClassFiles": 11
+      }
+    },
+    "errors": [],
+    "command": "mvn clean test-compile -q -B -fn"
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2026-03-26T08:41:32.947Z [INFO] [Task.complete](): Completing task toolCall
+2026-03-26T08:41:32.947Z [INFO] [Task.complete](): Completed task toolCall
+2026-03-26T08:41:32.948Z [INFO] [Tool.invoke]({message: Build succeeded! There are no build errors in the project.}).
+2026-03-26T08:41:32.948Z [INFO] ----------------------invoked build_java_project----------------------
+2026-03-26T08:41:40.263Z [INFO] ----------------------invoke run_tests_for_java----------------------
+2026-03-26T08:41:40.263Z [INFO] [Tool.invoke]({name: run_tests_for_java, input: {
+  "projectPath": "C:\\Users\\haiche\\Documents\\AppMod\\PhotoAlbum-Java"
+}}).
+2026-03-26T08:41:40.264Z [INFO] [Task.start](): Starting task toolCall
+2026-03-26T08:41:40.265Z [INFO] [Task.start](): Started task toolCall
+2026-03-26T08:41:40.265Z [INFO] [Tool.invoke] validate GitHub Copilot license.
+2026-03-26T08:41:40.266Z [INFO] [Tool.invoke] do pre-invoke.
+2026-03-26T08:41:40.266Z [INFO] [Tool.invoke] do invoke.
+2026-03-26T08:41:40.267Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-03-26T08:41:40.267Z [INFO] [Environment] Running command (Java 21): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\apache-maven-3.9.11
+Java version: 21.0.8, vendor: Microsoft, runtime: C:\Program Files\Microsoft\jdk-21.0.8.9-hotspot
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-03-26T08:41:40.904Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-03-26T08:41:40.905Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-03-26T08:41:40.905Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-03-26T08:41:40.906Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-03-26T08:41:40.907Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 21
+2026-03-26T08:41:40.907Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '21' || '21'
+2026-03-26T08:41:40.908Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed.
+2026-03-26T08:41:40.908Z [INFO] [Project PhotoAlbum-Java]: Java version of project PhotoAlbum-Java is changed to '21' || '21'
+2026-03-26T08:41:40.909Z [INFO] [Project PhotoAlbum-Java]: build tool config of project PhotoAlbum-Java is modified.
+2026-03-26T08:41:40.909Z [INFO] [Project PhotoAlbum-Java]: dependencies of project PhotoAlbum-Java may be changed, resetting promise.
+2026-03-26T08:41:40.910Z [INFO] Building project before running tests...
+2026-03-26T08:41:40.910Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T08:41:40.911Z [INFO] [Environment] Running command (Java 21): mvn clean test-compile -q -B -fn
+2026-03-26T08:41:49.584Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-26T08:41:49.585Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-26T08:41:49.602Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-26T08:41:49.602Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T08:41:49.603Z [INFO] [Environment] Running command (Java 21): mvn clean -q -B -fn
+2026-03-26T08:41:53.166Z [INFO] [Project PhotoAlbum-Java]: Compilation errors of project PhotoAlbum-Java is updated: 0 -> 0
+2026-03-26T08:41:53.167Z [INFO] Running tests...
+2026-03-26T08:41:53.167Z [INFO] [MavenBuildTool] Running test cases of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T08:41:53.168Z [INFO] [Environment] Running command (Java 21): mvn clean test -q -B -fn
+16:42:03.435 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.photoalbum.PhotoAlbumApplicationTests]: PhotoAlbumApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:42:03.597 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.photoalbum.PhotoAlbumApplication for test class com.photoalbum.PhotoAlbumApplicationTests
+16:42:03.889 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2026-03-26T16:42:04.415+08:00  INFO 47852 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Starting PhotoAlbumApplicationTests using Java 21.0.8 with PID 47852 (started by haiche in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java)
+2026-03-26T16:42:04.417+08:00 DEBUG 47852 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-03-26T16:42:04.417+08:00  INFO 47852 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : The following 1 profile is active: "test"
+2026-03-26T16:42:04.455+08:00 DEBUG 47852 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@bf71cec
+2026-03-26T16:42:06.103+08:00  INFO 47852 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-26T16:42:06.190+08:00  INFO 47852 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 1 JPA repository interface.
+2026-03-26T16:42:07.243+08:00  INFO 47852 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-26T16:42:07.472+08:00  INFO 47852 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.18.Final
+2026-03-26T16:42:07.564+08:00  INFO 47852 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-03-26T16:42:08.202+08:00  INFO 47852 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-26T16:42:08.250+08:00  INFO 47852 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-26T16:42:08.460+08:00  INFO 47852 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-03-26T16:42:08.462+08:00  INFO 47852 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-26T16:42:08.489+08:00  WARN 47852 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-03-26T16:42:08.519+08:00  INFO 47852 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-26T16:42:09.480+08:00  INFO 47852 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-26T16:42:09.522+08:00  INFO 47852 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-26T16:42:10.371+08:00  INFO 47852 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-26T16:42:10.935+08:00  WARN 47852 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-26T16:42:11.000+08:00  INFO 47852 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2026-03-26T16:42:11.143+08:00 DEBUG 47852 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 7 mappings in 'requestMappingHandlerMapping'
+2026-03-26T16:42:11.560+08:00 DEBUG 47852 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-03-26T16:42:11.695+08:00 DEBUG 47852 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-03-26T16:42:12.020+08:00 DEBUG 47852 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-03-26T16:42:12.385+08:00  INFO 47852 --- [           main] c.photoalbum.PhotoAlbumApplicationTests  : Started PhotoAlbumApplicationTests in 8.509 seconds (process running for 10.008)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\haiche\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.6\byte-buddy-agent-1.17.6.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-03-26T08:42:13.291Z [INFO] [MavenBuildTool] loading surefire reports.
+2026-03-26T08:42:13.317Z [INFO] [MavenBuildTool] summarizing surefire reports.
+2026-03-26T08:42:13.317Z [INFO] [Project PhotoAlbum-Java]: Test result of project PhotoAlbum-Java is updated: 0 -> 0
+2026-03-26T08:42:13.318Z [INFO] [Tool.invoke]({result: {
+  "message": "All tests passed! There are no test errors/failures in the project.",
+  "result": {
+    "errors": [],
+    "failures": [],
+    "summary": {
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "reports": [
+      {
+        "name": "com.photoalbum.PhotoAlbumApplicationTests",
+        "time": 9.808,
+        "tests": 1,
+        "errors": 0,
+        "skipped": 0,
+        "failures": 0,
+        "testcases": [
+          {
+            "name": "contextLoads",
+            "classname": "com.photoalbum.PhotoAlbumApplicationTests",
+            "time": 0.578,
+            "failures": [],
+            "rerunFailures": [],
+            "flakyFailures": [],
+            "errors": [],
+            "rerunErrors": [],
+            "flakyErrors": []
+          }
+        ]
+      }
+    ]
+  },
+  "telemetry": {
+    "result": "succeeded"
+  }
+}}).
+2026-03-26T08:42:13.318Z [INFO] [Task.complete](): Completing task toolCall
+2026-03-26T08:42:13.319Z [INFO] [Task.complete](): Completed task toolCall
+2026-03-26T08:42:13.319Z [INFO] [Tool.invoke]({message: All tests passed! There are no test errors/failures in the project.}).
+2026-03-26T08:42:13.320Z [INFO] ----------------------invoked run_tests_for_java----------------------

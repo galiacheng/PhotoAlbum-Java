@@ -1,0 +1,4 @@
+{
+  "log_level": "info",
+   "inactivity_timeout_seconds": 20
+}

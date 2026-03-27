@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-photo-storage-to-azure-blob-storage",
+      "description": "Migrate photo binary storage from PostgreSQL bytea to Azure Blob Storage with Managed Identity",
+      "reason": "Photos are currently stored as byte arrays (bytea) directly in the PostgreSQL database, which is inefficient for large volumes of image data and increases database size, backup time, and cost. Azure Blob Storage is the purpose-built Azure service for storing unstructured binary data such as images, offering better performance, lower cost, and independent scalability for the storage tier.",
+      "requirements": "Add Azure Blob Storage SDK dependency (azure-storage-blob). Add Azure Identity dependency for Managed Identity support if not already present. Refactor PhotoServiceImpl to upload photo bytes to Azure Blob Storage using BlobServiceClient with DefaultAzureCredential (Managed Identity). Update the Photo entity to remove the photoData byte[] field and replace it with a blobUrl or storedFileName field pointing to the blob. Refactor PhotoFileController to serve photos by streaming from Azure Blob Storage using a SAS token or direct download via BlobClient. Update application.properties to include Azure Storage account endpoint configuration via environment variables (AZURE_STORAGE_ACCOUNT_URL). Remove photo_data bytea column from the Photo entity/schema. Ensure existing photo upload validation (MIME type, file size) is preserved. Use Managed Identity (DefaultAzureCredential) for all Azure Blob Storage authentication — no connection strings or access keys.",
+      "environmentConfiguration": "AZURE_STORAGE_ACCOUNT_URL: Azure Blob Storage account endpoint (e.g., https://<account>.blob.core.windows.net); AZURE_STORAGE_CONTAINER_NAME: container name for photo blobs (default: photos)",
+      "status": null,
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false"
+      }
+    },
+    {
+      "type": "deployment",
+      "id": "002-deploy-azure-container-apps",
+      "description": "Deploy PhotoAlbum application to Azure Container Apps",
+      "reason": "The application needs to run on a managed Azure hosting platform to complete the Azure migration. Azure Container Apps provides a fully managed serverless container platform that natively supports Managed Identity, automatic scaling, and integration with Azure Container Registry, making it ideal for this containerized Spring Boot web application.",
+      "requirements": "Generate Bicep IaC files to provision the following Azure resources: Azure Container Apps environment, Azure Container Registry for storing the application image, Azure Database for PostgreSQL Flexible Server (if not already provisioned), Azure Storage Account with a blob container for photo storage, and User-Assigned Managed Identity with appropriate role assignments (PostgreSQL login, Storage Blob Data Contributor). Configure the Container App with external HTTP ingress on port 8080, environment variables for database connectivity (PGHOST, PGPORT, PGDATABASE, MANAGED_IDENTITY_NAME, MANAGED_IDENTITY_CLIENT_ID) and blob storage (AZURE_STORAGE_ACCOUNT_URL, AZURE_STORAGE_CONTAINER_NAME). Deploy the containerized application image to the provisioned Azure Container Apps environment.",
+      "environmentConfiguration": null,
+      "status": null,
+      "targetAzureService": "Azure Container Apps",
+      "resourceStatus": "create new service",
+      "deploymentTool": "bicep"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-azure11",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-03-26T07:42:10.380Z",
+    "version": "1.0"
+  }
+}

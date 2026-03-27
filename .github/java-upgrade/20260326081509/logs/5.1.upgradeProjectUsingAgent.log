@@ -1,0 +1,14 @@
+2026-03-26T08:20:28.980Z [INFO] [Task.commitChanges](5.1): Committing changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Upgrade Spring Boot to 3.3.13 and Java to 21 via OpenRewrite
+2026-03-26T08:20:29.255Z [INFO] [appmod/java-upgrade-20260326081509 ced9112] Upgrade Spring Boot to 3.3.13 and Java to 21 via OpenRewrite
+ 6 files changed, 16 insertions(+), 16 deletions(-)
+
+2026-03-26T08:20:29.340Z [INFO] ced911243c35c8b7a691fa1f21b205b3a277a5b0
+
+2026-03-26T08:20:29.435Z [INFO] 4	4	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/HomeController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+5	5	src/main/java/com/photoalbum/model/Photo.java
+4	4	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-03-26T08:20:29.457Z [INFO] [Task.commitChanges](5.1): Committed changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Upgrade Spring Boot to 3.3.13 and Java to 21 via OpenRewrite

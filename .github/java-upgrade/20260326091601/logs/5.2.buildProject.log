@@ -1,0 +1,22 @@
+2026-03-26T09:22:32.258Z [INFO] [BaseBuildTool] Firing config modified event for mvn, sleeping for 5 seconds
+2026-03-26T09:22:32.259Z [INFO] [Environment] Running command (Java 8): mvn --version
+Apache Maven 3.9.11 (3e54c93a704957b63ee3494413a2b544fd3d825b)
+Maven home: C:\Users\haiche\.maven\apache-maven-3.9.11
+Java version: 1.8.0_472, vendor: Temurin, runtime: C:\Users\haiche\.jdk\jdk-8\jre
+Default locale: en_US, platform encoding: Cp1252
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+2026-03-26T09:22:32.754Z [INFO] [BaseBuildTool] New version of mvn: 3.9.11 -> 3.9.11
+2026-03-26T09:22:32.760Z [INFO] [MavenBuildTool] Getting Java version of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java from pom.xml
+2026-03-26T09:22:32.761Z [INFO] [MavenBuildTool] Searching for pom.xml files in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java
+2026-03-26T09:22:32.761Z [INFO] [MavenBuildTool] Found pom.xml files: C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml
+2026-03-26T09:22:32.777Z [INFO] [MavenBuildTool] Java version found in C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java\pom.xml: 21
+2026-03-26T09:22:32.778Z [INFO] [BaseBuildTool] Notifying Java version/Config change: '21' || '21'
+2026-03-26T09:22:32.781Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T09:22:32.781Z [INFO] [Environment] Running command (Java 21): mvn clean test-compile -q -B -fn
+2026-03-26T09:22:40.834Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-26T09:22:40.835Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-26T09:22:40.851Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-26T09:22:40.851Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T09:22:40.852Z [INFO] [Environment] Running command (Java 21): mvn clean -q -B -fn
+2026-03-26T09:22:44.342Z [INFO] Build succeeded! There are no build errors in the project.
+2026-03-26T09:22:44.347Z [INFO] Build project completed. Looking for next task...

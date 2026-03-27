@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "security",
+      "id": "001-security-validate-cves-and-fix",
+      "description": "Validate all Maven dependencies against known CVE databases and upgrade vulnerable dependencies to secure versions.",
+      "reason": "The Photo Album project uses Spring Boot 2.7.18 with Java 8 and several third-party dependencies (e.g., Commons IO 2.11.0, H2 2.2.220, ojdbc8) that may carry known CVEs. Remediating all vulnerabilities is required to achieve a clean security posture.",
+      "requirements": "Scan all Maven dependencies in the project's pom.xml against GitHub Security Advisories and the OSS Index vulnerability databases. Identify every dependency with a known CVE. Upgrade each vulnerable dependency to the lowest available secure version that is compatible with Spring Boot 2.7.18 and Java 8. Ensure the project compiles and all existing tests pass after updates.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "cveReport": ".github/modernize/modernization-plan-cve/001-security-validate-cves-and-fix/final-cve-report.json",
+      "status": "success",
+      "taskSummary": "Scanned all Maven dependencies and fixed 41 out of 58 CVEs. Key upgrades: Apache Tomcat 9.0.83→9.0.115 (20 CVEs incl. 1 critical RCE), Spring Framework 5.3.31→5.3.39 (5 CVEs), SnakeYAML 1.30→1.33 (6 CVEs), Jackson BOM 2.13.5→2.18.6 (2 CVEs), commons-io 2.11.0→2.14.0 (1 CVE), Logback 1.2.12→1.2.13 (2 CVEs), json-path 2.7.0→2.9.0 (1 CVE), AssertJ 3.22.0→3.27.7 (1 CVE), XMLUnit 2.9.1→2.10.0 (1 CVE). 17 CVEs remain unfixable within Spring Boot 2.7.x + Java 8 constraints; resolving them requires upgrading to Spring Boot 3.x + Java 17. Build passes. Unit tests pass.",
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "generateNewIntegrationTests": "false",
+        "passUnitTests": "true",
+        "passIntegrationTests": "false"
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": null,
+        "generateNewIntegrationTests": null,
+        "passUnitTests": "true",
+        "passIntegrationTests": null
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-cve",
+    "projectName": "Photo Album",
+    "language": "java",
+    "createdAt": "2026-03-26T02:10:23.858Z",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,14 @@
+2026-03-26T06:56:22.954Z [INFO] [Task.commitChanges](7.1): Committing changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Milestone 2: Upgrade Spring Boot to 3.4.5
+2026-03-26T06:56:23.304Z [INFO] [main d44495b] Milestone 2: Upgrade Spring Boot to 3.4.5
+ 6 files changed, 16 insertions(+), 16 deletions(-)
+
+2026-03-26T06:56:23.410Z [INFO] d44495baa8fa1d28c79ddb8fa366de7be44f3017
+
+2026-03-26T06:56:23.540Z [INFO] 4	4	pom.xml
+1	1	src/main/java/com/photoalbum/controller/DetailController.java
+1	1	src/main/java/com/photoalbum/controller/HomeController.java
+1	1	src/main/java/com/photoalbum/controller/PhotoFileController.java
+5	5	src/main/java/com/photoalbum/model/Photo.java
+4	4	src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java
+
+2026-03-26T06:56:23.574Z [INFO] [Task.commitChanges](7.1): Committed changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: Milestone 2: Upgrade Spring Boot to 3.4.5

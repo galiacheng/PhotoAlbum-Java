@@ -1,0 +1,10 @@
+2026-03-26T05:14:41.663Z [INFO] [Task.commitChanges](8.2): Committing changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: fix issues
+2026-03-26T05:14:42.254Z [INFO] [main cfcae25] fix issues
+ 1 file changed, 7 deletions(-)
+ delete mode 100644 rewrite.yml
+
+2026-03-26T05:14:42.380Z [INFO] cfcae25dae65fbb323c45acf1df471c84fc0f393
+
+2026-03-26T05:14:42.507Z [INFO] 0	7	rewrite.yml
+
+2026-03-26T05:14:42.544Z [INFO] [Task.commitChanges](8.2): Committed changes for C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java with message: fix issues

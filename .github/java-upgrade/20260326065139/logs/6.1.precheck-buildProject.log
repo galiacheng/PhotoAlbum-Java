@@ -1,0 +1,7 @@
+2026-03-26T06:52:57.935Z [INFO] [MavenBuildTool] Getting build errors of C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T06:52:57.936Z [INFO] [Environment] Running command (Java 8): mvn clean test-compile -q -B -fn
+2026-03-26T06:53:02.943Z [INFO] [MavenBuildTool] parsing compilation errors.
+2026-03-26T06:53:02.944Z [INFO] [BaseBuildTool] Found 1 modules: .
+2026-03-26T06:53:02.957Z [INFO] [BaseBuildTool] Finish counting Java and class files
+2026-03-26T06:53:02.957Z [INFO] [MavenBuildTool] Cleaning C:\Users\haiche\Documents\AppMod\PhotoAlbum-Java using Maven
+2026-03-26T06:53:02.958Z [INFO] [Environment] Running command (Java 8): mvn clean -q -B -fn
