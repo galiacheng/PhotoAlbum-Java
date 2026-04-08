@@ -34,7 +34,7 @@ public class Photo {
     private String originalFileName;
 
     /**
-     * Binary photo data stored directly in Oracle database
+     * Binary photo data stored directly in PostgreSQL database as bytea
      */
     @Lob
     @Column(name = "photo_data", nullable = true)
@@ -60,7 +60,8 @@ public class Photo {
      */
     @NotNull
     @Positive
-    @Column(name = "file_size", nullable = false, columnDefinition = "NUMBER(19,0)")
+    // Migrated from Oracle to PostgreSQL according to java check item 1: Removed Oracle-specific NUMBER(19,0) columnDefinition; PostgreSQL uses BIGINT for Long by default.
+    @Column(name = "file_size", nullable = false)
     private Long fileSize;
 
     /**
@@ -75,7 +76,8 @@ public class Photo {
      * Timestamp of upload
      */
     @NotNull
-    @Column(name = "uploaded_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT SYSTIMESTAMP")
+    // Migrated from Oracle to PostgreSQL according to java check item 1: Removed Oracle-specific SYSTIMESTAMP columnDefinition; PostgreSQL uses TIMESTAMP for LocalDateTime by default.
+    @Column(name = "uploaded_at", nullable = false)
     private LocalDateTime uploadedAt;
 
     /**
