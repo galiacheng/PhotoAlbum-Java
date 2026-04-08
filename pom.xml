@@ -61,6 +61,13 @@
             <version>1.2.2</version>
         </dependency>
 
+        <!-- Azure Blob Storage SDK for photo binary storage -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-storage-blob</artifactId>
+            <version>12.27.1</version>
+        </dependency>
+
         <!-- Spring Boot Validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

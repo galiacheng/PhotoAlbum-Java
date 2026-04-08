@@ -3,6 +3,7 @@ package com.photoalbum.service.impl;
 import com.photoalbum.model.Photo;
 import com.photoalbum.model.UploadResult;
 import com.photoalbum.repository.PhotoRepository;
+import com.photoalbum.service.BlobStorageService;
 import com.photoalbum.service.PhotoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,14 +31,17 @@ public class PhotoServiceImpl implements PhotoService {
     private static final Logger logger = LoggerFactory.getLogger(PhotoServiceImpl.class);
 
     private final PhotoRepository photoRepository;
+    private final BlobStorageService blobStorageService;
     private final long maxFileSizeBytes;
     private final List<String> allowedMimeTypes;
 
     public PhotoServiceImpl(
             PhotoRepository photoRepository,
+            BlobStorageService blobStorageService,
             @Value("${app.file-upload.max-file-size-bytes}") long maxFileSizeBytes,
             @Value("${app.file-upload.allowed-mime-types}") String[] allowedMimeTypes) {
         this.photoRepository = photoRepository;
+        this.blobStorageService = blobStorageService;
         this.maxFileSizeBytes = maxFileSizeBytes;
         this.allowedMimeTypes = Arrays.asList(allowedMimeTypes);
     }
@@ -83,7 +87,7 @@ public class PhotoServiceImpl implements PhotoService {
             if (!allowedMimeTypes.contains(file.getContentType().toLowerCase())) {
                 result.setSuccess(false);
                 result.setErrorMessage("File type not supported. Please upload JPEG, PNG, GIF, or WebP images.");
-                logger.warn("Upload rejected: Invalid file type {} for {}", 
+                logger.warn("Upload rejected: Invalid file type {} for {}",
                     file.getContentType(), file.getOriginalFilename());
                 return result;
             }
@@ -92,7 +96,7 @@ public class PhotoServiceImpl implements PhotoService {
             if (file.getSize() > maxFileSizeBytes) {
                 result.setSuccess(false);
                 result.setErrorMessage(String.format("File size exceeds %dMB limit.", maxFileSizeBytes / 1024 / 1024));
-                logger.warn("Upload rejected: File size {} exceeds limit for {}", 
+                logger.warn("Upload rejected: File size {} exceeds limit for {}",
                     file.getSize(), file.getOriginalFilename());
                 return result;
             }
@@ -104,61 +108,65 @@ public class PhotoServiceImpl implements PhotoService {
                 return result;
             }
 
-            // Generate unique filename for compatibility (stored in database, not on disk)
+            // Generate unique blob name
             String extension = getFileExtension(file.getOriginalFilename());
-            String storedFileName = UUID.randomUUID().toString() + extension;
-            String relativePath = "/uploads/" + storedFileName; // For compatibility only
+            String blobName = UUID.randomUUID().toString() + extension;
+            String relativePath = "/uploads/" + blobName; // kept for UI compatibility
 
-            // Extract image dimensions and read file data
-            Integer width = null;
-            Integer height = null;
-            byte[] photoData = null;
-            
+            // Read file content
+            byte[] photoData;
             try {
-                // Read file content for database storage
                 photoData = file.getBytes();
-                
-                // Extract image dimensions from byte array
-                try (ByteArrayInputStream bis = new ByteArrayInputStream(photoData)) {
-                    BufferedImage image = ImageIO.read(bis);
-                    if (image != null) {
-                        width = image.getWidth();
-                        height = image.getHeight();
-                    }
-                }
             } catch (IOException ex) {
                 logger.error("Error reading file data for {}", file.getOriginalFilename(), ex);
                 result.setSuccess(false);
                 result.setErrorMessage("Error reading file data. Please try again.");
                 return result;
-            } catch (Exception ex) {
-                logger.warn("Could not extract image dimensions for {}", file.getOriginalFilename(), ex);
-                // Continue without dimensions - not critical
             }
 
-            // Create photo entity with database bytea storage
+            // Extract image dimensions
+            Integer width = null;
+            Integer height = null;
+            try (ByteArrayInputStream bis = new ByteArrayInputStream(photoData)) {
+                BufferedImage image = ImageIO.read(bis);
+                if (image != null) {
+                    width = image.getWidth();
+                    height = image.getHeight();
+                }
+            } catch (Exception ex) {
+                logger.warn("Could not extract image dimensions for {}", file.getOriginalFilename(), ex);
+            }
+
+            // Upload binary data to Azure Blob Storage
+            blobStorageService.uploadBlob(blobName, photoData, file.getContentType());
+
+            // Create and persist photo entity with blob reference
+            // blobName is used as both the Azure Blob Storage key and storedFileName for compatibility
             Photo photo = new Photo(
                 file.getOriginalFilename(),
-                photoData,  // Store actual photo data in PostgreSQL database
-                storedFileName,
-                relativePath, // Keep for compatibility, not used for serving
+                blobName,       // blobName: Azure Blob Storage key
+                blobName,       // storedFileName: same UUID-based name kept for backward compatibility
+                relativePath,
                 file.getSize(),
                 file.getContentType()
             );
             photo.setWidth(width);
             photo.setHeight(height);
 
-            // Save to database (with BLOB photo data)
             try {
                 photo = photoRepository.save(photo);
-
                 result.setSuccess(true);
                 result.setPhotoId(photo.getId());
-
-                logger.info("Successfully uploaded photo {} with ID {} to PostgreSQL database", 
+                logger.info("Successfully uploaded photo {} with ID {} to Azure Blob Storage",
                     file.getOriginalFilename(), photo.getId());
             } catch (Exception ex) {
-                logger.error("Error saving photo to PostgreSQL database for {}", file.getOriginalFilename(), ex);
+                // Roll back the blob upload if database save fails
+                try {
+                    blobStorageService.deleteBlob(blobName);
+                } catch (Exception deleteEx) {
+                    logger.warn("Failed to clean up blob {} after DB save failure", blobName, deleteEx);
+                }
+                logger.error("Error saving photo metadata to database for {}", file.getOriginalFilename(), ex);
                 result.setSuccess(false);
                 result.setErrorMessage("Error saving photo to database. Please try again.");
             }
@@ -185,13 +193,19 @@ public class PhotoServiceImpl implements PhotoService {
 
             Photo photo = photoOpt.get();
 
-            // Delete from PostgreSQL database (photos stored as bytea)
+            // Delete metadata from database first; this way if blob deletion fails,
+            // the dangling blob is recoverable rather than a broken DB record pointing to nothing.
             photoRepository.delete(photo);
 
-            logger.info("Successfully deleted photo ID {} from PostgreSQL database", id);
+            // Delete binary from Azure Blob Storage
+            if (photo.getBlobName() != null && !photo.getBlobName().isEmpty()) {
+                blobStorageService.deleteBlob(photo.getBlobName());
+            }
+
+            logger.info("Successfully deleted photo ID {} from Azure Blob Storage and database", id);
             return true;
         } catch (Exception ex) {
-            logger.error("Error deleting photo with ID {} from PostgreSQL database", id, ex);
+            logger.error("Error deleting photo with ID {}", id, ex);
             throw new RuntimeException("Error deleting photo", ex);
         }
     }

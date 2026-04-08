@@ -20,7 +20,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos ordered by upload date descending
      */
     // Migrated from Oracle to PostgreSQL according to java check item 1: Convert all table and column names from uppercase to lowercase in native SQL queries.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, file_path, file_size, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, file_path, file_size, " +
                    "mime_type, uploaded_at, width, height " +
                    "FROM photos " +
                    "ORDER BY uploaded_at DESC", 
@@ -33,7 +33,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos uploaded before the given timestamp
      */
     // Migrated from Oracle to PostgreSQL according to java check item: Replaced Oracle ROWNUM-based subquery pagination with PostgreSQL LIMIT clause.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, file_path, file_size, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, file_path, file_size, " +
                    "mime_type, uploaded_at, width, height " +
                    "FROM photos " +
                    "WHERE uploaded_at < :uploadedAt " +
@@ -48,7 +48,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos uploaded after the given timestamp
      */
     // Migrated from Oracle to PostgreSQL according to java check item: Replaced Oracle NVL with standard COALESCE; converted uppercase identifiers to lowercase.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, " +
                    "COALESCE(file_path, 'default_path') AS file_path, file_size, " +
                    "mime_type, uploaded_at, width, height " +
                    "FROM photos " +
@@ -64,7 +64,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos uploaded in the specified month
      */
     // Migrated from Oracle to PostgreSQL according to java check item 4: Replaced Oracle TO_CHAR date function with PostgreSQL EXTRACT equivalent.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, file_path, file_size, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, file_path, file_size, " +
                    "mime_type, uploaded_at, width, height " +
                    "FROM photos " +
                    "WHERE EXTRACT(YEAR FROM uploaded_at)::text = :year " +
@@ -80,7 +80,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos within the specified range
      */
     // Migrated from Oracle to PostgreSQL according to java check item: Replaced Oracle ROWNUM double-subquery pagination with PostgreSQL LIMIT/OFFSET.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, file_path, file_size, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, file_path, file_size, " +
                    "mime_type, uploaded_at, width, height " +
                    "FROM photos " +
                    "ORDER BY uploaded_at DESC " +
@@ -93,7 +93,7 @@ public interface PhotoRepository extends JpaRepository<Photo, String> {
      * @return List of photos with running totals and rankings
      */
     // Migrated from Oracle to PostgreSQL according to java check item 1: Converted uppercase identifiers to lowercase. RANK() window function is preserved as it is standard SQL valid in PostgreSQL.
-    @Query(value = "SELECT id, original_file_name, photo_data, stored_file_name, file_path, file_size, " +
+    @Query(value = "SELECT id, original_file_name, blob_name, stored_file_name, file_path, file_size, " +
                    "mime_type, uploaded_at, width, height, " +
                    "RANK() OVER (ORDER BY file_size DESC) AS size_rank, " +
                    "SUM(file_size) OVER (ORDER BY uploaded_at ROWS UNBOUNDED PRECEDING) AS running_total " +

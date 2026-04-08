@@ -61,7 +61,8 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
-      }
+      },
+      "status": "started"
     }
   ],
   "metadata": {
