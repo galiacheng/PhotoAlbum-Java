@@ -31,7 +31,8 @@
       "requirements": "Update the build stage FROM image from maven:3.9.6-eclipse-temurin-8 to maven:3.9.6-eclipse-temurin-21. Update the runtime stage FROM image from eclipse-temurin:8-jre to eclipse-temurin:21-jre. Ensure Docker build succeeds with the updated images.",
       "environmentConfiguration": null,
       "dockerfilePath": "Dockerfile",
-      "status": null
+      "status": "success",
+      "taskSummary": "Updated Dockerfile build stage FROM maven:3.9.6-eclipse-temurin-8 to maven:3.9.6-eclipse-temurin-21, and runtime stage FROM eclipse-temurin:8-jre to eclipse-temurin:21-jre. Dockerfile updated successfully to reflect the Java 21 runtime environment."
     }
   ],
   "metadata": {
