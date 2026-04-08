@@ -20,7 +20,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Successfully upgraded Java from 8 to 21 and Spring Boot from 2.7.18 to 3.4.5. Updated pom.xml with Spring Boot 3.4.5 parent, Java 21 compiler source/target, and ojdbc11 driver. Migrated javax.persistence.* and javax.validation.* to jakarta.* in Photo.java. Updated Dockerfile to use eclipse-temurin:21 for both build and runtime stages. Build passes and all unit tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
     }
   ],
   "metadata": {
