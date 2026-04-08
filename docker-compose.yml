@@ -1,27 +1,5 @@
 services:
-  # PostgreSQL Database service
-  # Migrated from Oracle to PostgreSQL according to java check item: Replace Oracle container with PostgreSQL container.
-  postgres-db:
-    image: postgres:15
-    container_name: photoalbum-postgres
-    environment:
-      - POSTGRES_DB=photoalbum
-      - POSTGRES_USER=photoalbum
-      - POSTGRES_PASSWORD=photoalbum
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - photoalbum-network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U photoalbum -d photoalbum"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
-
-  # Photo Album Java Application  
+  # Photo Album Java Application - connects to Azure Database for PostgreSQL with Managed Identity
   photoalbum-java-app:
     build:
       context: .
@@ -29,20 +7,12 @@ services:
     container_name: photoalbum-java-app
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-db:5432/photoalbum
-      - SPRING_DATASOURCE_USERNAME=photoalbum
-      - SPRING_DATASOURCE_PASSWORD=photoalbum
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
     ports:
       - "8080:8080"
-    depends_on:
-      postgres-db:
-        condition: service_healthy
     networks:
       - photoalbum-network
     restart: on-failure
-
-volumes:
-  postgres_data:
 
 networks:
   photoalbum-network:
