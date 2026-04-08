@@ -1,0 +1,47 @@
+[
+  {
+    "file": "docker-compose.yml",
+    "description": "Removed Oracle database service and updated application configuration to support Azure Database for PostgreSQL. The oracle-db service has been completely removed, and environment variables have been added to support Managed Identity authentication to Azure PostgreSQL.",
+    "issues": []
+  },
+  {
+    "file": "pom.xml",
+    "description": "Updated Maven dependencies to replace Oracle JDBC driver with PostgreSQL driver and added Azure Identity Extensions for Managed Identity authentication support.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Migrated datasource configuration from Oracle to PostgreSQL Managed Identity authentication. Changed JDBC URL, driver class, and Hibernate dialect. Added comprehensive comments for Azure sovereign cloud configurations.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Updated Docker-specific properties to use PostgreSQL JDBC URL with Managed Identity authentication instead of Oracle connection string.",
+    "issues": []
+  },
+  {
+    "file": "src/test/resources/application-test.properties",
+    "description": "Updated H2 in-memory database configuration from Oracle compatibility mode to PostgreSQL compatibility mode for testing.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "description": "Migrated JPA entity mapping from Oracle to PostgreSQL. Removed @Lob annotation for Oracle BLOB storage, updated column definition types from Oracle NUMBER and TIMESTAMP DEFAULT SYSTIMESTAMP to PostgreSQL bigint and CURRENT_TIMESTAMP.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "description": "Migrated native SQL queries from Oracle syntax to PostgreSQL. Replaced ROWNUM-based pagination with LIMIT/OFFSET, replaced NVL with COALESCE, replaced TO_CHAR date functions with EXTRACT, and converted all table/column names to lowercase per PostgreSQL best practices. Window functions (RANK, SUM) remain compatible with both databases.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "description": "Updated comments and logging messages to reflect PostgreSQL bytea storage instead of Oracle BLOB storage. No functional changes to the business logic.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "description": "Updated comments and logging messages to reflect PostgreSQL bytea storage instead of Oracle BLOB storage. No functional changes to the API behavior or file serving logic.",
+    "issues": []
+  }
+]
