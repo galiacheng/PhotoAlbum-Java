@@ -20,7 +20,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Upgraded PhotoAlbum from Java 8 / Spring Boot 2.7.18 to Java 21 / Spring Boot 3.5.3. Migrated javax.persistence.* and javax.validation.constraints.* to jakarta.* namespaces. Updated Dockerfile base images to eclipse-temurin:21. Build and unit tests pass successfully.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
     },
     {
       "type": "transform",
@@ -39,7 +45,8 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
-      }
+      },
+      "status": "started"
     },
     {
       "type": "containerization",
