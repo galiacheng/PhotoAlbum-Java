@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3",
+      "description": "Upgrade the PhotoAlbum application from Java 8 / Spring Boot 2.7.18 to Java 21 / Spring Boot 3.x",
+      "reason": "The project uses Java 8 and Spring Boot 2.7.18, which are below the required thresholds (Java 17, Spring Boot 3.x). Upgrading is a prerequisite for all subsequent Azure service migrations and enables Jakarta EE APIs, improved security, and long-term support.",
+      "requirements": "Upgrade the project from Java 8 to Java 21 and from Spring Boot 2.7.18 to the latest Spring Boot 3.x release. This includes migrating from javax.* to jakarta.* namespaces (Jakarta EE migration) and updating Spring Framework to 6.x. Ensure the Maven build compiles successfully and all existing unit tests pass after the upgrade.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "create-java-upgrade-plan",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-to-postgresql",
+      "description": "Migrate the Oracle database to Azure Database for PostgreSQL with Managed Identity authentication",
+      "reason": "The application currently uses a self-managed Oracle database running in Docker. Migrating to Azure Database for PostgreSQL provides a fully managed, scalable cloud-native database service with secure, credential-free access via Managed Identity, eliminating the need to manage Oracle licenses and infrastructure.",
+      "requirements": "Migrate from Oracle Database (ojdbc8, OracleDialect) to Azure Database for PostgreSQL. Replace the Oracle JDBC driver with the PostgreSQL driver. Update Spring Data JPA configuration to use PostgreSQL dialect. Migrate the Photo entity's binary photo data stored as Oracle BLOB to PostgreSQL bytea. Update all JPA/Hibernate dialect settings, DDL scripts, and any Oracle-specific SQL queries to PostgreSQL-compatible equivalents. Configure Managed Identity for credential-free authentication to Azure Database for PostgreSQL.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "003-containerization-java21",
+      "description": "Update the Dockerfile to use Java 21 base images aligned with the upgraded runtime",
+      "reason": "The existing Dockerfile uses maven:3.9.6-eclipse-temurin-8 and eclipse-temurin:8-jre base images. After upgrading to Java 21, the container images must be updated to Java 21 equivalents to ensure the container runs the correct JVM version.",
+      "requirements": "Update the multi-stage Dockerfile: replace the Maven build image from maven:3.9.6-eclipse-temurin-8 to maven:3.9-eclipse-temurin-21 and replace the runtime image from eclipse-temurin:8-jre to eclipse-temurin:21-jre. Ensure the ENTRYPOINT and JVM options are compatible with Java 21.",
+      "environmentConfiguration": null,
+      "dockerfilePath": "Dockerfile"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan",
+    "projectName": "PhotoAlbum",
+    "language": "java",
+    "createdAt": "2026-04-09T03:04:19.804Z",
+    "version": "1.0"
+  }
+}
