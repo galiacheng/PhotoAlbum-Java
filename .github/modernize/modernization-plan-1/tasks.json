@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3x",
+      "description": "Upgrade the project from Spring Boot 2.7.18 to Spring Boot 3.x with Java 21, including Spring Framework 6.x and javax-to-jakarta namespace migration",
+      "reason": "The application uses Java 8 and Spring Boot 2.7.18, both of which are end of OSS support. Upgrading to Spring Boot 3.x (Java 21) resolves mandatory assessment findings for legacy Java version, Spring Boot EOL, and Spring Framework EOL.",
+      "requirements": "Upgrade Spring Boot from 2.7.18 to 3.x. Upgrade Java from 8 to 21. Migrate javax.* namespaces to jakarta.* as required by Spring Boot 3.x. Update Maven compiler settings. Ensure all existing functionality (photo upload, gallery, detail view) works after upgrade.",
+      "environmentConfiguration": null,
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-migration-oracle-to-postgresql",
+      "description": "Migrate the application data layer from Oracle database to Azure Database for PostgreSQL",
+      "reason": "The assessment identifies Oracle database as a potential migration issue. Azure recommends migrating Oracle databases to Azure Database for PostgreSQL for better cost-effectiveness and managed service benefits.",
+      "requirements": "Replace Oracle JDBC driver with PostgreSQL driver. Update connection strings from Oracle format to PostgreSQL format. Convert Oracle-specific native SQL queries (ROWNUM, TO_CHAR, RANK() OVER with Oracle syntax) to PostgreSQL equivalents. Update Hibernate dialect from OracleDialect to PostgreSQL. Update JPA configuration. Ensure photo storage (BLOB data) works correctly with PostgreSQL. Preserve all existing query functionality including photo listing, navigation, and statistics.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-migration-postgresql-managed-identity",
+      "description": "Migrate from password-based authentication to Azure Managed Identity for connecting to Azure Database for PostgreSQL",
+      "reason": "The assessment identifies plaintext passwords in configuration files as a security risk. Using Azure Managed Identity provides secure, credential-free database connectivity following Azure best practices.",
+      "requirements": "Remove plaintext database credentials from configuration files. Configure the application to use Azure Managed Identity for authenticating to Azure Database for PostgreSQL. Integrate with Azure SDK for token-based authentication. Ensure the application can connect to Azure Database for PostgreSQL using managed identity in Azure public cloud.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "004-containerization",
+      "description": "Update the existing Dockerfile for JDK 21 and prepare the container for Azure deployment",
+      "reason": "The existing Dockerfile uses OpenJDK 8 base images which must be updated to match the upgraded Java 21 runtime. The container must be ready for deployment to Azure.",
+      "requirements": "Update Dockerfile FROM instructions to use JDK 21 base images for both build and runtime stages. Ensure the multi-stage build works correctly with the upgraded application. Verify container builds and runs successfully.",
+      "environmentConfiguration": null,
+      "dockerfilePath": "Dockerfile"
+    },
+    {
+      "type": "deployment",
+      "id": "005-deployment",
+      "description": "Deploy the modernized PhotoAlbum application to Azure",
+      "reason": "The user requested migration to Azure, which includes deploying the containerized application to an Azure compute service.",
+      "requirements": "Deploy the containerized PhotoAlbum application to the target Azure compute service. Configure the deployment to use managed identity for database connectivity. Ensure the application is accessible and functional after deployment.",
+      "environmentConfiguration": null,
+      "targetAzureService": "Azure Container Apps",
+      "resourceStatus": "Create new service",
+      "deploymentTool": "bicep"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-1",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-04-17T11:21:22.496Z",
+    "version": "1.0"
+  }
+}

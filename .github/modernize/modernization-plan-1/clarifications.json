@@ -1,0 +1,10 @@
+[
+  {
+    "question": "Which Azure compute service do you want to deploy to? Options include Azure Container Apps, Azure App Service, or Azure Kubernetes Service (AKS). The current plan defaults to Azure Container Apps.",
+    "answer": ""
+  },
+  {
+    "question": "Do you have an existing Azure Database for PostgreSQL instance to use, or should the plan assume creating a new one?",
+    "answer": ""
+  }
+]
