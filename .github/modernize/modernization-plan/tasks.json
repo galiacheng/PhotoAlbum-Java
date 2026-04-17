@@ -1,0 +1,74 @@
+{
+  "$schema": "tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3x",
+      "description": "Upgrade the project from Spring Boot 2.7.18 to Spring Boot 3.x, including Java 8 to 21, Spring Framework 5.x to 6.x, and javax.* to jakarta.* namespace migration",
+      "reason": "The application uses Java 1.8 and Spring Boot 2.7.18, both of which are end of OSS support. Upgrading to supported versions is mandatory for Azure migration and ensures access to security patches and modern features.",
+      "requirements": "Upgrade Spring Boot from 2.7.18 to the latest 3.x version. This includes upgrading Java from 1.8 to 21, migrating from javax.* to jakarta.* namespace, and updating Spring Framework from 5.x to 6.x. All existing functionality including photo upload, gallery display, and photo serving must continue to work after the upgrade.",
+      "environmentConfiguration": null,
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-to-postgresql",
+      "description": "Migrate the database from Oracle to PostgreSQL, converting all Oracle-specific SQL queries, drivers, and dialect configuration",
+      "reason": "The application uses Oracle database with Oracle-specific SQL functions (TO_CHAR, ROWNUM, RANK, analytical functions) and stores photo data as BLOBs. Azure recommends migrating to Azure Database for PostgreSQL for better cost-effectiveness and native Azure integration.",
+      "requirements": "Migrate from Oracle DB to PostgreSQL. Convert all Oracle-specific native SQL queries in PhotoRepository to PostgreSQL-compatible syntax. Replace Oracle JDBC driver with PostgreSQL driver. Update JPA dialect from OracleDialect to PostgreSQL dialect. Ensure BLOB photo storage continues to work with PostgreSQL. Update all configuration files with PostgreSQL connection settings.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-postgresql-managed-identity",
+      "description": "Migrate from password-based authentication to Azure Managed Identity for connecting to Azure Database for PostgreSQL",
+      "reason": "The assessment identified hardcoded passwords in configuration files (application.properties, application-docker.properties). Using Azure Managed Identity provides secure, credential-free authentication and eliminates the security risk of plaintext passwords.",
+      "requirements": "Migrate from password-based PostgreSQL authentication to Azure Managed Identity using Azure SDK for secure, credential-free connectivity to Azure Database for PostgreSQL in Azure public cloud. Remove hardcoded database credentials from all configuration files.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "004-containerization",
+      "description": "Update the existing Dockerfile to use Java 21 base images compatible with the upgraded Spring Boot 3.x application",
+      "reason": "The current Dockerfile uses Java 8 base images (maven:3.9.6-eclipse-temurin-8 and eclipse-temurin:8-jre) which are incompatible with the upgraded Java 21 application.",
+      "requirements": "Update the Dockerfile to use Java 21 base images for both the build stage and runtime stage. Ensure the container builds and runs correctly with the upgraded application.",
+      "environmentConfiguration": null,
+      "dockerfilePath": "Dockerfile"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-04-17T11:08:45.631Z",
+    "version": "1.0"
+  }
+}

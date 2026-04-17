@@ -1,0 +1,6 @@
+[
+  {
+    "question": "Which Azure compute service do you want to deploy to (e.g., Azure Container Apps, Azure Kubernetes Service, Azure App Service)?",
+    "answer": ""
+  }
+]
