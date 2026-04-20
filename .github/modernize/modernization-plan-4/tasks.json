@@ -1,0 +1,46 @@
+{
+  "$schema": "tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3x",
+      "description": "Upgrade the application from Spring Boot 2.7.18 / Java 8 to Spring Boot 3.x / Java 21",
+      "reason": "The current Java 1.8 and Spring Boot 2.7.18 versions are end of OSS support. Upgrading ensures security patches, long-term support, and compatibility with modern Azure services.",
+      "requirements": "Upgrade Spring Boot from 2.7.18 to latest 3.x version, which includes upgrading Java from 1.8 to 21, Spring Framework from 5.x to 6.x, and migrating from javax.* to jakarta.* namespaces. Update Maven compiler settings and all Spring Boot dependencies accordingly.",
+      "environmentConfiguration": null,
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-migration-oracle-to-postgresql",
+      "description": "Migrate the database from Oracle to Azure Database for PostgreSQL",
+      "reason": "The assessment identified Oracle database usage with hardcoded credentials. Azure Database for PostgreSQL provides a fully managed, cost-effective, and scalable database service recommended by Azure for Oracle migrations.",
+      "requirements": "Migrate from Oracle database to Azure Database for PostgreSQL. This includes replacing Oracle JDBC drivers with PostgreSQL drivers, updating connection strings, converting Oracle-specific SQL and Hibernate dialect to PostgreSQL equivalents, and enabling Managed Identity authentication for secure credential-free database access.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-4",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-04-20T03:15:56.427Z",
+    "version": "1.0"
+  }
+}
