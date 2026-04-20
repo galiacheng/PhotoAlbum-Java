@@ -1,0 +1,60 @@
+{
+  "$schema": "tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3x",
+      "description": "Upgrade the application from Spring Boot 2.7.18 on Java 8 to Spring Boot 3.x on Java 21, including the migration from javax.* to jakarta.* namespace",
+      "reason": "The application uses Java 8 and Spring Boot 2.7.18, both of which have reached end of OSS support. Upgrading to Spring Boot 3.x (with Java 21) ensures long-term support, security patches, and access to modern language features.",
+      "requirements": "Upgrade Spring Boot from 2.7.18 to the latest 3.x release. This includes upgrading Java from 8 to 21, migrating from Spring Framework 5.x to 6.x, and migrating all javax.* imports to jakarta.* (javax.persistence, javax.validation). Update Maven compiler settings and the spring-boot-starter-parent version. Ensure all existing functionality and tests continue to work after the upgrade.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "create-java-upgrade-plan",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-migration-oracle-to-postgresql",
+      "description": "Migrate the database layer from Oracle to Azure Database for PostgreSQL with managed identity authentication",
+      "reason": "The application uses Oracle database which is not a recommended Azure-managed service. Azure Database for PostgreSQL provides a fully managed, cost-effective alternative. Managed identity eliminates plaintext passwords in configuration files, addressing the security findings from the assessment.",
+      "requirements": "Migrate from Oracle database to Azure Database for PostgreSQL. Replace the Oracle JDBC driver (ojdbc8) with the PostgreSQL driver. Update connection strings, JPA dialect, and all Oracle-specific native SQL queries (ROWNUM pagination, TO_CHAR date formatting, NVL function, SYSTIMESTAMP defaults, NUMBER column definitions) to PostgreSQL equivalents. Configure managed identity for secure, passwordless database authentication.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "003-containerization",
+      "description": "Update the existing Dockerfile to use Java 21 runtime and build images compatible with the upgraded application",
+      "reason": "The existing Dockerfile uses OpenJDK 8 for both building and running the application. After upgrading to Java 21 and Spring Boot 3.x, the Dockerfile must be updated to use the corresponding Java 21 base images.",
+      "requirements": "Update the multi-stage Dockerfile to use Java 21 base images for both the build stage (Maven with JDK 21) and the runtime stage (JRE 21). Ensure the container image is optimized for size and security.",
+      "environmentConfiguration": null,
+      "dockerfilePath": "Dockerfile"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-0420",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-04-20T01:53:06.275Z",
+    "version": "1.0"
+  }
+}
