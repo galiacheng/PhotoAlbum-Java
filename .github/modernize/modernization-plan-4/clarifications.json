@@ -1,0 +1,6 @@
+[
+  {
+    "question": "Which Azure compute service do you want to deploy the application to (e.g., Azure Container Apps, Azure App Service, AKS)? This will determine if containerization and deployment tasks should be added to the plan.",
+    "answer": ""
+  }
+]
