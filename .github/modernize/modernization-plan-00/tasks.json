@@ -1,0 +1,91 @@
+{
+  "$schema": "https://raw.githubusercontent.com/github/copilot-modernization/main/schemas/tasks-schema.json",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-spring-boot-3",
+      "description": "Upgrade from Spring Boot 2.7.18 / Java 8 to Spring Boot 3.x / Java 21, including Jakarta EE namespace migration",
+      "reason": "The project uses Java 1.8 and Spring Boot 2.7.18, both of which are legacy and End of OSS Support. Upgrading to Spring Boot 3.x (which includes Spring Framework 6.x and Java 21) is mandatory for Azure deployment and resolves the assessed mandatory issues: azure-java-version-02000 and spring-boot-to-azure-spring-boot-version-01000.",
+      "requirements": "Upgrade Java from 1.8 to 21. Upgrade Spring Boot from 2.7.18 to the latest 3.x release. Upgrade Spring Framework to 6.x as part of the Spring Boot 3.x upgrade. Migrate all Jakarta EE namespaces from javax.* to jakarta.* (e.g., javax.persistence.* → jakarta.persistence.*, javax.validation.* → jakarta.validation.*). Ensure all Maven dependencies are updated for compatibility with Spring Boot 3.x and Java 21. The project build must continue to succeed after the upgrade.",
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-to-postgresql",
+      "description": "Migrate Oracle database code, JPA mappings, SQL dialects, and schema definitions to PostgreSQL",
+      "reason": "The project uses Oracle DB (ojdbc8 driver, OracleDialect, Oracle-specific SQL such as SYSTIMESTAMP and NUMBER column definitions). Assessment rule azure-database-microsoft-oracle-07000 flags this as a potential blocking issue for Azure migration. PostgreSQL is the target database on Azure.",
+      "requirements": "Replace the Oracle JDBC driver (ojdbc8) with the PostgreSQL JDBC driver. Update all Oracle-specific JPA configurations including spring.datasource.driver-class-name and spring.jpa.database-platform. Migrate Oracle-specific column definitions in entity classes (e.g., NUMBER(19,0) → BIGINT, SYSTIMESTAMP → CURRENT_TIMESTAMP) to PostgreSQL equivalents. Ensure all JPA entity mappings and repository queries work correctly with PostgreSQL. Update pom.xml to remove ojdbc8 and add the PostgreSQL dependency.",
+      "dependencies": ["001-upgrade-spring-boot-3"],
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-mi-postgresql",
+      "description": "Configure managed identity authentication for Azure Database for PostgreSQL, removing password-based authentication",
+      "reason": "After migrating to PostgreSQL, the application needs to connect to Azure Database for PostgreSQL using managed identity for secure, credential-free authentication. This eliminates the need for a database password in configuration files.",
+      "requirements": "Migrate the PostgreSQL database connection from password-based authentication to Azure Managed Identity. Update Spring datasource configuration to use the Azure Identity SDK for token-based authentication against Azure Database for PostgreSQL. Ensure no database passwords remain in application configuration files after migration.",
+      "dependencies": ["002-transform-oracle-to-postgresql"],
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "004-transform-keyvault-credentials",
+      "description": "Migrate plaintext credentials found in configuration files to Azure Key Vault",
+      "reason": "Assessment rule azure-password-01000 flags plaintext passwords in application.properties, application-docker.properties, and test properties files. These must be removed and stored securely in Azure Key Vault.",
+      "requirements": "Identify all plaintext credentials in application configuration files (application.properties, application-docker.properties, application-test.properties). Migrate those credentials to Azure Key Vault. Configure the Spring Boot application to retrieve secrets from Azure Key Vault using managed identity. Remove all hardcoded credentials from configuration files.",
+      "dependencies": ["001-upgrade-spring-boot-3"],
+      "skills": [
+        {
+          "name": "migration-plaintext-credential-to-azure-keyvault",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "005-containerization",
+      "description": "Update the existing Dockerfile to use Java 21 runtime images, aligned with the upgraded application",
+      "reason": "The current Dockerfile uses maven:3.9.6-eclipse-temurin-8 for build and eclipse-temurin:8-jre for runtime. After the Spring Boot 3.x / Java 21 upgrade, the Dockerfile must be updated to use Java 21 base images to ensure container builds succeed.",
+      "requirements": "Update the multi-stage Dockerfile build image from maven:3.9.6-eclipse-temurin-8 to a Maven image with Eclipse Temurin 21. Update the runtime image from eclipse-temurin:8-jre to eclipse-temurin:21-jre. Ensure the containerized application starts correctly with the updated runtime.",
+      "dependencies": ["001-upgrade-spring-boot-3"],
+      "dockerfilePath": "Dockerfile"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-00",
+    "projectName": "photo-album",
+    "language": "java",
+    "createdAt": "2026-04-21T02:05:30.887Z",
+    "version": "1.0"
+  }
+}
