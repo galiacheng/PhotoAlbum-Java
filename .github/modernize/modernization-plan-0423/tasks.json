@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-oracle-to-postgresql",
+      "description": "Migrate Oracle Database to Azure Database for PostgreSQL",
+      "reason": "The application uses Oracle Database with Oracle-specific JDBC drivers, Hibernate dialect, and SQL constructs. Migrating to Azure Database for PostgreSQL eliminates Oracle licensing costs and enables cloud-native scalability.",
+      "requirements": "Migrate all Oracle-specific JPA/Hibernate configuration, Oracle JDBC driver dependency, Hibernate OracleDialect, Oracle-specific column definitions (e.g., NUMBER, TIMESTAMP DEFAULT SYSTIMESTAMP), and any Oracle SQL in repository queries to be compatible with PostgreSQL. Update application.properties datasource configuration to use PostgreSQL.",
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-mi-postgresql",
+      "description": "Enable Managed Identity authentication for Azure Database for PostgreSQL",
+      "reason": "Password-based JDBC authentication is insecure for cloud deployments. Azure Managed Identity provides credential-free, secure connectivity to Azure Database for PostgreSQL.",
+      "requirements": "Replace JDBC username/password authentication in the datasource configuration with Azure Managed Identity. Update the PostgreSQL connection to use token-based authentication via Azure Identity SDK. Remove hardcoded credentials from datasource configuration.",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql"
+      ],
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-photo-blob-to-azure-storage",
+      "description": "Migrate photo binary data from database BLOB storage to Azure Blob Storage",
+      "reason": "Photos are currently stored as BLOBs directly in the Oracle database, which is inefficient and not scalable for a cloud deployment. Azure Blob Storage provides cost-effective, highly durable, and scalable object storage purpose-built for binary data like images.",
+      "requirements": "Migrate the photo upload flow to store binary image data in Azure Blob Storage instead of the database BLOB column. Update the Photo entity to store the Azure Blob Storage URL/reference instead of the binary photoData byte array. Update the photo retrieval flow to serve images from Azure Blob Storage. Use Managed Identity for authentication to Azure Blob Storage. The database should retain metadata only (filename, size, mime type, dimensions, timestamps).",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql"
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "004-transform-credentials-to-keyvault",
+      "description": "Migrate plaintext credentials from application.properties to Azure Key Vault",
+      "reason": "The application stores database credentials as plaintext in application.properties files. This is a security risk in cloud environments. Azure Key Vault provides secure secret storage with access controlled by Managed Identity.",
+      "requirements": "Identify and migrate all plaintext credentials (database username, password, and any other secrets) from application.properties to Azure Key Vault. Configure the application to retrieve secrets from Azure Key Vault at runtime using Managed Identity. Ensure no secrets remain in application.properties or any configuration files committed to source control.",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql",
+        "002-transform-mi-postgresql"
+      ],
+      "skills": [
+        {
+          "name": "migration-plaintext-credential-to-azure-keyvault",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-0423",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-04-23T01:45:12.090Z",
+    "version": "1.0"
+  }
+}
