@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-oracle-to-postgresql",
+      "description": "Migrate the application from Oracle Database to Azure Database for PostgreSQL",
+      "reason": "The application currently uses Oracle Database with Oracle-specific JDBC driver, dialect, and SQL constructs. Azure Database for PostgreSQL is the target managed database service on Azure, providing cloud-native scalability without Oracle licensing overhead.",
+      "requirements": "Migrate Oracle Database schema, JPA/Hibernate configuration, and all database queries to Azure Database for PostgreSQL. Replace Oracle JDBC driver (ojdbc8) with PostgreSQL driver, update Hibernate dialect from OracleDialect to PostgreSQLDialect, and convert any Oracle-specific SQL or DDL to PostgreSQL-compatible syntax. Update datasource configuration in application.properties to point to Azure PostgreSQL.",
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-photo-storage-to-azure-blob-storage",
+      "description": "Migrate photo binary data storage from Oracle database BLOBs to Azure Blob Storage",
+      "reason": "Photos are currently stored as byte array BLOBs (photoData field) directly in the Oracle database. This approach does not scale well and increases database size significantly. Azure Blob Storage provides cost-effective, durable, and scalable binary object storage purpose-built for this use case.",
+      "requirements": "Migrate photo binary data from Oracle/PostgreSQL database BLOB columns to Azure Blob Storage. Update the photo upload flow to store images in Azure Blob Storage and save the blob URL/reference in the database instead of the raw bytes. Update photo retrieval and display to serve images via Azure Blob Storage URLs. Use Azure Managed Identity for authentication with Azure Blob Storage. Remove the photoData (byte[]) BLOB column from the Photo entity and replace with a blobStorageUrl field.",
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-mi-postgresql",
+      "description": "Migrate database authentication to Azure Managed Identity for Azure Database for PostgreSQL",
+      "reason": "The application currently uses plaintext username/password credentials (photoalbum/photoalbum) stored in application.properties. Using Managed Identity eliminates static credentials and follows Azure security best practices.",
+      "requirements": "Replace plaintext username/password credentials with Azure Managed Identity authentication for connecting to Azure Database for PostgreSQL. Remove hardcoded database credentials from application.properties and update the datasource configuration to use token-based authentication via Managed Identity.",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql"
+      ],
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "containerization",
+      "id": "004-containerization",
+      "description": "Update the existing Dockerfile for Azure container deployment",
+      "reason": "The application already has a Dockerfile using Java 8. It needs to be reviewed and updated to be production-ready for Azure container services, incorporating the migrated configuration for Azure PostgreSQL and Azure Blob Storage.",
+      "requirements": "Review and update the existing Dockerfile (currently using eclipse-temurin:8-jre) for Azure container deployment. Ensure the container image is configured to work with Azure Database for PostgreSQL and Azure Blob Storage. Update environment variable handling so Azure service endpoints and Managed Identity configuration can be injected at runtime.",
+      "dockerfilePath": "Dockerfile",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql",
+        "002-transform-photo-storage-to-azure-blob-storage",
+        "003-transform-mi-postgresql"
+      ]
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-09",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-04-23T02:06:25.566Z",
+    "version": "1.0"
+  }
+}
