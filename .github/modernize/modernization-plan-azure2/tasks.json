@@ -18,6 +18,13 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated Oracle database dependencies, configuration, entity mappings, and SQL usage to PostgreSQL; build and unit tests passed.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "true",
+        "passUnitTests": "true"
       }
     },
     {
@@ -40,7 +47,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Validated managed-identity PostgreSQL configuration is in place and passwordless datasource setup is active; build and unit tests passed.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "true",
+        "passUnitTests": "true"
+      }
     },
     {
       "type": "transform",
@@ -59,7 +72,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Validated console-only logging configuration with preserved logger levels/names; build and unit tests passed.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "true",
+        "passUnitTests": "true"
+      }
     },
     {
       "type": "security",
@@ -81,6 +100,14 @@
       "successCriteria": {
         "passBuild": "true",
         "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "cveReport": ".github/modernize/modernization-plan-azure2/004-security-cve-remediation/final-cve-report.json",
+      "taskSummary": "Remediated dependency CVEs with targeted upgrades and produced final report showing zero vulnerabilities; build and unit tests passed.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "true",
         "passUnitTests": "true"
       }
     }
