@@ -102,7 +102,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
       "status": "success",
+      "taskSummary": "Resolved 77 of 100 CVEs by upgrading Tomcat, Thymeleaf, PostgreSQL JDBC, Spring Framework, Netty, Jackson, SnakeYAML, H2, Logback, commons-io, json-path, nimbus-jose-jwt, xmlunit-core, and AssertJ. 23 remaining CVEs require Spring Boot 3.x migration. Build and all tests pass.",
       "cveReport": ".github/modernize/modernization-plan-azure2/004-security-cve-remediation/final-cve-report.json"
     }
   ],
