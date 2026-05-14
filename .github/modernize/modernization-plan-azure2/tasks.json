@@ -101,7 +101,9 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
-      }
+      },
+      "status": "success",
+      "cveReport": ".github/modernize/modernization-plan-azure2/004-security-cve-remediation/final-cve-report.json"
     }
   ],
   "metadata": {
