@@ -19,7 +19,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "completed"
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated Oracle Database to Azure PostgreSQL: replaced ojdbc8 with PostgreSQL JDBC driver, updated JPA dialect to PostgreSQLDialect, converted BLOB to bytea, replaced Oracle SQL syntax (ROWNUM/NVL) with PostgreSQL equivalents, updated application.properties and docker-compose.yml."
     },
     {
       "type": "transform",
@@ -40,7 +46,14 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
-      }
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated from azure-identity-extensions JDBC plugin approach to Spring Cloud Azure starter: added spring-cloud-azure-dependencies BOM (4.20.0) and spring-cloud-azure-starter-jdbc-postgresql, updated application.properties and application-docker.properties to use Spring Cloud Azure passwordless authentication properties."
     },
     {
       "type": "transform",

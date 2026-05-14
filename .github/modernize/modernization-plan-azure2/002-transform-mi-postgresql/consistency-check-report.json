@@ -1,0 +1,17 @@
+[
+  {
+    "file": "pom.xml",
+    "description": "Replaced com.azure:azure-identity-extensions:1.2.2 with com.azure.spring:spring-cloud-azure-starter-jdbc-postgresql (managed via spring-cloud-azure-dependencies BOM version 4.20.0 added in dependencyManagement). Spring Boot version is 2.7.18 (2.x), and the skill requires spring-cloud-azure-dependencies >= 4.20.0 and < 5.0.0 for Spring Boot 2.x — version 4.20.0 satisfies this constraint. The dependency version is omitted from the artifact declaration and correctly delegated to the BOM.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Migrated datasource configuration from the azure-identity-extensions JDBC URL authentication plugin approach to the Spring Cloud Azure passwordless approach. The old configuration embedded auth parameters (authenticationPluginClassName, azure.managedIdentityEnabled, azure.clientId, user) directly in the JDBC URL. The new configuration uses dedicated Spring properties: spring.datasource.azure.passwordless-enabled=true, spring.cloud.azure.credential.managed-identity-enabled=true, and spring.cloud.azure.credential.client-id. The datasource password is correctly removed. spring.datasource.username is set to ${MANAGED_IDENTITY_NAME}. Required comments for service principal auth, sovereign cloud configuration, and environment variable reminder are all present and match the skill guidance.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Same migration as application.properties — replaced the azure-identity-extensions JDBC URL plugin approach with Spring Cloud Azure passwordless properties. All required properties are present (spring.datasource.azure.passwordless-enabled, spring.cloud.azure.credential.client-id, spring.cloud.azure.credential.managed-identity-enabled). Password is removed. Username is set via environment variable. Sovereign cloud and service principal auth guidance comments are included as required by the skill.",
+    "issues": []
+  }
+]
