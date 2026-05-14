@@ -16,6 +16,3 @@ azcli-containerapp-deploy
 azcli-functionapp-deploy
 containerization
 validate-cves-and-fix
-migration-log-to-console
-migration-mi-postgresql
-migration-oracle-to-postgresql
