@@ -65,6 +65,13 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Configured Logback to use console-only logging via logback-spring.xml while preserving existing logger names and log levels from application properties.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
       }
     },
     {
