@@ -1,0 +1,17 @@
+[
+  {
+    "file": "src/main/resources/logback-spring.xml",
+    "description": "New logback configuration file created to enforce console-only logging. The configuration includes Spring Boot defaults, console appender (not file appender), and logger definitions for application packages with property-based level mappings.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Existing logging level configurations in application.properties remain unchanged. The logging levels (DEBUG for com.photoalbum and org.springframework.web) will be correctly applied at runtime via Spring Boot's property resolution mechanism. These levels override the defaults specified in logback-spring.xml.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "description": "Java source file contains logger usage with SLF4J/Logback via LoggerFactory.getLogger(). The logging statements output to console as configured by the new logback-spring.xml. No file appender configurations exist in the Java code.",
+    "issues": []
+  }
+]
