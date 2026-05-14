@@ -19,7 +19,13 @@
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
       },
-      "status": "started"
+      "status": "success",
+      "taskSummary": "Migrated Oracle persistence layer to PostgreSQL, including dependency, SQL/JPA updates, and PostgreSQL container configuration.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
     },
     {
       "type": "transform",
@@ -92,6 +98,14 @@
         }
       ],
       "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Scanned and remediated dependency CVEs; final CVE scan reports zero known vulnerabilities.",
+      "cveReport": ".github/modernize/modernization-plan-azure2/004-security-cve-remediation/final-cve-report.json",
+      "successCriteriaStatus": {
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
