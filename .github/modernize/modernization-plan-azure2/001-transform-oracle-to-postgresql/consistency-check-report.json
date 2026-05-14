@@ -1,0 +1,42 @@
+[
+  {
+    "file": "pom.xml",
+    "description": "JDBC driver replaced from Oracle to PostgreSQL, Azure Identity Extensions dependency added for managed identity authentication",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "description": "Removed @Lob annotation for bytea support, removed Oracle-specific columnDefinitions (NUMBER(19,0) and TIMESTAMP DEFAULT SYSTIMESTAMP), updated comments to reflect PostgreSQL bytea storage",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "description": "Converted all native SQL queries from Oracle to PostgreSQL: replaced ROWNUM with LIMIT, NVL with COALESCE, uppercase identifiers to lowercase, removed Oracle pagination subquery wrapper, preserved PostgreSQL-compatible TO_CHAR format strings (YYYY, MM)",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "description": "Updated log messages and comments from 'Oracle database' to 'PostgreSQL database', updated comment references from BLOB to bytea storage",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Replaced Oracle datasource configuration with PostgreSQL managed identity configuration, commented out username/password, updated Hibernate dialect from OracleDialect to PostgreSQLDialect, added Azure managed identity parameters and sovereign cloud documentation",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Replaced Oracle datasource configuration with PostgreSQL managed identity configuration, updated Hibernate dialect",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "Duplicate configuration entries found: file upload configuration is defined twice (lines 34-36 and 40-44), server.port and spring.servlet.multipart settings are duplicated. While this will not cause functional issues (later values override earlier ones), it is poor code quality and should be cleaned up"
+      }
+    ]
+  },
+  {
+    "file": "docker-compose.yml",
+    "description": "Replaced Oracle database service with PostgreSQL 15, updated container configuration, environment variables, port mappings (1521→5432), health checks, and volume mounting, updated Spring datasource URL configuration for environment variable-based PostgreSQL connection",
+    "issues": []
+  }
+]
