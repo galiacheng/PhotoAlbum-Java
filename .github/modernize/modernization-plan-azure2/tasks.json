@@ -40,6 +40,13 @@
         "passBuild": "true",
         "generateNewUnitTests": "false",
         "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated PostgreSQL datasource authentication to Azure Managed Identity using Spring Cloud Azure passwordless JDBC configuration and removed password-based settings.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
       }
     },
     {
