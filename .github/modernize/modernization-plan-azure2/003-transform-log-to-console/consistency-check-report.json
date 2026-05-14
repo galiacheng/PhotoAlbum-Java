@@ -1,0 +1,17 @@
+[
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "The file contains only log-level settings (logging.level.*) with no file appender configuration. Spring Boot default logging outputs to console only. No file-based logging changes were required or made.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "The file contains only log-level settings (logging.level.*) with no file appender configuration. Spring Boot default logging outputs to console only. No file-based logging changes were required or made.",
+    "issues": []
+  },
+  {
+    "file": "src/test/resources/application-test.properties",
+    "description": "The file contains only a log-level setting (logging.level.*) with no file appender configuration. Spring Boot default logging outputs to console only. No file-based logging changes were required or made.",
+    "issues": []
+  }
+]
