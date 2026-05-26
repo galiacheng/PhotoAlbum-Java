@@ -1,7 +1,8 @@
 {
   "name": "PhotoAlbum-Java plan execution",
   "execution_mode": "local",
-  "status": "pending",
+  "status": "running",
   "base_commit": "3a56c7fa83bf7a6f8bd47e99d6d1e58fa495f2ea",
+  "source_commit": "15efb5c6085463f61702a776e106ceb73de84f44",
   "started_at": "2026-05-26T09:02:15.6558650\u002B00:00"
 }
