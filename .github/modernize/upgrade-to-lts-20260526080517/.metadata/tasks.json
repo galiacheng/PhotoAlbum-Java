@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Upgrade plan to migrate project to latest LTS versions",
+  "tasks": [
+    {
+      "type": "upgrade",
+      "id": "001-upgrade-java-spring-boot",
+      "description": "Upgrade to Java 25 and Spring Boot 4.x",
+      "reason": "Migrate the application to the latest LTS versions of Java and Spring Boot to benefit from the latest security patches, performance improvements, and long-term support.",
+      "requirements": "Upgrade JDK to 25, Spring Boot to 4.x, Spring Framework to 7.x, and migrate javax.* namespace references to jakarta.* where applicable. Ensure all dependencies are compatible with the target versions.",
+      "skills": [
+        {
+          "name": "java-version-upgrade",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "summary": "Upgraded from Java 8 / Spring Boot 2.7.18 to Java 25 / Spring Boot 4.0.6 (Spring Framework 7.x). Migrated javax.* to jakarta.* in Photo.java. Updated pom.xml compiler settings and Dockerfile base images. Build and tests pass.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "upgrade-to-lts",
+    "projectName": "application",
+    "language": "java",
+    "createdAt": "2026-05-26T08:05:20.000Z",
+    "version": "1.0"
+  }
+}
