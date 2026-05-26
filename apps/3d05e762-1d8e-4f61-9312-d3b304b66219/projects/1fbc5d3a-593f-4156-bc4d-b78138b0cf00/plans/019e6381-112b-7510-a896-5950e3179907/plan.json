@@ -1,10 +1,12 @@
 {
   "name": "PhotoAlbum-Java plan",
   "execution_mode": "local",
-  "status": "running",
+  "status": "completed",
   "execution_goal": "migrate to azure",
   "assessment_id": "019e6377-c6de-7f6a-aeb3-6969f211efbc",
   "use_rulebook": false,
   "base_commit": "ecef9eaafe7a82f749b18db121c59136617cce4b",
-  "created_at": "2026-05-26T08:57:43.5543710\u002B00:00"
+  "source_commit": "994c578d494d0e79f4b400cf4ac4bcd71253ad0b",
+  "created_at": "2026-05-26T08:57:43.5543710\u002B00:00",
+  "completed_at": "2026-05-26T09:01:00.6754390\u002B00:00"
 }
