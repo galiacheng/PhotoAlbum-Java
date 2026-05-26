@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-oracle-to-azure-postgresql",
+      "description": "Migrate the Photo Album application data layer from Oracle Database to Azure Database for PostgreSQL.",
+      "reason": "The current application depends on Oracle for runtime storage, while the repository's Azure setup path provisions Azure Database for PostgreSQL as the managed database target.",
+      "requirements": "Migrate the runtime database dependency from Oracle Database to Azure Database for PostgreSQL for the Photo Album application. Preserve existing upload, gallery, detail view, delete, and metadata behavior. Update application configuration, schema compatibility, and data-access assumptions needed for the PostgreSQL target while keeping the existing H2-based test approach available for automated validation.",
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "002-security-cve-remediation",
+      "description": "Scan project dependencies for known CVEs and remediate vulnerabilities before Azure deployment.",
+      "reason": "Security remediation is required in every modernization plan so the Azure-hosted application does not inherit known vulnerable dependencies.",
+      "requirements": "Scan all project dependencies for known CVEs and remediate any identified vulnerabilities. Upgrade vulnerable dependencies to the minimum patched version, document any required major-version changes and their breaking-change risk, and verify that the project builds and tests pass after remediation.",
+      "environmentConfiguration": "Use the Java and Maven toolchain established for the application runtime and build.",
+      "dependencies": [
+        "001-transform-oracle-to-azure-postgresql"
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "deployment",
+      "id": "003-deployment-aks",
+      "description": "Deploy the Photo Album application to Azure Kubernetes Service.",
+      "reason": "The repository already contains Azure-oriented setup assets that provision AKS, Azure Container Registry, and Azure Database for PostgreSQL, making AKS the best-aligned Azure deployment target for this migration request.",
+      "requirements": "Deploy the containerized Photo Album application to Azure Kubernetes Service and connect it to the migrated Azure Database for PostgreSQL runtime. Use the repository's existing Azure setup and container workflow where applicable, preserve application behavior, and ensure Azure runtime configuration is supplied for database connectivity and standard application startup.",
+      "dependencies": [
+        "001-transform-oracle-to-azure-postgresql",
+        "002-security-cve-remediation"
+      ],
+      "skills": [
+        {
+          "name": "azcli-aks-deploy",
+          "location": "builtin"
+        }
+      ],
+      "targetAzureService": "Azure Kubernetes Service",
+      "resourceStatus": "Use repository-defined Azure resource setup for AKS, ACR, and PostgreSQL.",
+      "deploymentTool": "terraform"
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan09",
+    "projectName": "Photo Album",
+    "language": "java",
+    "createdAt": "2026-05-26T08:39:43.966Z",
+    "version": "1.0"
+  }
+}
