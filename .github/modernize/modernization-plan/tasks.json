@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "002-transform-oracle-to-postgresql",
+      "description": "Migrate Oracle-specific database code and SQL to PostgreSQL-compatible equivalents",
+      "reason": "The application uses Oracle-specific SQL features (ROWNUM-based pagination, TO_CHAR date functions, NVL null handling, Oracle-dialect window functions with RANK/SUM OVER) in PhotoRepository, and configures OracleDialect for Hibernate. These must be converted to standard PostgreSQL equivalents before connecting to Azure Database for PostgreSQL.",
+      "requirements": "Replace Oracle-specific SQL in PhotoRepository: convert ROWNUM-based pagination to LIMIT/OFFSET, replace TO_CHAR date formatting with PostgreSQL equivalents, replace NVL with COALESCE, update window functions to standard PostgreSQL syntax. Replace ojdbc8 JDBC driver with PostgreSQL JDBC driver. Replace OracleDialect Hibernate configuration with PostgreSQL dialect. Update application.properties datasource URL and driver class. Ensure the @Lob BLOB column for photo_data is compatible with PostgreSQL bytea or OID type. Remove Oracle-specific DDL and update schema to be PostgreSQL-compatible.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "true",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Replaced ojdbc8 with PostgreSQL JDBC driver in pom.xml. Converted all Oracle-specific SQL in PhotoRepository (ROWNUM->LIMIT/OFFSET, NVL->COALESCE, TO_CHAR->EXTRACT). Updated Hibernate dialect to PostgreSQL. Updated application.properties, application-docker.properties, and docker-compose.yml to use PostgreSQL. Build passed and tests passed."
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-postgresql-to-azure-managed-identity",
+      "description": "Configure database connection to Azure Database for PostgreSQL using managed identity for secure, credential-free authentication",
+      "reason": "The application currently uses plaintext credentials (username/password) in application.properties to connect to Oracle. After migrating to PostgreSQL, the connection must be reconfigured to use Azure Database for PostgreSQL with managed identity to eliminate hardcoded credentials and follow Azure security best practices.",
+      "requirements": "Reconfigure the Spring Boot datasource to connect to Azure Database for PostgreSQL Flexible Server using managed identity. Replace the plaintext password-based authentication with Azure Active Directory token-based authentication. Add required Azure Identity SDK and Azure PostgreSQL SDK dependencies to pom.xml. Update application.properties to reference Azure Database for PostgreSQL endpoint. Ensure the application can authenticate without storing credentials. Follow Azure SDK best practices for managed identity configuration.",
+      "environmentConfiguration": null,
+      "skills": [
+        {
+          "name": "migration-mi-postgresql-azure-sdk-public-cloud",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Added azure-identity-extensions dependency (v1.2.2) to pom.xml. Updated application.properties and application-docker.properties to use Azure Database for PostgreSQL Flexible Server with AzurePostgresqlAuthenticationPlugin for managed identity authentication. Removed plaintext password from all configurations. Updated docker-compose.yml to remove local postgres container and pass AZURE_CLIENT_ID for managed identity. Build passed and all unit tests passed."
+    },
+    {
+      "type": "transform",
+      "id": "004-transform-photo-blob-to-azure-blob-storage",
+      "description": "Migrate photo binary storage from Oracle/PostgreSQL BLOB columns to Azure Blob Storage",
+      "reason": "Photos are currently stored as binary BLOBs directly in the database (photo_data column in the photos table). Storing large binary files in a relational database is not recommended for Azure-native architectures. Azure Blob Storage is designed for this use case, offering better performance, scalability, and cost efficiency for binary photo data.",
+      "requirements": "Refactor PhotoServiceImpl to upload photo binary data to Azure Blob Storage instead of storing it in the database photo_data column. Refactor PhotoFileController to retrieve photos from Azure Blob Storage instead of from the database. Remove the photo_data (BLOB) column from the Photo entity and database table. Store the Azure Blob Storage URL or blob name in the Photo entity instead. Add Azure Blob Storage SDK (azure-storage-blob) and Azure Identity dependencies. Use managed identity for secure, credential-free access to the Azure Storage account. Preserve all existing API contracts (upload endpoint, /photo/{id} endpoint, delete endpoint) so that the UI (Thymeleaf templates) requires no changes. Handle file size validation and MIME type checks consistently with current behavior.",
+      "environmentConfiguration": null,
+      "skills": [],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Added azure-storage-blob SDK dependency to pom.xml. Created BlobStorageConfig.java with DefaultAzureCredential for managed identity. Created BlobStorageService.java for upload/download/delete operations. Updated Photo.java to replace @Lob photo_data BLOB with blob_name String field. Updated PhotoRepository.java native SQL queries to use blob_name. Updated PhotoServiceImpl.java to upload to Azure Blob Storage on create and delete from blob on remove. Updated PhotoFileController.java to download from Azure Blob Storage. Added azure.storage.account-name and container-name properties. Added @MockBean BlobStorageService to tests for isolation. Build passed and tests passed."
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-04-08T12:31:05.065Z",
+    "version": "1.0"
+  }
+}

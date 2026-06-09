@@ -34,11 +34,11 @@ public class Photo {
     private String originalFileName;
 
     /**
-     * Binary photo data stored directly in Oracle database
+     * Azure Blob Storage blob name for retrieving photo binary data
      */
-    @Lob
-    @Column(name = "photo_data", nullable = true)
-    private byte[] photoData;
+    @Size(max = 500)
+    @Column(name = "blob_name", length = 500)
+    private String blobName;
 
     /**
      * GUID-based filename with extension (for compatibility)
@@ -60,7 +60,8 @@ public class Photo {
      */
     @NotNull
     @Positive
-    @Column(name = "file_size", nullable = false, columnDefinition = "NUMBER(19,0)")
+    // Migrated from Oracle to PostgreSQL according to java check item 1: Removed Oracle-specific NUMBER(19,0) columnDefinition; PostgreSQL uses BIGINT for Long by default.
+    @Column(name = "file_size", nullable = false)
     private Long fileSize;
 
     /**
@@ -75,7 +76,8 @@ public class Photo {
      * Timestamp of upload
      */
     @NotNull
-    @Column(name = "uploaded_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT SYSTIMESTAMP")
+    // Migrated from Oracle to PostgreSQL according to java check item 1: Removed Oracle-specific SYSTIMESTAMP columnDefinition; PostgreSQL uses TIMESTAMP for LocalDateTime by default.
+    @Column(name = "uploaded_at", nullable = false)
     private LocalDateTime uploadedAt;
 
     /**
@@ -97,10 +99,10 @@ public class Photo {
     }
 
     // Constructor with required fields
-    public Photo(String originalFileName, byte[] photoData, String storedFileName, String filePath, Long fileSize, String mimeType) {
+    public Photo(String originalFileName, String blobName, String storedFileName, String filePath, Long fileSize, String mimeType) {
         this();
         this.originalFileName = originalFileName;
-        this.photoData = photoData;
+        this.blobName = blobName;
         this.storedFileName = storedFileName;
         this.filePath = filePath;
         this.fileSize = fileSize;
@@ -134,12 +136,12 @@ public class Photo {
         this.originalFileName = originalFileName;
     }
 
-    public byte[] getPhotoData() {
-        return photoData;
+    public String getBlobName() {
+        return blobName;
     }
 
-    public void setPhotoData(byte[] photoData) {
-        this.photoData = photoData;
+    public void setBlobName(String blobName) {
+        this.blobName = blobName;
     }
 
     public String getStoredFileName() {
