@@ -18,14 +18,51 @@
     <packaging>jar</packaging>
 
     <name>Photo Album</name>
-    <description>A simple photo storage and gallery application built with Spring Boot and Oracle DB</description>
+    <description>A simple photo storage and gallery application built with Spring Boot and PostgreSQL</description>
 
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- CVE remediation: version overrides -->
+        <tomcat.version>9.0.118</tomcat.version>
+        <spring-framework.version>5.3.39</spring-framework.version>
+        <thymeleaf.version>3.1.5.RELEASE</thymeleaf.version>
+        <postgresql.version>42.7.11</postgresql.version>
+        <logback.version>1.2.13</logback.version>
+        <jackson-bom.version>2.18.7</jackson-bom.version>
+        <h2.version>2.2.224</h2.version>
+        <snakeyaml.version>2.0</snakeyaml.version>
+        <netty.version>4.1.133.Final</netty.version>
+        <json-path.version>2.9.0</json-path.version>
+        <assertj.version>3.27.7</assertj.version>
+        <nimbus-jose-jwt.version>10.0.2</nimbus-jose-jwt.version>
+        <xmlunit.version>2.10.0</xmlunit.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.azure.spring</groupId>
+                <artifactId>spring-cloud-azure-dependencies</artifactId>
+                <version>4.20.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- CVE remediation: explicit version overrides not covered by Spring Boot BOM properties -->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>10.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.xmlunit</groupId>
+                <artifactId>xmlunit-core</artifactId>
+                <version>2.10.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- Spring Boot Web Starter -->
@@ -46,11 +83,17 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Oracle JDBC Driver -->
+        <!-- PostgreSQL JDBC Driver -->
         <dependency>
-            <groupId>com.oracle.database.jdbc</groupId>
-            <artifactId>ojdbc8</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <!-- Spring Cloud Azure starter for passwordless PostgreSQL authentication -->
+        <dependency>
+            <groupId>com.azure.spring</groupId>
+            <artifactId>spring-cloud-azure-starter-jdbc-postgresql</artifactId>
         </dependency>
 
         <!-- Spring Boot Validation -->
@@ -63,7 +106,7 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.11.0</version>
+            <version>2.14.0</version>
         </dependency>
 
         <!-- Image processing -->

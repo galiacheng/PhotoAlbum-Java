@@ -1,0 +1,32 @@
+[
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Contains only log level configurations (logging.level.*). No file-based appenders or logging.file/logging.path settings are present. Spring Boot's default Logback configuration is in effect, which outputs exclusively to console. Per skill guidance: no changes needed when only log level settings exist without file appender references.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Contains only log level configurations (logging.level.*) for Docker profile. No file-based appenders or logging.file/logging.path settings are present. Console-only logging is already in effect via Spring Boot defaults.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/DetailController.java",
+    "description": "Uses standard SLF4J Logger (LoggerFactory.getLogger). No file-based logging configuration or appender setup in code. Logger output is governed entirely by Logback configuration, which defaults to console only.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/PhotoFileController.java",
+    "description": "Uses standard SLF4J Logger (LoggerFactory.getLogger). No file-based logging configuration or appender setup in code.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/controller/HomeController.java",
+    "description": "Uses standard SLF4J Logger (LoggerFactory.getLogger). No file-based logging configuration or appender setup in code.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "description": "Uses standard SLF4J Logger (LoggerFactory.getLogger). No file-based logging configuration or appender setup in code.",
+    "issues": []
+  }
+]

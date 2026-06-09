@@ -1,0 +1,42 @@
+[
+  {
+    "file": "pom.xml",
+    "description": "Replaced Oracle JDBC driver (ojdbc8) with PostgreSQL driver, added azure-identity-extensions dependency, and updated the project description string.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Replaced Oracle JDBC URL and credentials with a PostgreSQL managed-identity URL. Added sovereign-cloud comment block, commented out username/password, added service-principal example URL, and updated the JPA dialect to PostgreSQLDialect. All changes align with the knowledge-base guidance.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Same managed-identity URL and dialect changes as application.properties. Also removed three duplicate property entries (app.file-upload.*) that already existed earlier in the same file, which is a correct cleanup.",
+    "issues": []
+  },
+  {
+    "file": "docker-compose.yml",
+    "description": "Replaced the Oracle Database service (gvenzl/oracle-free) with a PostgreSQL service (postgres:15). Updated volumes, healthcheck, and the app-service environment block. Only PGHOST and PGPORT are explicitly provided to the app container; PGDATABASE, MANAGED_IDENTITY_NAME, and MANAGED_IDENTITY_CLIENT_ID must be supplied from the host environment.",
+    "issues": [
+      {
+        "severity": "Minor",
+        "description": "The application service environment block only sets PGHOST and PGPORT. The JDBC URL in application-docker.properties also references PGDATABASE, MANAGED_IDENTITY_NAME, and MANAGED_IDENTITY_CLIENT_ID, which are not defined in docker-compose.yml for the app container. While knowledge-base guidance says not to add default values for environment variables, the omission of these variables from the app service's environment block (even as placeholder comments) may cause silent startup failures in local or CI environments where those variables are not injected externally."
+      }
+    ]
+  },
+  {
+    "file": "src/main/java/com/photoalbum/model/Photo.java",
+    "description": "Three column-definition changes: (1) Removed @Lob and added columnDefinition=\"bytea\" for the photo_data byte[] field — correct PostgreSQL binary type. (2) Removed Oracle-specific columnDefinition=\"NUMBER(19,0)\" from fileSize — Hibernate will derive the correct PostgreSQL BIGINT. (3) Removed Oracle-specific columnDefinition=\"TIMESTAMP DEFAULT SYSTIMESTAMP\" from uploadedAt — the application already sets this value programmatically, so the database default is not needed.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/repository/PhotoRepository.java",
+    "description": "All five native SQL queries converted from Oracle to PostgreSQL. Identifiers and data-type names lowercased per knowledge-base guidance. Oracle-specific constructs replaced with standard SQL or PostgreSQL equivalents: ROWNUM <= N → LIMIT N (findPhotosUploadedBefore), NVL → COALESCE (findPhotosUploadedAfter), TO_CHAR kept (works identically in PostgreSQL), double-nested ROWNUM pagination → ROW_NUMBER() OVER window function (findPhotosWithPagination), and RANK()/SUM() window functions column aliases lowercased (findPhotosWithStatistics). All replacements are functionally equivalent.",
+    "issues": []
+  },
+  {
+    "file": "src/main/java/com/photoalbum/service/impl/PhotoServiceImpl.java",
+    "description": "Updated log messages and inline comments to reference 'PostgreSQL database' instead of 'Oracle database', and updated a comment from 'BLOB' to 'bytea'. These are purely informational changes with no effect on runtime behavior.",
+    "issues": []
+  }
+]
