@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Tasks template for modernization plan. Generate this file alongside plan.md to track individual migration tasks.",
+  "tasks": [
+    {
+      "type": "transform",
+      "id": "001-transform-oracle-to-postgresql",
+      "description": "Migrate the application's database layer from Oracle Database to Azure Database for PostgreSQL",
+      "reason": "The application currently uses Oracle Database for data persistence including photo BLOB storage. Migrating to Azure Database for PostgreSQL enables fully managed cloud-native relational database with lower cost and better Azure integration.",
+      "requirements": "Migrate from Oracle Database to Azure Database for PostgreSQL. Update the JDBC driver from ojdbc8 to the PostgreSQL JDBC driver. Update the JPA/Hibernate dialect from OracleDialect to PostgreSQLDialect. Convert Oracle-specific SQL syntax and DDL to PostgreSQL-compatible equivalents. Handle the photo binary data stored as Oracle BLOB, converting to PostgreSQL bytea or equivalent. Update application.properties datasource configuration for PostgreSQL connection. Remove Oracle-specific column definitions such as NUMBER(19,0) and TIMESTAMP DEFAULT SYSTIMESTAMP. Ensure all JPA entity annotations are compatible with PostgreSQL.",
+      "skills": [
+        {
+          "name": "migration-oracle-to-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated Oracle persistence layer to PostgreSQL, including dependency, SQL/JPA updates, and PostgreSQL container configuration.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "002-transform-mi-postgresql",
+      "description": "Replace password-based PostgreSQL authentication with Azure Managed Identity for passwordless, secure database access",
+      "reason": "The application currently uses a hardcoded plaintext password in application.properties to authenticate to the database. Using Azure Managed Identity eliminates credential management and improves security posture.",
+      "requirements": "Migrate the datasource configuration from password-based authentication to Azure Managed Identity for Azure Database for PostgreSQL. Add Spring Cloud Azure dependencies for Managed Identity support. Remove the hardcoded datasource password from application.properties. Configure the application to use Azure Managed Identity for passwordless PostgreSQL authentication. Ensure the connection configuration is compatible with Azure Database for PostgreSQL with Entra ID authentication.",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql"
+      ],
+      "skills": [
+        {
+          "name": "migration-mi-postgresql",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Migrated PostgreSQL datasource authentication to Azure Managed Identity using Spring Cloud Azure passwordless JDBC configuration and removed password-based settings.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "transform",
+      "id": "003-transform-log-to-console",
+      "description": "Migrate application logging configuration to output exclusively to console for cloud-native operation",
+      "reason": "Cloud-native deployments on Azure require console-only logging to integrate with Azure Monitor and centralized log aggregation. File-based logging is not suitable for containerized or PaaS-hosted applications.",
+      "requirements": "Update the application logging configuration to direct all log output to the console only. Remove any file-based appenders from logback or other logging framework configurations. Ensure all existing log levels and logger names are preserved. The resulting logging configuration should be compatible with Azure Monitor log collection.",
+      "skills": [
+        {
+          "name": "migration-log-to-console",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Configured Logback to use console-only logging via logback-spring.xml while preserving existing logger names and log levels from application properties.",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    },
+    {
+      "type": "security",
+      "id": "004-security-cve-remediation",
+      "description": "Scan all project dependencies for known CVEs and remediate identified vulnerabilities",
+      "reason": "Ensuring the application is free of known security vulnerabilities is a prerequisite for production deployment on Azure. Dependency CVEs can expose the application to exploits.",
+      "requirements": "Upgrade vulnerable dependencies to the minimum patched version. If a CVE fix requires a major version upgrade, document the affected dependency, the current version, the upgraded major version, and the breaking change risk. Verify that the project builds and all tests pass after remediation.",
+      "dependencies": [
+        "001-transform-oracle-to-postgresql",
+        "002-transform-mi-postgresql",
+        "003-transform-log-to-console"
+      ],
+      "skills": [
+        {
+          "name": "validate-cves-and-fix",
+          "location": "builtin"
+        }
+      ],
+      "successCriteria": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      },
+      "status": "success",
+      "taskSummary": "Scanned and remediated dependency CVEs; final CVE scan reports zero known vulnerabilities.",
+      "cveReport": ".github/modernize/modernization-plan-azure2/004-security-cve-remediation/final-cve-report.json",
+      "successCriteriaStatus": {
+        "passBuild": "true",
+        "generateNewUnitTests": "false",
+        "passUnitTests": "true"
+      }
+    }
+  ],
+  "metadata": {
+    "planName": "modernization-plan-azure2",
+    "projectName": "PhotoAlbum-Java",
+    "language": "java",
+    "createdAt": "2026-05-14T10:59:54+08:00",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "pom.xml",
+    "description": "Migrated to Spring Cloud Azure approach for PostgreSQL Managed Identity authentication. Added spring-cloud-azure-dependencies BOM (version 4.20.0) for centralized dependency management, compatible with Spring Boot 2.x. Replaced com.azure:azure-identity-extensions with spring-cloud-azure-starter-jdbc-postgresql which provides a cleaner, more idiomatic integration for Spring Boot applications. This approach improves code maintainability by using Spring Cloud Azure configuration properties instead of embedded JDBC URL parameters.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application.properties",
+    "description": "Migrated PostgreSQL datasource configuration from JDBC URL-based authentication (using azure-identity-extensions plugin) to Spring Cloud Azure property-based configuration for passwordless authentication. Updated environment variable names from PGHOST/PGPORT/PGDATABASE to POSTGRESQL_SERVER/POSTGRESQL_PORT/POSTGRESQL_DATABASE following Azure naming conventions. Changed datasource URL format to Azure PostgreSQL format: jdbc:postgresql://${POSTGRESQL_SERVER}.postgresql.database.azure.com:${POSTGRESQL_PORT}/${POSTGRESQL_DATABASE}?sslMode=REQUIRED. Removed hardcoded password by enabling spring.datasource.azure.passwordless-enabled=true for automatic access token retrieval. Added managed identity configuration: spring.cloud.azure.credential.client-id and spring.cloud.azure.credential.managed-identity-enabled=true. Added comprehensive documentation for service principal and Azure sovereign cloud authentication. Functional equivalence maintained: both JDBC plugin and Spring Cloud Azure approaches use Managed Identity for authentication, with identical security and reliability properties.",
+    "issues": []
+  },
+  {
+    "file": "src/main/resources/application-docker.properties",
+    "description": "Applied identical Managed Identity datasource migration as main application.properties to Docker configuration profile. Updated from JDBC URL plugin-based authentication to Spring Cloud Azure property-based configuration. Changed environment variables to POSTGRESQL_SERVER/POSTGRESQL_PORT/POSTGRESQL_DATABASE for consistency. Updated datasource URL to Azure PostgreSQL format with sslMode=REQUIRED. Added spring.datasource.azure.passwordless-enabled=true and managed identity credential configuration (client-id, managed-identity-enabled). Ensures consistent passwordless authentication behavior between standard and containerized deployments.",
+    "issues": []
+  },
+  {
+    "file": ".github/modernize/modernization-plan-azure2/tasks.json",
+    "description": "Administrative metadata update to record task completion status and success criteria validation. Changes are administrative and do not affect application functionality or behavior.",
+    "issues": []
+  }
+]
