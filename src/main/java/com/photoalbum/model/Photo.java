@@ -1,10 +1,10 @@
 package com.photoalbum.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -34,9 +34,9 @@ public class Photo {
     private String originalFileName;
 
     /**
-     * Binary photo data stored directly in Oracle database
+     * Binary photo data stored directly in PostgreSQL database as bytea
+     * Migrated from Oracle to PostgreSQL according to java check item 9999: Remove @Lob annotation to map byte[] to PostgreSQL bytea instead of Oracle BLOB.
      */
-    @Lob
     @Column(name = "photo_data", nullable = true)
     private byte[] photoData;
 
@@ -57,10 +57,11 @@ public class Photo {
 
     /**
      * File size in bytes
+     * Migrated from Oracle to PostgreSQL according to java check item 9999: Replace Oracle-specific NUMBER(19,0) columnDefinition with BIGINT for PostgreSQL.
      */
     @NotNull
     @Positive
-    @Column(name = "file_size", nullable = false, columnDefinition = "NUMBER(19,0)")
+    @Column(name = "file_size", nullable = false, columnDefinition = "BIGINT")
     private Long fileSize;
 
     /**
@@ -73,9 +74,10 @@ public class Photo {
 
     /**
      * Timestamp of upload
+     * Migrated from Oracle to PostgreSQL according to java check item 9999: Replace Oracle SYSTIMESTAMP with PostgreSQL CURRENT_TIMESTAMP in columnDefinition.
      */
     @NotNull
-    @Column(name = "uploaded_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT SYSTIMESTAMP")
+    @Column(name = "uploaded_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime uploadedAt;
 
     /**
